@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="156" id="bke-am-SfB" customClass="HomeCellView" customModule="TVmaze" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bke-am-SfB" id="ohs-cd-Huu">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-Ga-NeH" userLabel="SeriesHightlight">
+                        <rect key="frame" x="0.0" y="12" width="414" height="124"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XRm-Ga-NeH" secondAttribute="bottom" constant="20" id="IO4-WU-PDd"/>
+                    <constraint firstAttribute="trailing" secondItem="XRm-Ga-NeH" secondAttribute="trailing" id="RlC-a8-DsN"/>
+                    <constraint firstItem="XRm-Ga-NeH" firstAttribute="leading" secondItem="ohs-cd-Huu" secondAttribute="leading" id="eKc-ZR-uZp"/>
+                    <constraint firstItem="XRm-Ga-NeH" firstAttribute="top" secondItem="ohs-cd-Huu" secondAttribute="top" constant="12" id="zWW-qu-0K1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="seriesHighlightView" destination="XRm-Ga-NeH" id="zi1-EE-qHt"/>
+            </connections>
+            <point key="canvasLocation" x="179.71014492753625" y="113.83928571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
