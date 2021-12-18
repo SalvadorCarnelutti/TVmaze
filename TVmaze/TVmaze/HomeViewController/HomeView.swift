@@ -12,6 +12,7 @@ final class HomeView: UIViewNibLoadable {
     @IBOutlet weak var homeTitle: UILabel! {
         didSet {
             homeTitle.text = "HomeTitle".localized()
+            homeTitle.font = UIFont.boldSystemFont(ofSize: 36.0)
         }
     }
     

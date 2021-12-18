@@ -34,7 +34,7 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
             .validate().responseDecodable(of: [Series].self) { [weak self] (response) in
                 switch response.result {
                 case .success(let series):
-                    self?.series = series.map { HomeEntity(series: $0) }
+                    self?.series = Array(series.prefix(20)).map { HomeEntity(series: $0) }
                     self?.presenter?.fetchSeriesSuccess()
                 case .failure:
                     return

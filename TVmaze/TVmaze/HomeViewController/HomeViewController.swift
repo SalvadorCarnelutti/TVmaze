@@ -19,7 +19,8 @@ protocol ViewToPresenterHomeProtocol: AnyObject {
 final class HomeviewController: UIViewController {
     // MARK: Properties
     let homeView = HomeView()
-    let interactor = HomeInteractor()
+    var interactor: PresenterToInteractorHomeProtocol!
+    var router: PresenterToRouterHomeProtocol!
     
     // MARK: Lifecycle methods
     override func loadView() {
@@ -29,13 +30,17 @@ final class HomeviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        interactor.getSeries()
+    }
+    
+    // MARK: Class methods
+    func setupTableView() {
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
         homeView.tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
                                     forCellReuseIdentifier: HomeCellView.identifier)
         homeView.tableView.estimatedRowHeight = UITableView.automaticDimension
-        interactor.presenter = self
-        interactor.getSeries()
     }
 }
 
