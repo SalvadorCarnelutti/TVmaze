@@ -17,4 +17,13 @@ final class HomeView: UIViewNibLoadable {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var zeroSeriesFoundView: UIView! {
+        didSet {
+            let zeroResultsSearch = ZeroResultsSearch()
+            zeroResultsSearch.fixInView(zeroSeriesFoundView)
+            zeroSeriesFoundView.isHidden = false
+            tableView.isHidden = true
+        }
+    }
 }

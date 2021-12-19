@@ -10,6 +10,7 @@ import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
     func fetchSeriesSuccess()
+    func zeroResult()
 }
 
 protocol ViewToPresenterHomeProtocol: AnyObject {
@@ -79,7 +80,14 @@ extension HomeviewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: InteractorToPresenterHomeProtocol
 extension HomeviewController: InteractorToPresenterHomeProtocol {
+    func zeroResult() {
+        homeView.tableView.isHidden = true
+        homeView.zeroSeriesFoundView.isHidden = false
+    }
+    
     func fetchSeriesSuccess() {
+        homeView.tableView.isHidden = false
+        homeView.zeroSeriesFoundView.isHidden = true
         homeView.tableView.reloadData()
     }
 }
@@ -96,11 +104,16 @@ extension HomeviewController: UISearchResultsUpdating {
         
         self.searchTask?.cancel()
         
+        guard isFiltering else {
+            fetchSeriesSuccess()
+            return
+        }
+        
         let task = DispatchWorkItem { [weak self] in
             self?.interactor.getFilteredSeries(string: searchBar.text!)
         }
-        self.searchTask = task
         
+        self.searchTask = task
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + searchThrottleTime, execute: task)
     }
     
