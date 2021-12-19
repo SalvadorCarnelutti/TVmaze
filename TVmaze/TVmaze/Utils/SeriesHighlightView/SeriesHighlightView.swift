@@ -38,7 +38,7 @@ final class SeriesHighlightView: UIViewNibLoadable {
     
     func loadImage(homeEntity: HomeEntity) {
         let placeholderImage = UIImage(systemName: "photo.artframe")
-        request = seriesImage.loadImage(urlSting: homeEntity.seriesImageURL, placeholderImage: placeholderImage!)
+        request = seriesImage.loadImage(urlString: homeEntity.seriesImageURL, placeholderImage: placeholderImage!)
     }
 }
 

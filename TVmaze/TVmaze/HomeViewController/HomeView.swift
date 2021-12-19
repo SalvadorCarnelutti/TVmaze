@@ -12,6 +12,10 @@ protocol PresenterToViewHomeProtocol: UIView {
     func setupView()
     func displayTable()
     func displayZeroSeriesMessage()
+    func showActivityIndicator()
+    func hideActivityIndicator()
+    func showPaginationActivityIndicator()
+    func hidePaginationActivityIndicator()
 }
 
 final class HomeView: UIViewNibLoadable {
@@ -25,12 +29,24 @@ final class HomeView: UIViewNibLoadable {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
+    
     @IBOutlet weak var zeroSeriesFoundView: UIView! {
         didSet {
             let zeroResultsSearch = ZeroResultsSearch()
             zeroResultsSearch.fixInView(zeroSeriesFoundView)
             zeroSeriesFoundView.isHidden = false
             tableView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var paginationActivityIndicator: UIActivityIndicatorView! {
+        didSet {
+            paginationActivityIndicator.hidesWhenStopped = true
         }
     }
     
@@ -41,31 +57,62 @@ final class HomeView: UIViewNibLoadable {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
                            forCellReuseIdentifier: HomeCellView.identifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
+    
+    private func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= ((presenter?.numberOfRowsInSection ?? 0)  - 1)
+    }
 }
 
 extension HomeView: PresenterToViewHomeProtocol {
+    func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
+    
+    func showPaginationActivityIndicator() {
+        paginationActivityIndicator.startAnimating()
+    }
+    
+    func hidePaginationActivityIndicator() {
+        paginationActivityIndicator.stopAnimating()
+    }
+    
     func setupView() {
         setupTableView()
+        presenter?.getSeries()
     }
     
     func displayTable() {
+        hideActivityIndicator()
+        hidePaginationActivityIndicator()
         tableView.isHidden = false
         zeroSeriesFoundView.isHidden = true
         tableView.reloadData()
     }
     
     func displayZeroSeriesMessage() {
+        hideActivityIndicator()
         tableView.isHidden = true
         zeroSeriesFoundView.isHidden = false
     }
 }
 
 // MARK: Tableview methods
-extension HomeView: UITableViewDelegate, UITableViewDataSource {
+extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            presenter?.getSeries()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.numberOfRowsInSection ?? 0
     }

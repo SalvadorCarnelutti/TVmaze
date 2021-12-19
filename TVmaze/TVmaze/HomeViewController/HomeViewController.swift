@@ -10,12 +10,14 @@ import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
     func fetchSeriesSuccess()
+    func fetchSeriesFailure()
     func fetchFilteredSeriesSuccessZeroResults()
     func fetchFilteredSeriesSuccessNonzeroResult()
 }
 
 protocol ViewToPresenterHomeProtocol: AnyObject {
     var numberOfRowsInSection: Int { get }
+    func getSeries()
     func presentSeriesDetail()
     func seriesAt(indexPath: IndexPath) -> HomeEntity
 }
@@ -38,7 +40,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeView.setupView()
-        interactor.getSeries()
         setupSearchController()
     }
     
@@ -54,6 +55,10 @@ final class HomeViewController: UIViewController {
 
 // MARK: InteractorToPresenterHomeProtocol
 extension HomeViewController: InteractorToPresenterHomeProtocol {
+    func fetchSeriesFailure() {
+        interactor.isFirstPage ? homeView.hideActivityIndicator() : homeView.hidePaginationActivityIndicator()
+    }
+    
     func fetchSeriesSuccess() {
         homeView.displayTable()
     }
@@ -68,12 +73,18 @@ extension HomeViewController: InteractorToPresenterHomeProtocol {
 }
 
 extension HomeViewController: ViewToPresenterHomeProtocol {
-    func seriesAt(indexPath: IndexPath) -> HomeEntity {
-        return isFiltering ? interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
-    }
-    
     var numberOfRowsInSection: Int {
         return isFiltering ? interactor.filteredSeriesCount : interactor.seriesCount
+    }
+    
+    func getSeries() {
+        interactor.isFirstPage ? homeView.showActivityIndicator() : homeView.showPaginationActivityIndicator()
+        interactor.getSeries()
+    }
+    
+    func seriesAt(indexPath: IndexPath) -> HomeEntity {
+        return isFiltering ?
+        interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
     }
     
     func presentSeriesDetail() {
@@ -93,6 +104,7 @@ extension HomeViewController: UISearchResultsUpdating {
         }
         
         let task = DispatchWorkItem { [weak self] in
+            self?.homeView.showActivityIndicator()
             self?.interactor.getFilteredSeries(string: searchBar.text!)
         }
         

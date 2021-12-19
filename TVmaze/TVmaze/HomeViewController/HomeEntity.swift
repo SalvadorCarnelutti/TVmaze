@@ -8,8 +8,8 @@
 struct HomeEntity {
     let series: Series
     
-    var seriesImageURL: String {
-        return series.image.medium
+    var seriesImageURL: String? {
+        return series.image?.medium
     }
     
     var shortInfo: [String] {
@@ -30,8 +30,8 @@ struct Series: Codable {
     let genres: [String]
     let status: String
     let schedule: Schedule
-    let summary: String
-    let image: Image
+    let summary: String?
+    let image: Image?
 }
 
 struct Schedule: Codable {

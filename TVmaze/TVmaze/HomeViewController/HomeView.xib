@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeView" customModule="TVmaze" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Ccu-PU-oKY" id="mzt-sN-oLx"/>
                 <outlet property="homeTitle" destination="DzE-YP-BGO" id="WR3-jj-Y0b"/>
+                <outlet property="paginationActivityIndicator" destination="0ip-YE-sBT" id="Nap-xe-JEC"/>
                 <outlet property="tableView" destination="CgN-Gp-9lG" id="x8B-pI-Y8V"/>
                 <outlet property="zeroSeriesFoundView" destination="NU0-f7-0KM" id="3wu-rW-Dcl"/>
             </connections>
@@ -34,6 +36,12 @@
                     <rect key="frame" x="20" y="92.5" width="374" height="749.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ccu-PU-oKY">
+                    <rect key="frame" x="188.5" y="449" width="37" height="37"/>
+                </activityIndicatorView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="0ip-YE-sBT">
+                    <rect key="frame" x="188.5" y="823.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="irY-mh-fuj"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,7 +53,11 @@
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="NU0-f7-0KM" secondAttribute="bottom" constant="20" id="FHf-K0-jje"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="NU0-f7-0KM" secondAttribute="trailing" constant="20" id="G4j-G3-0a3"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="top" secondItem="irY-mh-fuj" secondAttribute="top" id="GEV-qk-z3a"/>
+                <constraint firstItem="0ip-YE-sBT" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="KRG-s9-Oa1"/>
+                <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerX" secondItem="CgN-Gp-9lG" secondAttribute="centerX" id="S78-wZ-a49"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="afm-6L-hoI"/>
+                <constraint firstItem="0ip-YE-sBT" firstAttribute="centerX" secondItem="irY-mh-fuj" secondAttribute="centerX" id="elX-R3-F1R"/>
+                <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="centerY" id="iTh-nP-IV7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="oHK-Dp-RLA"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="roo-al-Jfw"/>
             </constraints>

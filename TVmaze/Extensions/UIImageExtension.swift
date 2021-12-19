@@ -14,12 +14,19 @@ enum ImageError: Error {
 }
 
 extension UIImageView {
-    func loadImage(urlSting: String, placeholderImage: UIImage) -> DispatchWorkItem? {
+    func loadImage(urlString: String?, placeholderImage: UIImage) -> DispatchWorkItem? {
+        guard let urlString = urlString else {
+            DispatchQueue.main.async {
+                self.image = placeholderImage
+            }
+            return nil
+        }
+
         image = placeholderImage
-        guard let url = URL(string: urlSting) else { return nil }
+        guard let url = URL(string: urlString) else { return nil }
         
         // Get image from cache
-        if let imageFromCache = imageCache.object(forKey: urlSting as AnyObject) {
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) {
             image = imageFromCache as? UIImage
             return nil
         }
@@ -32,7 +39,7 @@ extension UIImageView {
                 switch result {
                 case .success(let data):
                     guard let imageToCache = UIImage(data: data) else { return }
-                    imageCache.setObject(imageToCache, forKey: urlSting as AnyObject)
+                    imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
                     DispatchQueue.main.async {
                         self?.image = UIImage(data: data)
                     }
