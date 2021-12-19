@@ -68,6 +68,7 @@ extension HomeviewController: UITableViewDelegate, UITableViewDataSource {
             HomeCellView.assertCellFailure()
             return UITableViewCell()
         }
+        
         let info = isFiltering ? interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
         cell.setupCell(homeEntity: info)
         cell.selectionStyle = .none

@@ -26,7 +26,7 @@
 		B4CFDBB4276D444B003110CD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBB3276D444B003110CD /* String.swift */; };
 		B4CFDBB6276D4534003110CD /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBB5276D4534003110CD /* HomeInteractor.swift */; };
 		B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBB7276D4646003110CD /* UITableViewCell.swift */; };
-		B4CFDBBA276D47BE003110CD /* NewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBB9276D47BE003110CD /* NewLabel.swift */; };
+		B4CFDBBA276D47BE003110CD /* StackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBB9276D47BE003110CD /* StackLabel.swift */; };
 		B4CFDBBD276D4B62003110CD /* HomeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBBC276D4B62003110CD /* HomeCellView.swift */; };
 		B4CFDBBF276D4B7A003110CD /* HomeCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CFDBBE276D4B7A003110CD /* HomeCellView.xib */; };
 		B4CFDBC1276E1C71003110CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBC0276E1C71003110CD /* UIImageExtension.swift */; };
@@ -83,7 +83,7 @@
 		B4CFDBB3276D444B003110CD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B4CFDBB5276D4534003110CD /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		B4CFDBB7276D4646003110CD /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-		B4CFDBB9276D47BE003110CD /* NewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLabel.swift; sourceTree = "<group>"; };
+		B4CFDBB9276D47BE003110CD /* StackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLabel.swift; sourceTree = "<group>"; };
 		B4CFDBBC276D4B62003110CD /* HomeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellView.swift; sourceTree = "<group>"; };
 		B4CFDBBE276D4B7A003110CD /* HomeCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCellView.xib; sourceTree = "<group>"; };
 		B4CFDBC0276E1C71003110CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			children = (
 				B4CFDBAB276D2E4F003110CD /* SeriesHighlightView.xib */,
 				B4CFDBAD276D2F2A003110CD /* SeriesHighlightView.swift */,
-				B4CFDBB9276D47BE003110CD /* NewLabel.swift */,
+				B4CFDBB9276D47BE003110CD /* StackLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 				B4CFDBC5276E2DD3003110CD /* HomeRouter.swift in Sources */,
 				B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */,
 				B4CFDBB0276D3A42003110CD /* UIView.swift in Sources */,
-				B4CFDBBA276D47BE003110CD /* NewLabel.swift in Sources */,
+				B4CFDBBA276D47BE003110CD /* StackLabel.swift in Sources */,
 				B4CFDBBD276D4B62003110CD /* HomeCellView.swift in Sources */,
 				B4CFDBC3276E2D89003110CD /* HomeConfigurator.swift in Sources */,
 				B4CFDBC1276E1C71003110CD /* UIImageExtension.swift in Sources */,

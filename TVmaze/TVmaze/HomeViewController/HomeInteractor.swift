@@ -64,10 +64,9 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                    parameters: parameters,
                    encoding: URLEncoding.queryString)
             .validate().responseDecodable(of: [FilteredSeries].self) { [weak self] (response) in
-                response.response?.url
                 switch response.result {
                 case .success(let series):
-                    self?.filteredSeries = Array(series.prefix(20)).map { HomeEntity(series: $0.series) }
+                    self?.filteredSeries = series.map { HomeEntity(series: $0.series) }
                     self?.presenter?.fetchSeriesSuccess()
                 case .failure:
                     return

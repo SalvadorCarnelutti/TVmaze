@@ -1,5 +1,5 @@
 //
-//  NewLabel.swift
+//  StackLabel.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/17/21.

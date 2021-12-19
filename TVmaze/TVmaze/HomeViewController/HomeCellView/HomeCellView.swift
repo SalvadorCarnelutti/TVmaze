@@ -7,10 +7,6 @@
 
 import UIKit
 
-//protocol PresenterToViewHomeProtocol: AnyObject {
-//    func setupCell(homeEntity: HomeEntity)
-//}
-
 final class HomeCellView: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var seriesHighlightView: UIView!
