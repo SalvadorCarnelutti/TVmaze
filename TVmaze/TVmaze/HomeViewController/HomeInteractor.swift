@@ -16,7 +16,6 @@ protocol PresenterToInteractorHomeProtocol: AnyObject {
     func getFilteredSeries(string: String)
     func seriesInfoAt(index: Int) -> HomeEntity
     func filteredSeriesInfoAt(index: Int) -> HomeEntity
-
 }
 
 final class HomeInteractor: PresenterToInteractorHomeProtocol {
@@ -67,10 +66,10 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                 switch response.result {
                 case .success(let series) where series.isEmpty:
                     self?.filteredSeries = []
-                    self?.presenter?.zeroResult()
+                    self?.presenter?.fetchFilteredSeriesSuccessZeroResults()
                 case .success(let series):
                     self?.filteredSeries = series.map { HomeEntity(series: $0.series) }
-                    self?.presenter?.fetchSeriesSuccess()
+                    self?.presenter?.fetchFilteredSeriesSuccessNonzeroResult()
                 case .failure:
                     return
                 }

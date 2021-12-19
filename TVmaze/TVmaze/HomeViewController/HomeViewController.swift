@@ -10,7 +10,8 @@ import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
     func fetchSeriesSuccess()
-    func zeroResult()
+    func fetchFilteredSeriesSuccessZeroResults()
+    func fetchFilteredSeriesSuccessNonzeroResult()
 }
 
 protocol ViewToPresenterHomeProtocol: AnyObject {
@@ -19,12 +20,11 @@ protocol ViewToPresenterHomeProtocol: AnyObject {
 
 final class HomeviewController: UIViewController {
     // MARK: Properties
-    private let searchThrottleTime = 0.5
+    private let searchThrottleTime = 0.4
     private lazy var searchController = UISearchController(searchResultsController: nil)
     let homeView = HomeView()
     var interactor: PresenterToInteractorHomeProtocol!
     var router: PresenterToRouterHomeProtocol!
-    // Add a searchTask property to your controller
     var searchTask: DispatchWorkItem?
     
     // MARK: Lifecycle methods
@@ -80,15 +80,16 @@ extension HomeviewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: InteractorToPresenterHomeProtocol
 extension HomeviewController: InteractorToPresenterHomeProtocol {
-    func zeroResult() {
-        homeView.tableView.isHidden = true
-        homeView.zeroSeriesFoundView.isHidden = false
+    func fetchSeriesSuccess() {
+        homeView.displayTable()
     }
     
-    func fetchSeriesSuccess() {
-        homeView.tableView.isHidden = false
-        homeView.zeroSeriesFoundView.isHidden = true
-        homeView.tableView.reloadData()
+    func fetchFilteredSeriesSuccessZeroResults() {
+        homeView.displayZeroSeriesMessage()
+    }
+    
+    func fetchFilteredSeriesSuccessNonzeroResult() {
+        homeView.displayTable()
     }
 }
 
@@ -117,11 +118,11 @@ extension HomeviewController: UISearchResultsUpdating {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + searchThrottleTime, execute: task)
     }
     
-    var isSearchBarEmpty: Bool {
+    private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? true
     }
     
-    var isFiltering: Bool {
+    private var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
     }
 }

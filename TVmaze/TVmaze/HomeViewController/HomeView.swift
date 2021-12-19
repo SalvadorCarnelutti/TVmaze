@@ -7,6 +7,12 @@
 
 import UIKit
 
+//protocol PresenterToViewHomeProtocol: UIView {
+//    func displayTable()
+//    func displayZeroSeriesMessage()
+//    var presenter: UITableViewDelegate & UITableViewDataSource { get set }
+//}
+
 final class HomeView: UIViewNibLoadable {
     // MARK: IBOutlets
     @IBOutlet weak var homeTitle: UILabel! {
@@ -25,5 +31,19 @@ final class HomeView: UIViewNibLoadable {
             zeroSeriesFoundView.isHidden = false
             tableView.isHidden = true
         }
+    }
+    
+}
+
+extension HomeView {
+    func displayTable() {
+        tableView.isHidden = false
+        zeroSeriesFoundView.isHidden = true
+        tableView.reloadData()
+    }
+    
+    func displayZeroSeriesMessage() {
+        tableView.isHidden = true
+        zeroSeriesFoundView.isHidden = false
     }
 }
