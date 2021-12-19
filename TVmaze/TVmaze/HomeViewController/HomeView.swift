@@ -7,11 +7,12 @@
 
 import UIKit
 
-//protocol PresenterToViewHomeProtocol: UIView {
-//    func displayTable()
-//    func displayZeroSeriesMessage()
-//    var presenter: UITableViewDelegate & UITableViewDataSource { get set }
-//}
+protocol PresenterToViewHomeProtocol: UIView {
+    var presenter: ViewToPresenterHomeProtocol? { get set }
+    func setupView()
+    func displayTable()
+    func displayZeroSeriesMessage()
+}
 
 final class HomeView: UIViewNibLoadable {
     // MARK: IBOutlets
@@ -33,9 +34,24 @@ final class HomeView: UIViewNibLoadable {
         }
     }
     
+    // MARK: Properties
+    weak var presenter: ViewToPresenterHomeProtocol?
+    
+    // MARK: Class methods
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
+                           forCellReuseIdentifier: HomeCellView.identifier)
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+    }
 }
 
-extension HomeView {
+extension HomeView: PresenterToViewHomeProtocol {
+    func setupView() {
+        setupTableView()
+    }
+    
     func displayTable() {
         tableView.isHidden = false
         zeroSeriesFoundView.isHidden = true
@@ -45,5 +61,25 @@ extension HomeView {
     func displayZeroSeriesMessage() {
         tableView.isHidden = true
         zeroSeriesFoundView.isHidden = false
+    }
+}
+
+// MARK: Tableview methods
+extension HomeView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numberOfRowsInSection ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let presenter = presenter, let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier, for: indexPath) as? HomeCellView else {
+            HomeCellView.assertCellFailure()
+            return UITableViewCell()
+        }
+        
+        let info = presenter.seriesAt(indexPath: indexPath)
+        cell.setupCell(homeEntity: info)
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }

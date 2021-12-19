@@ -15,17 +15,19 @@ protocol InteractorToPresenterHomeProtocol: AnyObject {
 }
 
 protocol ViewToPresenterHomeProtocol: AnyObject {
+    var numberOfRowsInSection: Int { get }
     func presentSeriesDetail()
+    func seriesAt(indexPath: IndexPath) -> HomeEntity
 }
 
-final class HomeviewController: UIViewController {
+final class HomeViewController: UIViewController {
     // MARK: Properties
     private let searchThrottleTime = 0.4
     private lazy var searchController = UISearchController(searchResultsController: nil)
-    let homeView = HomeView()
+    private var searchTask: DispatchWorkItem?
+    var homeView: PresenterToViewHomeProtocol!
     var interactor: PresenterToInteractorHomeProtocol!
     var router: PresenterToRouterHomeProtocol!
-    var searchTask: DispatchWorkItem?
     
     // MARK: Lifecycle methods
     override func loadView() {
@@ -35,20 +37,12 @@ final class HomeviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        homeView.setupView()
         interactor.getSeries()
         setupSearchController()
     }
     
     // MARK: Class methods
-    private func setupTableView() {
-        homeView.tableView.delegate = self
-        homeView.tableView.dataSource = self
-        homeView.tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
-                                    forCellReuseIdentifier: HomeCellView.identifier)
-        homeView.tableView.estimatedRowHeight = UITableView.automaticDimension
-    }
-    
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -58,28 +52,8 @@ final class HomeviewController: UIViewController {
     }
 }
 
-// MARK: Tableview methods
-extension HomeviewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering ? interactor.filteredSeriesCount : interactor.seriesCount
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier, for: indexPath) as? HomeCellView else {
-            HomeCellView.assertCellFailure()
-            return UITableViewCell()
-        }
-        
-        let info = isFiltering ? interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
-        cell.setupCell(homeEntity: info)
-        cell.selectionStyle = .none
-        
-        return cell
-    }
-}
-
 // MARK: InteractorToPresenterHomeProtocol
-extension HomeviewController: InteractorToPresenterHomeProtocol {
+extension HomeViewController: InteractorToPresenterHomeProtocol {
     func fetchSeriesSuccess() {
         homeView.displayTable()
     }
@@ -93,13 +67,21 @@ extension HomeviewController: InteractorToPresenterHomeProtocol {
     }
 }
 
-extension HomeviewController: ViewToPresenterHomeProtocol {
+extension HomeViewController: ViewToPresenterHomeProtocol {
+    func seriesAt(indexPath: IndexPath) -> HomeEntity {
+        return isFiltering ? interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
+    }
+    
+    var numberOfRowsInSection: Int {
+        return isFiltering ? interactor.filteredSeriesCount : interactor.seriesCount
+    }
+    
     func presentSeriesDetail() {
         // Call router
     }
 }
 
-extension HomeviewController: UISearchResultsUpdating {
+extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         

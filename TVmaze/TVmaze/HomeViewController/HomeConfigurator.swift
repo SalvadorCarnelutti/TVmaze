@@ -8,7 +8,7 @@
 import Foundation
 
 final class HomeConfigurator {
-    static func injectDependencies(presenter: HomeviewController) {
+    static func injectDependencies(presenter: HomeViewController) {
         let interactor = HomeInteractor()
         presenter.interactor = interactor
         interactor.presenter = presenter
@@ -16,5 +16,9 @@ final class HomeConfigurator {
         let router = HomeRouter()
         presenter.router = router
         router.presenter = presenter
+        
+        let view = HomeView()
+        view.presenter = presenter
+        presenter.homeView = view
     }
 }
