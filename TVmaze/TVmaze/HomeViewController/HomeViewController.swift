@@ -9,13 +9,15 @@ import UIKit
 import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
-    func fetchSeriesSuccess()
-    func fetchSeriesFailure()
-    func fetchFilteredSeriesSuccessZeroResults()
-    func fetchFilteredSeriesSuccessNonzeroResult()
+    func onFetchSeriesSuccess()
+    func onFetchSeriesSuccess(newIndexPaths: [IndexPath])
+    func onFetchSeriesFailure()
+    func onFetchFilteredSeriesSuccessZeroResults()
+    func onFetchFilteredSeriesSuccessNonzeroResult()
 }
 
 protocol ViewToPresenterHomeProtocol: AnyObject {
+    var isFiltering: Bool { get }
     var numberOfRowsInSection: Int { get }
     func getSeries()
     func presentSeriesDetail()
@@ -55,24 +57,32 @@ final class HomeViewController: UIViewController {
 
 // MARK: InteractorToPresenterHomeProtocol
 extension HomeViewController: InteractorToPresenterHomeProtocol {
-    func fetchSeriesFailure() {
+    func onFetchSeriesFailure() {
         interactor.isFirstPage ? homeView.hideActivityIndicator() : homeView.hidePaginationActivityIndicator()
     }
     
-    func fetchSeriesSuccess() {
-        homeView.displayTable()
+    func onFetchSeriesSuccess(newIndexPaths: [IndexPath]) {
+        homeView.displayTableView(with: newIndexPaths)
+    }
+
+    func onFetchSeriesSuccess() {
+        homeView.displayTableView()
     }
     
-    func fetchFilteredSeriesSuccessZeroResults() {
+    func onFetchFilteredSeriesSuccessZeroResults() {
         homeView.displayZeroSeriesMessage()
     }
     
-    func fetchFilteredSeriesSuccessNonzeroResult() {
-        homeView.displayTable()
+    func onFetchFilteredSeriesSuccessNonzeroResult() {
+        homeView.displayTableView()
     }
 }
 
 extension HomeViewController: ViewToPresenterHomeProtocol {
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    
     var numberOfRowsInSection: Int {
         return isFiltering ? interactor.filteredSeriesCount : interactor.seriesCount
     }
@@ -99,7 +109,7 @@ extension HomeViewController: UISearchResultsUpdating {
         self.searchTask?.cancel()
         
         guard isFiltering else {
-            fetchSeriesSuccess()
+            onFetchSeriesSuccess()
             return
         }
         
@@ -114,9 +124,5 @@ extension HomeViewController: UISearchResultsUpdating {
     
     private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? true
-    }
-    
-    private var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
     }
 }

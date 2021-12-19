@@ -66,11 +66,12 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                 
                 switch response.result {
                 case .success(let series):
+                    let newIndexPaths = self!.calculateIndexPathsToReload(from: series)
                     self?.series.append(contentsOf: series.map { HomeEntity(series: $0) })
                     self?.currentPage += 1
-                    self?.presenter?.fetchSeriesSuccess()
+                    self?.presenter?.onFetchSeriesSuccess(newIndexPaths: newIndexPaths)
                 case .failure:
-                    self?.presenter?.fetchSeriesFailure()
+                    self?.presenter?.onFetchSeriesFailure()
                     if case 404 = response.response?.statusCode{
                         self?.hasLoadedAllSeries = true
                     }
@@ -88,16 +89,17 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                 switch response.result {
                 case .success(let series) where series.isEmpty:
                     self?.filteredSeries = []
-                    self?.presenter?.fetchFilteredSeriesSuccessZeroResults()
+                    self?.presenter?.onFetchFilteredSeriesSuccessZeroResults()
                 case .success(let series):
                     self?.filteredSeries = series.map { HomeEntity(series: $0.series) }
-                    self?.presenter?.fetchFilteredSeriesSuccessNonzeroResult()
+                    self?.presenter?.onFetchFilteredSeriesSuccessNonzeroResult()
                 case .failure:
                     return
                 }
             }
     }
     
+    // LOOK AT ME
     private func calculateIndexPathsToReload(from newSeries: [Series]) -> [IndexPath] {
         let startIndex = seriesCount
         let endIndex = startIndex + newSeries.count

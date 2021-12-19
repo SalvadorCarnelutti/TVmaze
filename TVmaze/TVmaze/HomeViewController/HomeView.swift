@@ -10,7 +10,8 @@ import UIKit
 protocol PresenterToViewHomeProtocol: UIView {
     var presenter: ViewToPresenterHomeProtocol? { get set }
     func setupView()
-    func displayTable()
+    func displayTableView()
+    func displayTableView(with newIndexPaths: [IndexPath])
     func displayZeroSeriesMessage()
     func showActivityIndicator()
     func hideActivityIndicator()
@@ -64,7 +65,8 @@ final class HomeView: UIViewNibLoadable {
     }
     
     private func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.row >= ((presenter?.numberOfRowsInSection ?? 0)  - 1)
+        let lastCurrentIndex = (presenter?.numberOfRowsInSection ?? 0)  - 1
+        return indexPath.row >= lastCurrentIndex
     }
 }
 
@@ -90,27 +92,44 @@ extension HomeView: PresenterToViewHomeProtocol {
         presenter?.getSeries()
     }
     
-    func displayTable() {
-        hideActivityIndicator()
-        hidePaginationActivityIndicator()
-        tableView.isHidden = false
-        zeroSeriesFoundView.isHidden = true
+    func displayTableView() {
+        displayTable()
         tableView.reloadData()
     }
     
+    func displayTableView(with newIndexPaths: [IndexPath]) {
+        displayTable()
+        tableView.insertRows(at: newIndexPaths, with: .automatic)
+    }
+    
     func displayZeroSeriesMessage() {
-        hideActivityIndicator()
+        hideAllActivityIndicators()
         tableView.isHidden = true
         zeroSeriesFoundView.isHidden = false
+    }
+    
+    private func displayTable() {
+        hideAllActivityIndicators()
+        tableView.isHidden = false
+        zeroSeriesFoundView.isHidden = true
+    }
+    
+    private func hideAllActivityIndicators() {
+        hideActivityIndicator()
+        hidePaginationActivityIndicator()
     }
 }
 
 // MARK: Tableview methods
 extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if indexPaths.contains(where: isLoadingCell) {
-            presenter?.getSeries()
+        guard let presenter = presenter,
+        !presenter.isFiltering,
+        indexPaths.contains(where: isLoadingCell) else {
+            return
         }
+        
+        presenter.getSeries()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
