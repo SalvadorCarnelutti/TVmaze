@@ -17,6 +17,14 @@ struct HomeEntity {
     }
 }
 
+struct FilteredSeries: Codable {
+    let series: Series
+    
+    private enum CodingKeys : String, CodingKey {
+        case series = "show"
+    }
+}
+
 struct Series: Codable {
     let name: String
     let genres: [String]
