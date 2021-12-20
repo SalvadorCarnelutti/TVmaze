@@ -9,3 +9,6 @@
 "HomeTitle" = "TVmaze";
 "HomeSearchBar" = "Search movies";
 "ZeroResultMessage" = "No results for current search, please try again with a different combination";
+"ScheduleDaysPrefix" = "Every";
+"ScheduleTimePrefix" = "at";
+"SeriesDetailTableViewHeaderTitle" = "Season %@";

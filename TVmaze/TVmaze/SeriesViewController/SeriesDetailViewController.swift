@@ -21,10 +21,11 @@ final class SeriesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let seriesDetailHighlightView = SeriesDetailHighlightView(homeEntity: homeEntity, highlightStyling: .episodeDetail)
-        seriesDetailHighlightView.fixInView(seriesView.seriesDetailHighlightContainer)
+//        let seriesDetailHighlightView = SeriesDetailHighlightView(homeEntity: homeEntity, highlightStyling: .episodeDetail)
+//        seriesDetailHighlightView.fixInView(seriesView.seriesDetailHighlightContainer)
         title = homeEntity.series.name
         getEpisodes()
+        setupTableView()
     }
     
     init(homeEntity: HomeEntity) {
@@ -47,9 +48,57 @@ final class SeriesDetailViewController: UIViewController {
                     }
                     self?.seriesSeasonsBucket = Array(repeating: [], count: numberOfSeasons.advanced(by: 1))
                     seriesEpisodes.forEach { self?.seriesSeasonsBucket[$0.season].append($0) }
+                    self?.seriesSeasonsBucket.removeAll(where: { $0.isEmpty })
+                    self?.seriesView.tableView.reloadData()
                 case .failure:
                     return
                 }
             }
+    }
+    
+    private func setupTableView() {
+        seriesView.tableView.delegate = self
+        seriesView.tableView.dataSource = self
+        seriesView.tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
+                           forCellReuseIdentifier: HomeCellView.identifier)
+        seriesView.tableView.register(UINib(nibName: SeriesDetailTableViewHeader.identifier, bundle: .none),
+                                      forHeaderFooterViewReuseIdentifier: SeriesDetailTableViewHeader.identifier)
+        seriesView.tableView.estimatedRowHeight = UITableView.automaticDimension
+    }
+}
+
+extension SeriesDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return seriesSeasonsBucket.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SeriesDetailTableViewHeader.identifier) as? SeriesDetailTableViewHeader else {
+            SeriesDetailTableViewHeader.assertHeaderFailure()
+            return UIView()
+        }
+        
+        headerView.setupHeader(with: section)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return seriesSeasonsBucket[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier, for: indexPath) as? HomeCellView else {
+            HomeCellView.assertCellFailure()
+            return UITableViewCell()
+        }
+        
+        cell.setupCell(homeEntity: homeEntity)
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }

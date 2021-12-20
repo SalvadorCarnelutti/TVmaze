@@ -30,11 +30,11 @@ struct HomeEntity {
         case (0, ""):
             return nil
         case (0, _):
-            return "At \(time)"
+            return "\("ScheduleTimePrefix".localized().capitalized) \(time)"
         case (_, ""):
-            return "Every \(joinedDays(days: days))"
+            return "\("ScheduleDaysPrefix".localized()) \(joinedDays(days: days))"
         case (_, _):
-            return "Every \(joinedDays(days: days)) at \(time)"
+            return "\("ScheduleDaysPrefix".localized()) \(joinedDays(days: days)) \("ScheduleTimePrefix") \(time)"
         }
     }
     
