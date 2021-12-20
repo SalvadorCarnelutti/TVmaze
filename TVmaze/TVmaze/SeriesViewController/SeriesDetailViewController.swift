@@ -46,7 +46,6 @@ final class SeriesDetailViewController: UIViewController {
                     }
                     self?.seriesSeasonsBucket = Array(repeating: [], count: numberOfSeasons.advanced(by: 1))
                     seriesEpisodes.forEach { self?.seriesSeasonsBucket[$0.season].append($0) }
-                    self?.seriesSeasonsBucket.removeAll(where: { $0.isEmpty })
                     self?.seriesView.tableView.reloadData()
                 case .failure:
                     return
@@ -58,7 +57,9 @@ final class SeriesDetailViewController: UIViewController {
         seriesView.tableView.delegate = self
         seriesView.tableView.dataSource = self
         seriesView.tableView.register(UINib(nibName: SeriesCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: SeriesCellView.identifier)
+                                      forCellReuseIdentifier: SeriesCellView.identifier)
+        seriesView.tableView.register(UINib(nibName: SeriesDetailHighlightCellView.identifier, bundle: .none),
+                                      forCellReuseIdentifier: SeriesDetailHighlightCellView.identifier)
         seriesView.tableView.register(UINib(nibName: SeriesDetailTableViewHeader.identifier, bundle: .none),
                                       forHeaderFooterViewReuseIdentifier: SeriesDetailTableViewHeader.identifier)
         seriesView.tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -71,7 +72,7 @@ extension SeriesDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80.0
+        return section == 0 ? .leastNormalMagnitude : 80.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -85,18 +86,30 @@ extension SeriesDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return seriesSeasonsBucket[section].count
+        return section == 0 ? 1 : seriesSeasonsBucket[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesCellView.identifier, for: indexPath) as? SeriesCellView else {
-            SeriesCellView.assertCellFailure()
-            return UITableViewCell()
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailHighlightCellView.identifier, for: indexPath) as? SeriesDetailHighlightCellView else {
+                SeriesDetailHighlightCellView.assertCellFailure()
+                return UITableViewCell()
+            }
+            
+            cell.setupCell(with: homeEntity)
+            cell.selectionStyle = .none
+            
+            return cell
+        } else  {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesCellView.identifier, for: indexPath) as? SeriesCellView else {
+                SeriesCellView.assertCellFailure()
+                return UITableViewCell()
+            }
+            
+            cell.setupCell(with: seriesSeasonsBucket[indexPath.section][indexPath.row])
+            cell.selectionStyle = .none
+            
+            return cell
         }
-        
-        cell.setupCell(with: seriesSeasonsBucket[indexPath.section][indexPath.row])
-        cell.selectionStyle = .none
-        
-        return cell
     }
 }

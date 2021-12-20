@@ -31,7 +31,7 @@ final class SeriesDetailTableViewHeader: UITableViewHeaderFooterView {
     
     // MARK: Class methods
     func setupHeader(with section: Int) {
-        headerTitle.text = String(format: "SeriesDetailTableViewHeaderTitle".localized(), section.advanced(by: 1))
+        headerTitle.text = String(format: "SeriesDetailTableViewHeaderTitle".localized(), section)
         let layout = UICollectionViewFlowLayout()
         let collectionView = SeriesDetailCollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.fixInView(seriesDetailCollectionViewContainer)

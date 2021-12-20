@@ -26,6 +26,8 @@
 		B49B6D312770CE1F00E984D8 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D302770CE1F00E984D8 /* UICollectionViewCell.swift */; };
 		B49B6D342770EB5500E984D8 /* SeriesCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49B6D332770EB5500E984D8 /* SeriesCellView.xib */; };
 		B49B6D362770EB7300E984D8 /* SeriesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D352770EB7300E984D8 /* SeriesCellView.swift */; };
+		B49B6D3A277105B600E984D8 /* SeriesDetailHighlightCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49B6D39277105B600E984D8 /* SeriesDetailHighlightCellView.xib */; };
+		B49B6D3C277105BB00E984D8 /* SeriesDetailHighlightCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D3B277105BB00E984D8 /* SeriesDetailHighlightCellView.swift */; };
 		B4B18FBE276EDAB600B1B323 /* ZeroResultsSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */; };
 		B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */; };
 		B4CFDB6C276D17DE003110CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDB6B276D17DE003110CD /* AppDelegate.swift */; };
@@ -99,6 +101,8 @@
 		B49B6D302770CE1F00E984D8 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		B49B6D332770EB5500E984D8 /* SeriesCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesCellView.xib; sourceTree = "<group>"; };
 		B49B6D352770EB7300E984D8 /* SeriesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCellView.swift; sourceTree = "<group>"; };
+		B49B6D39277105B600E984D8 /* SeriesDetailHighlightCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHighlightCellView.xib; sourceTree = "<group>"; };
+		B49B6D3B277105BB00E984D8 /* SeriesDetailHighlightCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailHighlightCellView.swift; sourceTree = "<group>"; };
 		B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroResultsSearch.xib; sourceTree = "<group>"; };
 		B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroResultsSearch.swift; sourceTree = "<group>"; };
 		B4CFDB68276D17DE003110CD /* TVmaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVmaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +191,7 @@
 		B49B6D07276FF2E000E984D8 /* SeriesViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B49B6D382771055700E984D8 /* SeriesDetailHighlightCellView */,
 				B49B6D372770FAEF00E984D8 /* SeriesTableViewHeader */,
 				B49B6D322770EB2100E984D8 /* SeriesCellView */,
 				B49B6D252770C7A000E984D8 /* SeriesViewCollectionView */,
@@ -235,6 +240,15 @@
 				B49B6D212770402F00E984D8 /* SeriesDetailTableViewHeader.swift */,
 			);
 			path = SeriesTableViewHeader;
+			sourceTree = "<group>";
+		};
+		B49B6D382771055700E984D8 /* SeriesDetailHighlightCellView */ = {
+			isa = PBXGroup;
+			children = (
+				B49B6D39277105B600E984D8 /* SeriesDetailHighlightCellView.xib */,
+				B49B6D3B277105BB00E984D8 /* SeriesDetailHighlightCellView.swift */,
+			);
+			path = SeriesDetailHighlightCellView;
 			sourceTree = "<group>";
 		};
 		B4B18FBB276EDA6400B1B323 /* SeriesHighlightView */ = {
@@ -472,6 +486,7 @@
 				B4CFDB75276D17DF003110CD /* Assets.xcassets in Resources */,
 				B4CFDBA7276D2740003110CD /* Localizable.strings in Resources */,
 				B4CFDBBF276D4B7A003110CD /* HomeCellView.xib in Resources */,
+				B49B6D3A277105B600E984D8 /* SeriesDetailHighlightCellView.xib in Resources */,
 				B49B6D0B276FF33300E984D8 /* SeriesDetailView.xib in Resources */,
 				B4CFDBA2276D1A62003110CD /* HomeView.xib in Resources */,
 				B49B6D342770EB5500E984D8 /* SeriesCellView.xib in Resources */,
@@ -623,6 +638,7 @@
 				B49B6D09276FF2FF00E984D8 /* SeriesDetailViewController.swift in Sources */,
 				B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */,
 				B49B6D1827700F4500E984D8 /* SeriesDetailHighlightView.swift in Sources */,
+				B49B6D3C277105BB00E984D8 /* SeriesDetailHighlightCellView.swift in Sources */,
 				B4CFDBBD276D4B62003110CD /* HomeCellView.swift in Sources */,
 				B49B6D1C2770263000E984D8 /* UILabel.swift in Sources */,
 				B4CFDBC3276E2D89003110CD /* HomeConfigurator.swift in Sources */,
