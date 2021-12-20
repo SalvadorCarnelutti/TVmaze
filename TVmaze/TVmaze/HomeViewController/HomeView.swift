@@ -137,7 +137,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let presenter = presenter, let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier, for: indexPath) as? HomeCellView else {
+        guard let presenter = presenter, let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier,
+                                                                                  for: indexPath) as? HomeCellView else {
             HomeCellView.assertCellFailure()
             return UITableViewCell()
         }

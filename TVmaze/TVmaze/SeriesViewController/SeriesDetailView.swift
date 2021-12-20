@@ -31,8 +31,8 @@ final class SeriesDetailView: UIViewNibLoadable {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: SeriesCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: SeriesCellView.identifier)
+        tableView.register(UINib(nibName: SeriesDetailCellView.identifier, bundle: .none),
+                           forCellReuseIdentifier: SeriesDetailCellView.identifier)
         tableView.register(UINib(nibName: SeriesDetailHighlightCellView.identifier, bundle: .none),
                            forCellReuseIdentifier: SeriesDetailHighlightCellView.identifier)
         tableView.register(UINib(nibName: SeriesDetailTableViewHeader.identifier, bundle: .none),
@@ -88,26 +88,40 @@ extension SeriesDetailView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            guard let presenter = presenter, let cell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailHighlightCellView.identifier, for: indexPath) as? SeriesDetailHighlightCellView else {
+        guard let presenter = presenter else {
+            return UITableViewCell()
+        }
+                
+        return getCell(indexPath: indexPath, presenter: presenter)
+
+    }
+    
+    private func getCell(indexPath: IndexPath, presenter: ViewToPresenteSeriesDetailProtocol) -> UITableViewCell {
+        var cell: UITableViewCell
+        
+        switch indexPath.section {
+        case 0:
+            guard let detailHighlightCell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailHighlightCellView.identifier,
+                                                                          for: indexPath) as? SeriesDetailHighlightCellView else {
                 SeriesDetailHighlightCellView.assertCellFailure()
                 return UITableViewCell()
             }
             
-            cell.setupCell(with: presenter.homeEntity)
-            cell.selectionStyle = .none
+            detailHighlightCell.setupCell(with: presenter.homeEntity)
+            cell = detailHighlightCell
             
-            return cell
-        } else {
-            guard let presenter = presenter, let cell = tableView.dequeueReusableCell(withIdentifier: SeriesCellView.identifier, for: indexPath) as? SeriesCellView else {
-                SeriesCellView.assertCellFailure()
+        default:
+            guard let seriesDetailCell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailCellView.identifier,
+                                                                       for: indexPath) as? SeriesDetailCellView else {
+                SeriesDetailCellView.assertCellFailure()
                 return UITableViewCell()
             }
             
-            cell.setupCell(with: presenter.seriesDetailAt(indexPath: indexPath))
-            cell.selectionStyle = .none
-            
-            return cell
+            seriesDetailCell.setupCell(with: presenter.seriesDetailAt(indexPath: indexPath))
+            cell = seriesDetailCell
         }
+        
+        cell.selectionStyle = .none
+        return cell
     }
 }
