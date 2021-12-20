@@ -61,7 +61,8 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                    method: .get,
                    parameters: parameters,
                    encoding: URLEncoding.queryString)
-            .validate().responseDecodable(of: [Series].self) { [weak self] (response) in
+            .validate()
+            .responseDecodable(of: [Series].self) { [weak self] (response) in
                 self?.isFetchInProgress = false
                 
                 switch response.result {
@@ -85,7 +86,8 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                    method: .get,
                    parameters: parameters,
                    encoding: URLEncoding.queryString)
-            .validate().responseDecodable(of: [FilteredSeries].self) { [weak self] (response) in
+            .validate()
+            .responseDecodable(of: [FilteredSeries].self) { [weak self] (response) in
                 switch response.result {
                 case .success(let series) where series.isEmpty:
                     self?.filteredSeries = []

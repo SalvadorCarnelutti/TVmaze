@@ -8,5 +8,5 @@
 import UIKit
 
 final class SeriesDetailView: UIViewNibLoadable {
-    @IBOutlet weak var testView: UIView!
+    @IBOutlet weak var seriesDetailHighlightContainer: UIView!
 }

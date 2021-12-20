@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeriesDetailView" customModule="TVmaze" customModuleProvider="target">
             <connections>
-                <outlet property="testView" destination="hg4-yw-tHv" id="nL7-kp-pvi"/>
+                <outlet property="seriesDetailHighlightContainer" destination="hg4-yw-tHv" id="nL7-kp-pvi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
