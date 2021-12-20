@@ -20,39 +20,41 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="376"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCu-72-a1y">
-                    <rect key="frame" x="0.0" y="44" width="414" height="281.5"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-As-QVT">
-                    <rect key="frame" x="0.0" y="345.5" width="414" height="30.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gjS-R0-zYc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="332"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br7-aJ-ETF">
-                            <rect key="frame" x="20" y="10" width="374" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCu-72-a1y">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="281.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-As-QVT">
+                            <rect key="frame" x="0.0" y="301.5" width="414" height="30.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br7-aJ-ETF">
+                                    <rect key="frame" x="20" y="10" width="374" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="br7-aJ-ETF" secondAttribute="bottom" id="H5e-vx-9CK"/>
+                                <constraint firstAttribute="trailing" secondItem="br7-aJ-ETF" secondAttribute="trailing" constant="20" id="IZP-xg-ipD"/>
+                                <constraint firstItem="br7-aJ-ETF" firstAttribute="top" secondItem="PWs-As-QVT" secondAttribute="top" constant="10" id="dmV-rF-MjT"/>
+                                <constraint firstItem="br7-aJ-ETF" firstAttribute="leading" secondItem="PWs-As-QVT" secondAttribute="leading" constant="20" id="n4j-lM-khz"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="br7-aJ-ETF" secondAttribute="bottom" id="H5e-vx-9CK"/>
-                        <constraint firstAttribute="trailing" secondItem="br7-aJ-ETF" secondAttribute="trailing" constant="20" id="IZP-xg-ipD"/>
-                        <constraint firstItem="br7-aJ-ETF" firstAttribute="top" secondItem="PWs-As-QVT" secondAttribute="top" constant="10" id="dmV-rF-MjT"/>
-                        <constraint firstItem="br7-aJ-ETF" firstAttribute="leading" secondItem="PWs-As-QVT" secondAttribute="leading" constant="20" id="n4j-lM-khz"/>
-                    </constraints>
-                </view>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="PWs-As-QVT" secondAttribute="bottom" id="CJn-OA-Tdi"/>
-                <constraint firstItem="vCu-72-a1y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="WnU-2z-ih7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vCu-72-a1y" secondAttribute="trailing" id="d3U-xF-Tvr"/>
-                <constraint firstItem="PWs-As-QVT" firstAttribute="top" secondItem="vCu-72-a1y" secondAttribute="bottom" constant="20" id="fol-rJ-puB"/>
-                <constraint firstItem="PWs-As-QVT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qt0-ra-bn2"/>
-                <constraint firstItem="vCu-72-a1y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="w90-OX-fkw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PWs-As-QVT" secondAttribute="trailing" id="ycM-Q7-bEn"/>
+                <constraint firstItem="gjS-R0-zYc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9HM-zr-Kc7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gjS-R0-zYc" secondAttribute="trailing" id="JTC-Ic-JsJ"/>
+                <constraint firstItem="gjS-R0-zYc" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="jzV-68-hTN"/>
+                <constraint firstItem="gjS-R0-zYc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l1b-uc-X3w"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="-44.196428571428569"/>

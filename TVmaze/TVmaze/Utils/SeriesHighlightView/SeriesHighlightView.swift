@@ -26,8 +26,7 @@ final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: Lifecycle methods
     init(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
         super.init(frame: CGRect.zero)
-        loadInfoData(homeEntity: homeEntity, highlightStyling: highlightStyling)
-        loadImage(homeEntity: homeEntity)
+        setupSubviews(homeEntity: homeEntity, highlightStyling: highlightStyling)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -36,6 +35,11 @@ final class SeriesHighlightView: UIViewNibLoadable {
     
     // MARK: Properties
     private(set) var request: DispatchWorkItem?
+    
+    private func setupSubviews(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
+        loadInfoData(homeEntity: homeEntity, highlightStyling: highlightStyling)
+        loadImage(homeEntity: homeEntity)
+    }
     
     func loadInfoData(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
         let info = highlightStyling == .home ? homeEntity.homeInfo : homeEntity.seriesInfo
