@@ -9,6 +9,8 @@ import Alamofire
 
 protocol PresenterToInteractorSeriesDetailProtocol: AnyObject {
     var presenter: InteractorToPresenterSeriesDetailProtocol? { get set }
+    var seriesName: String { get }
+    var homeEntity: HomeEntity { get }
     var numberOfSections: Int { get }
     func getEpisodes()
     func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity
@@ -18,11 +20,20 @@ protocol PresenterToInteractorSeriesDetailProtocol: AnyObject {
 final class SeriesDetailInteractor: PresenterToInteractorSeriesDetailProtocol {
     // MARK: Properties
     private static let seriesEpisodesURL = "https://api.tvmaze.com/shows"
+    private(set) var homeEntity: HomeEntity
     private var seriesSeasonsBucket: [[SeriesDetailEntity]] = []
     weak var presenter: InteractorToPresenterSeriesDetailProtocol?
+    
+    var seriesName: String {
+        return homeEntity.series.name
+    }
 
     var numberOfSections: Int {
         return seriesSeasonsBucket.count
+    }
+    
+    init(homeEntity: HomeEntity) {
+        self.homeEntity = homeEntity
     }
     
     // MARK: Class methods
@@ -35,7 +46,7 @@ final class SeriesDetailInteractor: PresenterToInteractorSeriesDetailProtocol {
     }
     
     func getEpisodes() {
-        AF.request("https://api.tvmaze.com/shows/\(presenter!.homeEntity.series.id)/episodes")
+        AF.request("https://api.tvmaze.com/shows/\(homeEntity.series.id)/episodes")
             .validate()
             .responseDecodable(of: [SeriesDetailEntity].self) { [weak self] (response) in
                 switch response.result {

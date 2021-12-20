@@ -16,7 +16,8 @@ final class HomeRouter: PresenterToRouterHomeProtocol  {
     weak var presenter: UIViewController?
     
     func presentSeriesDetail(homeEntity: HomeEntity) {
-        let viewController = SeriesDetailViewController(homeEntity: homeEntity)
+        let viewController = SeriesDetailViewController()
+        SeriesDetailConfigurator.injectDependencies(presenter: viewController, homeEntity: homeEntity)
         presenter?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

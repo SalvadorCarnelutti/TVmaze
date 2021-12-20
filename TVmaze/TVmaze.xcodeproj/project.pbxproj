@@ -29,6 +29,8 @@
 		B49B6D3A277105B600E984D8 /* SeriesDetailHighlightCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49B6D39277105B600E984D8 /* SeriesDetailHighlightCellView.xib */; };
 		B49B6D3C277105BB00E984D8 /* SeriesDetailHighlightCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D3B277105BB00E984D8 /* SeriesDetailHighlightCellView.swift */; };
 		B49B6D3E277115BA00E984D8 /* SeriesDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D3D277115BA00E984D8 /* SeriesDetailInteractor.swift */; };
+		B49B6D4027712B4300E984D8 /* SeriesDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D3F27712B4300E984D8 /* SeriesDetailConfigurator.swift */; };
+		B49B6D4227712C7E00E984D8 /* SeriesDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D4127712C7E00E984D8 /* SeriesDetailRouter.swift */; };
 		B4B18FBE276EDAB600B1B323 /* ZeroResultsSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */; };
 		B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */; };
 		B4CFDB6C276D17DE003110CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDB6B276D17DE003110CD /* AppDelegate.swift */; };
@@ -105,6 +107,8 @@
 		B49B6D39277105B600E984D8 /* SeriesDetailHighlightCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHighlightCellView.xib; sourceTree = "<group>"; };
 		B49B6D3B277105BB00E984D8 /* SeriesDetailHighlightCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailHighlightCellView.swift; sourceTree = "<group>"; };
 		B49B6D3D277115BA00E984D8 /* SeriesDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailInteractor.swift; sourceTree = "<group>"; };
+		B49B6D3F27712B4300E984D8 /* SeriesDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailConfigurator.swift; sourceTree = "<group>"; };
+		B49B6D4127712C7E00E984D8 /* SeriesDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailRouter.swift; sourceTree = "<group>"; };
 		B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroResultsSearch.xib; sourceTree = "<group>"; };
 		B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroResultsSearch.swift; sourceTree = "<group>"; };
 		B4CFDB68276D17DE003110CD /* TVmaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVmaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +207,8 @@
 				B49B6D1D277029C400E984D8 /* SeriesDetailEntity.swift */,
 				B49B6D0A276FF33300E984D8 /* SeriesDetailView.xib */,
 				B49B6D0C276FF34800E984D8 /* SeriesDetailView.swift */,
+				B49B6D3F27712B4300E984D8 /* SeriesDetailConfigurator.swift */,
+				B49B6D4127712C7E00E984D8 /* SeriesDetailRouter.swift */,
 			);
 			path = SeriesViewController;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B49B6D4227712C7E00E984D8 /* SeriesDetailRouter.swift in Sources */,
 				B4CFDBA4276D1A85003110CD /* HomeView.swift in Sources */,
 				B4CFDBA0276D1991003110CD /* HomeViewController.swift in Sources */,
 				B49B6D222770402F00E984D8 /* SeriesDetailTableViewHeader.swift in Sources */,
@@ -636,6 +643,7 @@
 				B4CFDBB4276D444B003110CD /* String.swift in Sources */,
 				B4CFDBC5276E2DD3003110CD /* HomeRouter.swift in Sources */,
 				B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */,
+				B49B6D4027712B4300E984D8 /* SeriesDetailConfigurator.swift in Sources */,
 				B4CFDBB0276D3A42003110CD /* UIView.swift in Sources */,
 				B4CFDBBA276D47BE003110CD /* StackLabel.swift in Sources */,
 				B49B6D09276FF2FF00E984D8 /* SeriesDetailViewController.swift in Sources */,

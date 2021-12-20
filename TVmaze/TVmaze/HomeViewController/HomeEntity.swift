@@ -34,7 +34,7 @@ struct HomeEntity {
         case (_, ""):
             return "\("ScheduleDaysPrefix".localized()) \(joinedDays(days: days))"
         case (_, _):
-            return "\("ScheduleDaysPrefix".localized()) \(joinedDays(days: days)) \("ScheduleTimePrefix") \(time)"
+            return "\("ScheduleDaysPrefix".localized()) \(joinedDays(days: days)) \("ScheduleTimePrefix".localized()) \(time)"
         }
     }
     

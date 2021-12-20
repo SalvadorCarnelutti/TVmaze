@@ -9,10 +9,9 @@ import UIKit
 import Alamofire
 
 protocol InteractorToPresenterSeriesDetailProtocol: AnyObject {
+    var homeEntity: HomeEntity { get }
     func onFetchEpisodesSuccess()
     func onFetchEpisodesFailure()
-    
-    var homeEntity: HomeEntity { get }
 }
 
 protocol ViewToPresenteSeriesDetailProtocol: AnyObject {
@@ -23,38 +22,29 @@ protocol ViewToPresenteSeriesDetailProtocol: AnyObject {
 }
 
 final class SeriesDetailViewController: UIViewController {
-    var seriesView: PresenterToViewSeriesDetailProtocol!
+    var seriesDetailView: PresenterToViewSeriesDetailProtocol!
     var interactor: PresenterToInteractorSeriesDetailProtocol!
-    var homeEntity: HomeEntity
+    var router: PresenterToRouterHomeProtocol!
+
     
     override func loadView() {
         super.loadView()
-        seriesView = SeriesDetailView()
-        seriesView.presenter = self
-        view = seriesView
+        view = seriesDetailView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = homeEntity.series.name
-        seriesView.showActivityIndicator()
-        interactor = SeriesDetailInteractor()
-        interactor.presenter = self
+        title = interactor.seriesName
         interactor.getEpisodes()
-        seriesView.setupView()
-    }
-    
-    init(homeEntity: HomeEntity) {
-        self.homeEntity = homeEntity
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        seriesDetailView.setupView()
     }
 }
 
 extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
+    var homeEntity: HomeEntity {
+        return interactor.homeEntity
+    }
+    
     func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity {
         return interactor.seriesDetailAt(indexPath: indexPath)    }
     
@@ -69,11 +59,11 @@ extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
 
 extension SeriesDetailViewController: InteractorToPresenterSeriesDetailProtocol {
     func onFetchEpisodesSuccess() {
-        seriesView.displayTableView()
+        seriesDetailView.displayTableView()
     }
     
     func onFetchEpisodesFailure() {
-        seriesView.displayTableView()
+        seriesDetailView.displayTableView()
     }
 }
 

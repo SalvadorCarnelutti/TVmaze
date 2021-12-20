@@ -5,8 +5,6 @@
 //  Created by Salvador on 12/18/21.
 //
 
-import Foundation
-
 final class HomeConfigurator {
     static func injectDependencies(presenter: HomeViewController) {
         let interactor = HomeInteractor()
