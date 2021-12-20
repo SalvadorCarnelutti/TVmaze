@@ -8,10 +8,16 @@
 import UIKit
 
 final class SeriesDetailCollectionViewCell: UICollectionViewCell {
-    
+    // MARK: IBOutlets
     @IBOutlet weak var label: UILabel!
     
-    func addBorder() {
+    // MARK: Class methods
+    func setupCell(with columnText: String) {
+        label.text = columnText
+        addGridBorder()
+    }
+    
+    private func addGridBorder() {
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.black.cgColor
     }

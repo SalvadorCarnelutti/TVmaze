@@ -21,8 +21,6 @@ final class SeriesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let seriesDetailHighlightView = SeriesDetailHighlightView(homeEntity: homeEntity, highlightStyling: .episodeDetail)
-//        seriesDetailHighlightView.fixInView(seriesView.seriesDetailHighlightContainer)
         title = homeEntity.series.name
         getEpisodes()
         setupTableView()
@@ -59,8 +57,8 @@ final class SeriesDetailViewController: UIViewController {
     private func setupTableView() {
         seriesView.tableView.delegate = self
         seriesView.tableView.dataSource = self
-        seriesView.tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: HomeCellView.identifier)
+        seriesView.tableView.register(UINib(nibName: SeriesCellView.identifier, bundle: .none),
+                           forCellReuseIdentifier: SeriesCellView.identifier)
         seriesView.tableView.register(UINib(nibName: SeriesDetailTableViewHeader.identifier, bundle: .none),
                                       forHeaderFooterViewReuseIdentifier: SeriesDetailTableViewHeader.identifier)
         seriesView.tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -91,12 +89,12 @@ extension SeriesDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeCellView.identifier, for: indexPath) as? HomeCellView else {
-            HomeCellView.assertCellFailure()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesCellView.identifier, for: indexPath) as? SeriesCellView else {
+            SeriesCellView.assertCellFailure()
             return UITableViewCell()
         }
         
-        cell.setupCell(homeEntity: homeEntity)
+        cell.setupCell(with: seriesSeasonsBucket[indexPath.section][indexPath.row])
         cell.selectionStyle = .none
         
         return cell

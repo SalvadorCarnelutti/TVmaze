@@ -18,7 +18,7 @@
                     <rect key="frame" x="0.0" y="44" width="421" height="68"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-CC-f7J">
-                            <rect key="frame" x="10" y="37" width="68" height="21"/>
+                            <rect key="frame" x="10" y="23.5" width="68" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -27,8 +27,8 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="94H-dB-nBv"/>
+                        <constraint firstItem="mfE-CC-f7J" firstAttribute="centerY" secondItem="nkU-dp-Jpe" secondAttribute="centerY" id="RRj-DM-1OL"/>
                         <constraint firstItem="mfE-CC-f7J" firstAttribute="leading" secondItem="nkU-dp-Jpe" secondAttribute="leading" constant="10" id="hbZ-4g-9GN"/>
-                        <constraint firstAttribute="bottom" secondItem="mfE-CC-f7J" secondAttribute="bottom" constant="10" id="uYN-5o-rEX"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-CG-bVm">
@@ -53,7 +53,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="headerTitle" destination="mfE-CC-f7J" id="Wwo-ON-SBN"/>
-                <outlet property="testView" destination="FOE-CG-bVm" id="VUP-QD-hR9"/>
+                <outlet property="headerTitleContainer" destination="nkU-dp-Jpe" id="g0J-6o-H96"/>
+                <outlet property="seriesDetailCollectionViewContainer" destination="FOE-CG-bVm" id="VUP-QD-hR9"/>
             </connections>
             <point key="canvasLocation" x="132.60869565217394" y="-145.98214285714286"/>
         </view>

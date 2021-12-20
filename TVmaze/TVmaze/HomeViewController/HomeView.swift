@@ -120,7 +120,7 @@ extension HomeView: PresenterToViewHomeProtocol {
     }
 }
 
-// MARK: Tableview methods
+// MARK: TableView methods
 extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard let presenter = presenter,
@@ -142,8 +142,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
             return UITableViewCell()
         }
         
-        let info = presenter.seriesAt(indexPath: indexPath)
-        cell.setupCell(homeEntity: info)
+        let homeEntity = presenter.seriesAt(indexPath: indexPath)
+        cell.setupCell(with: homeEntity)
         cell.selectionStyle = .none
         
         return cell

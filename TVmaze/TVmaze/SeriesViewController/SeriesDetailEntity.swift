@@ -14,6 +14,10 @@ struct SeriesDetailEntity: Codable {
     let summary: String
     let image: Image?
     let rating: Rating
+    
+    var seriesInfo: [String] {
+        return [String(number), name, String(rating.score)]
+    }
 }
 
 struct Rating: Codable {

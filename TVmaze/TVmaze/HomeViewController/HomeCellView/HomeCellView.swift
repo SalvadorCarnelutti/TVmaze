@@ -12,7 +12,7 @@ final class HomeCellView: UITableViewCell {
     @IBOutlet weak var seriesHighlightViewContainer: UIView!
     
     // MARK: Class methods
-    func setupCell(homeEntity: HomeEntity) {
+    func setupCell(with homeEntity: HomeEntity) {
         let highlightView = SeriesHighlightView(homeEntity: homeEntity, highlightStyling: .home)
         highlightView.fixInView(seriesHighlightViewContainer)
     }

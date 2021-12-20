@@ -16,18 +16,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="224" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIG BIG BIG Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCo-fT-clF">
-                        <rect key="frame" x="5" y="38.5" width="214" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCo-fT-clF">
+                        <rect key="frame" x="5" y="0.0" width="214" height="97"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="MCo-fT-clF" secondAttribute="bottom" id="92e-G4-3W9"/>
                     <constraint firstItem="MCo-fT-clF" firstAttribute="centerX" secondItem="AA2-Sg-ci0" secondAttribute="centerX" id="A9e-fN-gNj"/>
                     <constraint firstItem="MCo-fT-clF" firstAttribute="centerY" secondItem="AA2-Sg-ci0" secondAttribute="centerY" id="Igz-9B-Tgd"/>
-                    <constraint firstAttribute="trailing" secondItem="MCo-fT-clF" secondAttribute="trailing" constant="5" id="Teg-X4-3zf"/>
-                    <constraint firstItem="MCo-fT-clF" firstAttribute="leading" secondItem="AA2-Sg-ci0" secondAttribute="leading" constant="5" id="mVT-Cg-p4T"/>
+                    <constraint firstItem="MCo-fT-clF" firstAttribute="top" secondItem="AA2-Sg-ci0" secondAttribute="top" id="ibX-43-yRx"/>
+                    <constraint firstItem="MCo-fT-clF" firstAttribute="leading" secondItem="AA2-Sg-ci0" secondAttribute="leading" constant="5" id="khg-vS-GnY"/>
+                    <constraint firstAttribute="trailing" secondItem="MCo-fT-clF" secondAttribute="trailing" constant="5" id="uHJ-3p-8LV"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="224" height="97"/>

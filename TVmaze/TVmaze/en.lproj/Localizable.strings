@@ -11,4 +11,7 @@
 "ZeroResultMessage" = "No results for current search, please try again with a different combination";
 "ScheduleDaysPrefix" = "Every";
 "ScheduleTimePrefix" = "at";
-"SeriesDetailTableViewHeaderTitle" = "Season %@";
+"SeriesDetailTableViewHeaderTitle" = "Season %d";
+"SeriesNameColumnHeading" = "Name";
+"SeriesNameScoreHeading" = "Score";
+
