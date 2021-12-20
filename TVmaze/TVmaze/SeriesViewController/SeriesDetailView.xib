@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeriesDetailView" customModule="TVmaze" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="mI9-8A-gv1" id="Bi6-3A-bdI"/>
                 <outlet property="tableView" destination="oP5-sI-2NJ" id="s9j-sF-hxl"/>
             </connections>
         </placeholder>
@@ -22,12 +23,17 @@
                     <rect key="frame" x="10" y="44" width="394" height="808"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-8A-gv1">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="mI9-8A-gv1" firstAttribute="centerX" secondItem="oP5-sI-2NJ" secondAttribute="centerX" id="1F5-9e-g2h"/>
                 <constraint firstItem="oP5-sI-2NJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="LmY-aP-TJP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="oP5-sI-2NJ" secondAttribute="bottom" constant="10" id="Mzg-0r-FYZ"/>
+                <constraint firstItem="mI9-8A-gv1" firstAttribute="centerY" secondItem="oP5-sI-2NJ" secondAttribute="centerY" id="hJm-q2-CyH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oP5-sI-2NJ" secondAttribute="trailing" constant="10" id="pcM-t0-rWq"/>
                 <constraint firstItem="oP5-sI-2NJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rbS-KP-h7Z"/>
             </constraints>

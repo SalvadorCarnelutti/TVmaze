@@ -67,7 +67,7 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                 
                 switch response.result {
                 case .success(let series):
-                    let newIndexPaths = self!.calculateIndexPathsToReload(from: series)
+                    let newIndexPaths = self?.calculateIndexPathsToReload(from: series) ?? []
                     self?.series.append(contentsOf: series.map { HomeEntity(series: $0) })
                     self?.currentPage += 1
                     self?.presenter?.onFetchSeriesSuccess(newIndexPaths: newIndexPaths)
@@ -101,7 +101,6 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
             }
     }
     
-    // LOOK AT ME
     private func calculateIndexPathsToReload(from newSeries: [Series]) -> [IndexPath] {
         let startIndex = seriesCount
         let endIndex = startIndex + newSeries.count

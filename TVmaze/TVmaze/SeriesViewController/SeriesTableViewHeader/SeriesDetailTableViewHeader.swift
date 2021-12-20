@@ -24,6 +24,7 @@ final class SeriesDetailTableViewHeader: UITableViewHeaderFooterView {
     
     @IBOutlet weak var seriesDetailCollectionViewContainer: UIView!
     
+    // MARK: Lifecycle methods
     override func layoutSubviews() {
         super.layoutSubviews()
         headerTitleContainer.roundCorners([.topLeft, .topRight], radius: 12.0)
