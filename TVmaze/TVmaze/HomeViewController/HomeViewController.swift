@@ -20,7 +20,7 @@ protocol ViewToPresenterHomeProtocol: AnyObject {
     var isFiltering: Bool { get }
     var numberOfRowsInSection: Int { get }
     func getSeries()
-    func presentSeriesDetail()
+    func presentSeriesDetail(for indexPath: IndexPath)
     func seriesAt(indexPath: IndexPath) -> HomeEntity
 }
 
@@ -97,8 +97,8 @@ extension HomeViewController: ViewToPresenterHomeProtocol {
         interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
     }
     
-    func presentSeriesDetail() {
-        // Call router
+    func presentSeriesDetail(for indexPath: IndexPath) {
+        router.presentSeriesDetail(homeEntity: interactor.seriesInfoAt(index: indexPath.row))
     }
 }
 

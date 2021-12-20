@@ -7,15 +7,26 @@
 
 import UIKit
 
+enum HighlightStyling {
+    case home
+    case seriesDetail
+    case episodeDetail
+}
+
 final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: IBOutlets
-    @IBOutlet weak var seriesImage: UIImageView!
+    @IBOutlet weak var seriesImage: UIImageView! {
+        didSet {
+            seriesImage.applyShadow()
+        }
+    }
     
     @IBOutlet weak var shortInfoVerticalStackView: UIStackView!
     
-    init(homeEntity: HomeEntity) {
+    // MARK: Lifecycle methods
+    init(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
         super.init(frame: CGRect.zero)
-        loadShortInfoData(homeEntity: homeEntity)
+        loadInfoData(homeEntity: homeEntity, highlightStyling: highlightStyling)
         loadImage(homeEntity: homeEntity)
     }
     
@@ -26,10 +37,11 @@ final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: Properties
     private(set) var request: DispatchWorkItem?
     
-    func loadShortInfoData(homeEntity: HomeEntity) {
-        for string in homeEntity.shortInfo {
-            let isFirstString = homeEntity.shortInfo.first == string
-            let label = StackLabel(text: string, font: UIFont.systemFont(ofSize: isFirstString ? 16 : 14,
+    func loadInfoData(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
+        let info = highlightStyling == .home ? homeEntity.homeInfo : homeEntity.seriesInfo
+        for string in info.compactMap({ $0 }) {
+            let isFirstString = homeEntity.homeInfo.first == string
+            let label = StackLabel(text: string, font: UIFont.systemFont(ofSize: isFirstString ? 18 : 16,
                                                                          weight: isFirstString ? .bold : .regular))
             
             shortInfoVerticalStackView.addArrangedSubview(label)
@@ -40,8 +52,4 @@ final class SeriesHighlightView: UIViewNibLoadable {
         let placeholderImage = UIImage(systemName: "photo.artframe")
         request = seriesImage.loadImage(urlString: homeEntity.seriesImageURL, placeholderImage: placeholderImage!)
     }
-}
-
-extension UILabel {
-    
 }

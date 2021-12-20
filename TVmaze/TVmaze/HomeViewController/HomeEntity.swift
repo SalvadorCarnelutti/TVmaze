@@ -5,6 +5,8 @@
 //  Created by Salvador on 12/17/21.
 //
 
+import Foundation
+
 struct HomeEntity {
     let series: Series
     
@@ -12,8 +14,38 @@ struct HomeEntity {
         return series.image?.medium
     }
     
-    var shortInfo: [String] {
-        return [series.name, series.status, series.genres.joined(separator: ", ")]
+    var homeInfo: [String] {
+        return [series.name, series.genres.joined(separator: ", "), series.status]
+    }
+    
+    var seriesInfo: [String?] {
+        return [series.name, series.genres.joined(separator: ", "), schedule, series.status]
+    }
+    
+    var schedule: String? {
+        let days = series.schedule.days
+        let time = series.schedule.time
+        
+        switch (series.schedule.days.count, series.schedule.time)  {
+        case (0, ""):
+            return nil
+        case (0, _):
+            return "At \(time)"
+        case (_, ""):
+            return "Every \(joinedDays(days: days))"
+        case (_, _):
+            return "Every \(joinedDays(days: days)) at \(time)"
+        }
+    }
+    
+    private func joinedDays(days: [String]) -> String {
+        if days.count <= 1 {
+            return days.joined()
+        } else {
+            let lastDay = days.last
+            let allDays = days.dropLast().joined(separator: ", ") + " and " + lastDay!
+            return allDays
+        }
     }
 }
 

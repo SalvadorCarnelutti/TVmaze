@@ -64,6 +64,15 @@ extension UIImageView {
         mask.path = path.cgPath
         self.layer.mask = mask
       }
+    
+    func applyShadow() {
+        self.tintColor = .black
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 1.0
+        self.clipsToBounds = false
+    }
 }
 
 class ImageDownloader {

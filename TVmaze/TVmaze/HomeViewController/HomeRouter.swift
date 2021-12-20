@@ -9,13 +9,14 @@ import UIKit
 
 protocol PresenterToRouterHomeProtocol: AnyObject {
     var presenter: UIViewController? { get set }
-    func routeToSeriesDetail(homeEntity: HomeEntity)
+    func presentSeriesDetail(homeEntity: HomeEntity)
 }
 
 final class HomeRouter: PresenterToRouterHomeProtocol  {
     weak var presenter: UIViewController?
     
-    func routeToSeriesDetail(homeEntity: HomeEntity) {
-//        presenter?.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
+    func presentSeriesDetail(homeEntity: HomeEntity) {
+        let viewController = SeriesDetailViewController(homeEntity: homeEntity)
+        presenter?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

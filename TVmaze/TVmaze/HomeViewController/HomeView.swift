@@ -148,4 +148,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.presentSeriesDetail(for: indexPath)
+    }
 }

@@ -29,11 +29,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CgN-Gp-9lG">
-                    <rect key="frame" x="20" y="92.5" width="374" height="749.5"/>
+                    <rect key="frame" x="10" y="92.5" width="394" height="749.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="38.5" translatesAutoresizingMaskIntoConstraints="NO" id="NU0-f7-0KM">
-                    <rect key="frame" x="20" y="92.5" width="374" height="749.5"/>
+                    <rect key="frame" x="10" y="92.5" width="394" height="749.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ccu-PU-oKY">
@@ -48,18 +48,18 @@
             <constraints>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" constant="20" id="7OG-bV-gw9"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="D2X-cN-2gn"/>
-                <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" constant="20" id="DtQ-zB-ffs"/>
-                <constraint firstItem="NU0-f7-0KM" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="E5G-r5-SVX"/>
+                <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" constant="10" id="DtQ-zB-ffs"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="NU0-f7-0KM" secondAttribute="bottom" constant="20" id="FHf-K0-jje"/>
-                <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="NU0-f7-0KM" secondAttribute="trailing" constant="20" id="G4j-G3-0a3"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="top" secondItem="irY-mh-fuj" secondAttribute="top" id="GEV-qk-z3a"/>
                 <constraint firstItem="0ip-YE-sBT" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="KRG-s9-Oa1"/>
+                <constraint firstItem="NU0-f7-0KM" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" id="RPL-2P-uLE"/>
+                <constraint firstItem="NU0-f7-0KM" firstAttribute="leading" secondItem="CgN-Gp-9lG" secondAttribute="leading" id="Rdq-CP-cxi"/>
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerX" secondItem="CgN-Gp-9lG" secondAttribute="centerX" id="S78-wZ-a49"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="afm-6L-hoI"/>
                 <constraint firstItem="0ip-YE-sBT" firstAttribute="centerX" secondItem="irY-mh-fuj" secondAttribute="centerX" id="elX-R3-F1R"/>
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="centerY" id="iTh-nP-IV7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="oHK-Dp-RLA"/>
-                <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="roo-al-Jfw"/>
+                <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="10" id="roo-al-Jfw"/>
             </constraints>
             <point key="canvasLocation" x="-120" y="49"/>
         </view>
