@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct DetailHighlightInfo {
+    let highlightInfo: HighlightInfo
+    let summary: String?
+}
+
 final class SeriesDetailHighlightView: UIViewNibLoadable {
     // MARK: IBOutlets
     @IBOutlet weak var seriesHighlightView: UIView!
@@ -21,16 +26,17 @@ final class SeriesDetailHighlightView: UIViewNibLoadable {
     @IBOutlet weak var seriesSummaryLabel: UILabel!
     
     // MARK: Lifecycle methods
-    init(infoText: [String], imageURL: String?, summary: String?) {
+    init(detailHighlightInfo: DetailHighlightInfo, highlightCellInfo: HighlightCellInfo? = nil) {
         super.init(frame: CGRect.zero)
-        setupSubviews(infoText: infoText, imageURL: imageURL, summary: summary)
+        setupSubviews(detailHighlightInfo: detailHighlightInfo, highlightCellInfo: highlightCellInfo)
     }
     
-    private func setupSubviews(infoText: [String], imageURL: String?, summary: String?) {
-        let seriesHightlightView = SeriesHighlightView(infoText: infoText, imageURL: imageURL)
+    private func setupSubviews(detailHighlightInfo: DetailHighlightInfo, highlightCellInfo: HighlightCellInfo?) {
+        let seriesHightlightView = SeriesHighlightView(highlightInfo: detailHighlightInfo.highlightInfo,
+                                                       highlightCellInfo: highlightCellInfo)
         seriesHightlightView.fixInView(seriesHighlightView)
-
-        guard let seriesSummary = summary else {
+        
+        guard let seriesSummary = detailHighlightInfo.summary else {
             summaryLabelContainer.isHidden = true
             return
         }

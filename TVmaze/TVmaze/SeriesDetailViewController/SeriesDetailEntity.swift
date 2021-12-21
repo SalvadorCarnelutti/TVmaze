@@ -37,7 +37,7 @@ struct SeriesDetailEntity: Codable {
         return episodeDetail
     }
     
-    var seriesImageURL: String? {
+    var episodeImageURL: String? {
         return image?.medium
     }
     
@@ -51,6 +51,19 @@ struct SeriesDetailEntity: Codable {
         
 
         return date.getFormattedDate(format: "MMMM dd, yyyy")
+    }
+}
+
+extension SeriesDetailEntity {
+    var episodeHighlightInfo: HighlightInfo {
+        return HighlightInfo(infoText: episodeDetailInfo,
+                             imageURL: episodeImageURL,
+                             isFavorited: true)
+    }
+    
+    var episodeDetailHighlightInfo: DetailHighlightInfo {
+        return DetailHighlightInfo(highlightInfo: episodeHighlightInfo,
+                                   summary: summary)
     }
 }
 

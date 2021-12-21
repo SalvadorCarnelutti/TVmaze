@@ -7,7 +7,19 @@
 
 import UIKit
 
-final class SeriesHighlightView: UIViewNibLoadable {
+struct HighlightInfo {
+    let infoText: [String]
+    let imageURL: String?
+    let isFavorited: Bool
+}
+
+struct HighlightCellInfo {
+    let indexPath: IndexPath
+    let cellClosure: ((IndexPath) -> ())
+    let insideCell: Bool
+}
+
+final class SeriesHighlightView: UIViewNibLoadable, UIGestureRecognizerDelegate {
     // MARK: IBOutlets
     @IBOutlet weak var seriesImage: UIImageView! {
         didSet {
@@ -16,11 +28,21 @@ final class SeriesHighlightView: UIViewNibLoadable {
     }
     
     @IBOutlet weak var shortInfoVerticalStackView: UIStackView!
+    @IBOutlet weak var favoriteStatusBar: UIView!
+    @IBOutlet weak var favoriteStatusContainer: UIView!
+    
+    @IBOutlet weak var favoriteStatusImage: UIImageView! {
+        didSet {
+            favoriteStatusImage.isUserInteractionEnabled = true
+        }
+    }
     
     // MARK: Lifecycle methods
-    init(infoText: [String], imageURL: String?) {
+    init(highlightInfo: HighlightInfo, highlightCellInfo: HighlightCellInfo?) {
+        isFavorited = highlightInfo.isFavorited
+        self.highlightCellInfo = highlightCellInfo
         super.init(frame: CGRect.zero)
-        setupSubviews(infoText: infoText, imageURL: imageURL)
+        setupSubviews(highlightInfo: highlightInfo, showFavoriteStatusBar: highlightCellInfo != nil)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -28,14 +50,19 @@ final class SeriesHighlightView: UIViewNibLoadable {
     }
     
     // MARK: Properties
-    private(set) var request: DispatchWorkItem?
+    private var request: DispatchWorkItem?
+    private var isFavorited: Bool
+    private let highlightCellInfo: HighlightCellInfo?
     
-    private func setupSubviews(infoText: [String], imageURL: String?) {
-        loadInfoData(infoText: infoText)
-        loadImage(imageURL: imageURL)
+    private func setupSubviews(highlightInfo: HighlightInfo, showFavoriteStatusBar: Bool = true) {
+        loadInfoData(infoText: highlightInfo.infoText)
+        loadImage(imageURL: highlightInfo.imageURL)
+        displayFavoriteStatus(isFavorited: highlightInfo.isFavorited, showFavoriteStatusBar: showFavoriteStatusBar)
+        let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.handleFavoriteTap))
+        favoriteStatusImage.addGestureRecognizer(favoriteTap)
     }
     
-    func loadInfoData(infoText: [String]) {
+    private func loadInfoData(infoText: [String]) {
         for string in infoText {
             let isFirstString = infoText.first == string
             let label = StackLabel(text: string, font: UIFont.systemFont(ofSize: isFirstString ? 18 : 16,
@@ -45,7 +72,7 @@ final class SeriesHighlightView: UIViewNibLoadable {
         }
     }
     
-    func loadImage(imageURL: String?) {
+    private func loadImage(imageURL: String?) {
         guard let imageURL = imageURL else {
             seriesImage.isHidden = true
             return
@@ -53,5 +80,39 @@ final class SeriesHighlightView: UIViewNibLoadable {
         
         let placeholderImage = UIImage(systemName: "photo.artframe")
         request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage!)
+    }
+    
+    private func displayFavoriteStatus(isFavorited: Bool, showFavoriteStatusBar: Bool) {
+        guard showFavoriteStatusBar else {
+            favoriteStatusBar.isHidden = true
+            return
+        }
+        
+        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseOut, animations: {
+            let imageSystemName = isFavorited ? "star.fill" : "star"
+            self.favoriteStatusImage.image = UIImage(systemName: imageSystemName)
+            
+            self.favoriteStatusContainer.backgroundColor = isFavorited ? .caramel : .clear
+        })
+    }
+    
+    private func changeFavoriteStatus() {
+        isFavorited.toggle()
+        let imageSystemName = isFavorited ? "star.fill" : "star"
+        self.favoriteStatusImage.image = UIImage(systemName: imageSystemName)
+        
+        self.favoriteStatusContainer.backgroundColor = isFavorited ? .caramel : .clear
+    }
+    
+    @objc func handleFavoriteTap() {
+        guard let highlightCellInfo = highlightCellInfo else {
+            return
+        }
+        
+        highlightCellInfo.cellClosure(highlightCellInfo.indexPath)
+
+        if !highlightCellInfo.insideCell {
+            changeFavoriteStatus()
+        }
     }
 }

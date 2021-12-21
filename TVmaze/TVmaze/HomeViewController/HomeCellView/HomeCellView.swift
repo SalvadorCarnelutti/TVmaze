@@ -12,8 +12,8 @@ final class HomeCellView: UITableViewCell {
     @IBOutlet weak var seriesHighlightViewContainer: UIView!
     
     // MARK: Class methods
-    func setupCell(with homeEntity: HomeEntity) {
-        let highlightView = SeriesHighlightView(infoText: homeEntity.homeInfo, imageURL: homeEntity.seriesImageURL)
+    func setupCell(with homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
+        let highlightView = SeriesHighlightView(highlightInfo: homeEntity.homeHighlightInfo, highlightCellInfo: highlightCellInfo)
         highlightView.fixInView(seriesHighlightViewContainer)
     }
 }

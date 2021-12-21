@@ -15,12 +15,14 @@ protocol PresenterToInteractorSeriesDetailProtocol: AnyObject {
     func getEpisodes()
     func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity
     func episodesCountAt(section: Int) -> Int
+    var highlightCellInfo: HighlightCellInfo { get }
 }
 
 final class SeriesDetailInteractor: PresenterToInteractorSeriesDetailProtocol {
     // MARK: Properties
     private static let seriesEpisodesURL = "https://api.tvmaze.com/shows"
     private(set) var homeEntity: HomeEntity
+    private(set) var highlightCellInfo: HighlightCellInfo
     private var seriesSeasonsBucket: [[SeriesDetailEntity]] = []
     weak var presenter: InteractorToPresenterSeriesDetailProtocol?
     
@@ -32,8 +34,11 @@ final class SeriesDetailInteractor: PresenterToInteractorSeriesDetailProtocol {
         return seriesSeasonsBucket.count
     }
     
-    init(homeEntity: HomeEntity) {
+    init(homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
         self.homeEntity = homeEntity
+        self.highlightCellInfo = HighlightCellInfo(indexPath: highlightCellInfo.indexPath,
+                                                   cellClosure: highlightCellInfo.cellClosure,
+                                                   insideCell: false)
     }
     
     // MARK: Class methods

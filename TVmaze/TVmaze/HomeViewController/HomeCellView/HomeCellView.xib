@@ -17,12 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-Ga-NeH" userLabel="SeriesHightlight">
-                        <rect key="frame" x="0.0" y="12" width="414" height="124"/>
+                        <rect key="frame" x="0.0" y="12" width="414" height="144"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="XRm-Ga-NeH" secondAttribute="bottom" constant="20" id="IO4-WU-PDd"/>
+                    <constraint firstAttribute="bottom" secondItem="XRm-Ga-NeH" secondAttribute="bottom" id="IO4-WU-PDd"/>
                     <constraint firstAttribute="trailing" secondItem="XRm-Ga-NeH" secondAttribute="trailing" id="RlC-a8-DsN"/>
                     <constraint firstItem="XRm-Ga-NeH" firstAttribute="leading" secondItem="ohs-cd-Huu" secondAttribute="leading" id="eKc-ZR-uZp"/>
                     <constraint firstItem="XRm-Ga-NeH" firstAttribute="top" secondItem="ohs-cd-Huu" secondAttribute="top" constant="12" id="zWW-qu-0K1"/>

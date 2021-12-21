@@ -107,7 +107,7 @@ extension SeriesDetailView: UITableViewDataSource, UITableViewDelegate {
                 return UITableViewCell()
             }
             
-            detailHighlightCell.setupCell(with: presenter.homeEntity)
+            detailHighlightCell.setupCell(with: presenter.homeEntity, highlightCellInfo: presenter.highlightCellInfo)
             cell = detailHighlightCell
             
         default:

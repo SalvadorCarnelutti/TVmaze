@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
+    var favoriteTapClosure: (_ indexPath: IndexPath) -> () { get }
     func onFetchSeriesSuccess()
     func onFetchSeriesSuccess(newIndexPaths: [IndexPath])
     func onFetchSeriesFailure()
@@ -22,6 +23,8 @@ protocol ViewToPresenterHomeProtocol: UIViewController {
     func getSeries()
     func presentSeriesDetail(for indexPath: IndexPath)
     func seriesAt(indexPath: IndexPath) -> HomeEntity
+    func toggleFavoriteStatusAt(_ indexPath: IndexPath)
+    func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo
 }
 
 final class HomeViewController: UIViewController {
@@ -53,10 +56,18 @@ final class HomeViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
+    
+    private func onEmptySearchBar() {
+        homeView.displayTableView()
+    }
 }
 
 // MARK: InteractorToPresenterHomeProtocol
 extension HomeViewController: InteractorToPresenterHomeProtocol {
+    var favoriteTapClosure: (IndexPath) -> () {
+        return toggleFavoriteStatusAt
+    }
+    
     func onFetchSeriesFailure() {
         interactor.isFirstPage ? homeView.hideActivityIndicator() : homeView.hidePaginationActivityIndicator()
     }
@@ -100,24 +111,33 @@ extension HomeViewController: ViewToPresenterHomeProtocol {
     func presentSeriesDetail(for indexPath: IndexPath) {
         let homeEntity = isFiltering ?
         interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
-        router.presentSeriesDetail(homeEntity: homeEntity)
+        router.presentSeriesDetail(homeEntity: homeEntity, highlightCellInfo: interactor.highlightCellInfoAt(indexPath: indexPath))
+    }
+    
+    func toggleFavoriteStatusAt(_ indexPath: IndexPath) {
+        isFiltering ?
+        interactor.toggleFilteredFavoriteStatusAt(indexPath) : interactor.toggleFavoriteStatusAt(indexPath)
+        homeView.reloadCellAt(indexPath: IndexPath(row: indexPath.row, section: 0))
+    }
+    
+    func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo {
+        return interactor.highlightCellInfoAt(indexPath: indexPath)
     }
 }
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        
         self.searchTask?.cancel()
         
-        guard isFiltering else {
-            onFetchSeriesSuccess()
+        guard isFiltering, let searchBarText = searchBar.text else {
+            onEmptySearchBar()
             return
         }
         
         let task = DispatchWorkItem { [weak self] in
             self?.homeView.showActivityIndicator()
-            self?.interactor.getFilteredSeries(string: searchBar.text!)
+            self?.interactor.getFilteredSeries(string: searchBarText)
         }
         
         self.searchTask = task

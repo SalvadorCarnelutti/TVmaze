@@ -16,6 +16,7 @@ protocol InteractorToPresenterSeriesDetailProtocol: AnyObject {
 
 protocol ViewToPresenteSeriesDetailProtocol: UIViewController {
     var homeEntity: HomeEntity { get }
+    var highlightCellInfo: HighlightCellInfo { get }
     var numberOfSections: Int { get }
     func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity
     func episodesCountAt(section: Int) -> Int
@@ -45,15 +46,20 @@ extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
         return interactor.homeEntity
     }
     
-    func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity {
-        return interactor.seriesDetailAt(indexPath: indexPath)    }
-    
-    func episodesCountAt(section: Int) -> Int {
-        return interactor.episodesCountAt(section: section)
+    var highlightCellInfo: HighlightCellInfo {
+        return interactor.highlightCellInfo
     }
     
     var numberOfSections: Int {
         return interactor.numberOfSections
+    }
+    
+    func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity {
+        return interactor.seriesDetailAt(indexPath: indexPath)
+    }
+    
+    func episodesCountAt(section: Int) -> Int {
+        return interactor.episodesCountAt(section: section)
     }
     
     func presentEpisodeDetail(for indexPath: IndexPath) {

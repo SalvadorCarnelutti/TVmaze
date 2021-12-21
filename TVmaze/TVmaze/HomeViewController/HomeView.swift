@@ -11,6 +11,7 @@ protocol PresenterToViewHomeProtocol: UIView {
     var presenter: ViewToPresenterHomeProtocol? { get set }
     func setupView()
     func displayTableView()
+    func reloadCellAt(indexPath: IndexPath)
     func displayTableView(with newIndexPaths: [IndexPath])
     func displayZeroSeriesMessage()
     func showActivityIndicator()
@@ -71,6 +72,10 @@ final class HomeView: UIViewNibLoadable {
 }
 
 extension HomeView: PresenterToViewHomeProtocol {
+    func reloadCellAt(indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
     func showActivityIndicator() {
         activityIndicator.startAnimating()
     }
@@ -144,7 +149,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
         }
         
         let homeEntity = presenter.seriesAt(indexPath: indexPath)
-        cell.setupCell(with: homeEntity)
+        let highlightCellInfo = presenter.highlightCellInfoAt(indexPath: indexPath)
+        cell.setupCell(with: homeEntity, highlightCellInfo: highlightCellInfo)
         cell.selectionStyle = .none
         
         return cell

@@ -9,9 +9,10 @@ import Foundation
 
 struct HomeEntity {
     let series: Series
+    private(set) var isFavorited: Bool = false
     
     var seriesImageURL: String? {
-        return series.image.medium
+        return series.image?.medium
     }
     
     var homeInfo: [String] {
@@ -47,6 +48,27 @@ struct HomeEntity {
             return allDays
         }
     }
+    
+    mutating func toggleFavoriteStatus() {
+        isFavorited.toggle()
+    }
+    
+    mutating func resetFavoriteStatus() {
+        isFavorited = false
+    }
+}
+
+extension HomeEntity {
+    var homeHighlightInfo: HighlightInfo {
+        return HighlightInfo(infoText: homeInfo,
+                             imageURL: seriesImageURL,
+                             isFavorited: isFavorited)
+    }
+    
+    var seriesDetailHighlightInfo: DetailHighlightInfo {
+        return DetailHighlightInfo(highlightInfo: homeHighlightInfo,
+                                   summary: series.summary)
+    }
 }
 
 struct FilteredSeries: Codable {
@@ -64,7 +86,7 @@ struct Series: Codable {
     let status: String
     let schedule: Schedule
     let summary: String?
-    let image: Image
+    let image: Image?
 }
 
 struct Schedule: Codable {
