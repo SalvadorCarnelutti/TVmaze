@@ -15,17 +15,18 @@ struct SeriesDetailEntity: Codable {
     let image: Image?
     let rating: Rating
     
-    var seriesInfo: [String] {
-        var x = [String(number), name]
+    var episodeColumnsInfo: [String] {
+        var episodeColumns = [String(number), name]
         if let score = rating.score {
-            x.append(String(score))
+            episodeColumns.append(String(score))
         } else {
-            x.append("TBA")
+            episodeColumns.append("TBA")
         }
-        return x
+        
+        return episodeColumns
     }
     
-    var episodeInfo: [String] {
+    var episodeDetailInfo: [String] {
         return [name, "#\(number)", String(season)]
     }
     

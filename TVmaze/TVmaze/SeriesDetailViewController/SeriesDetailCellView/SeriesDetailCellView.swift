@@ -13,6 +13,6 @@ final class SeriesDetailCellView: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         let collectionView = SeriesDetailCollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.fixInView(contentView)
-        collectionView.setup(with: seriesDetailEntity.seriesInfo)
+        collectionView.setup(with: seriesDetailEntity.episodeColumnsInfo)
     }
 }
