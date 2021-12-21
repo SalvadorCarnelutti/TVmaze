@@ -21,16 +21,16 @@ final class SeriesDetailHighlightView: UIViewNibLoadable {
     @IBOutlet weak var seriesSummaryLabel: UILabel!
     
     // MARK: Lifecycle methods
-    init(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
+    init(infoText: [String], imageURL: String, summary: String?) {
         super.init(frame: CGRect.zero)
-        setupSubviews(homeEntity: homeEntity, highlightStyling: highlightStyling)
+        setupSubviews(infoText: infoText, imageURL: imageURL, summary: summary)
     }
     
-    private func setupSubviews(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
-        let seriesHightlightView = SeriesHighlightView(homeEntity: homeEntity, highlightStyling: highlightStyling)
+    private func setupSubviews(infoText: [String], imageURL: String, summary: String?) {
+        let seriesHightlightView = SeriesHighlightView(infoText: infoText, imageURL: imageURL)
         seriesHightlightView.fixInView(seriesHighlightView)
 
-        guard let seriesSummary = homeEntity.series.summary else {
+        guard let seriesSummary = summary else {
             summaryLabelContainer.isHidden = true
             return
         }

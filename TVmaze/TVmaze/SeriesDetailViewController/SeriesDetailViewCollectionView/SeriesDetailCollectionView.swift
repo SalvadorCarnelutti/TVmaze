@@ -33,6 +33,7 @@ final class SeriesDetailCollectionView: UICollectionView {
         dataSource = self
         delegate = self
         isScrollEnabled = false
+        isUserInteractionEnabled = false
         register(UINib(nibName: SeriesDetailCollectionViewCell.identifier, bundle: .none),
                  forCellWithReuseIdentifier: SeriesDetailCollectionViewCell.identifier)
     }

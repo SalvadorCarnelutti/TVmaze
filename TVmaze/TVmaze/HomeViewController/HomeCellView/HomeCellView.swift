@@ -13,7 +13,7 @@ final class HomeCellView: UITableViewCell {
     
     // MARK: Class methods
     func setupCell(with homeEntity: HomeEntity) {
-        let highlightView = SeriesHighlightView(homeEntity: homeEntity, highlightStyling: .home)
+        let highlightView = SeriesHighlightView(infoText: homeEntity.homeInfo, imageURL: homeEntity.seriesImageURL)
         highlightView.fixInView(seriesHighlightViewContainer)
     }
 }

@@ -124,4 +124,12 @@ extension SeriesDetailView: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section > 0 else {
+            return
+        }
+        
+        presenter?.presentEpisodeDetail(for: indexPath)
+    }
 }

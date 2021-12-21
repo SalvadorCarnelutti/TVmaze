@@ -16,7 +16,7 @@ protocol InteractorToPresenterHomeProtocol: AnyObject {
     func onFetchFilteredSeriesSuccessNonzeroResult()
 }
 
-protocol ViewToPresenterHomeProtocol: AnyObject {
+protocol ViewToPresenterHomeProtocol: UIViewController {
     var isFiltering: Bool { get }
     var numberOfRowsInSection: Int { get }
     func getSeries()
@@ -98,7 +98,9 @@ extension HomeViewController: ViewToPresenterHomeProtocol {
     }
     
     func presentSeriesDetail(for indexPath: IndexPath) {
-        router.presentSeriesDetail(homeEntity: interactor.seriesInfoAt(index: indexPath.row))
+        let homeEntity = isFiltering ?
+        interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
+        router.presentSeriesDetail(homeEntity: homeEntity)
     }
 }
 

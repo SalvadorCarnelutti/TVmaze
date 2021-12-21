@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum HighlightStyling {
-    case home
-    case seriesDetail
-    case episodeDetail
-}
-
 final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: IBOutlets
     @IBOutlet weak var seriesImage: UIImageView! {
@@ -24,9 +18,9 @@ final class SeriesHighlightView: UIViewNibLoadable {
     @IBOutlet weak var shortInfoVerticalStackView: UIStackView!
     
     // MARK: Lifecycle methods
-    init(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
+    init(infoText: [String], imageURL: String) {
         super.init(frame: CGRect.zero)
-        setupSubviews(homeEntity: homeEntity, highlightStyling: highlightStyling)
+        setupSubviews(infoText: infoText, imageURL: imageURL)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -36,15 +30,14 @@ final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: Properties
     private(set) var request: DispatchWorkItem?
     
-    private func setupSubviews(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
-        loadInfoData(homeEntity: homeEntity, highlightStyling: highlightStyling)
-        loadImage(homeEntity: homeEntity)
+    private func setupSubviews(infoText: [String], imageURL: String) {
+        loadInfoData(infoText: infoText)
+        loadImage(imageURL: imageURL)
     }
     
-    func loadInfoData(homeEntity: HomeEntity, highlightStyling: HighlightStyling) {
-        let info = highlightStyling == .home ? homeEntity.homeInfo : homeEntity.seriesInfo
-        for string in info.compactMap({ $0 }) {
-            let isFirstString = homeEntity.homeInfo.first == string
+    func loadInfoData(infoText: [String]) {
+        for string in infoText {
+            let isFirstString = infoText.first == string
             let label = StackLabel(text: string, font: UIFont.systemFont(ofSize: isFirstString ? 18 : 16,
                                                                          weight: isFirstString ? .bold : .regular))
             
@@ -52,8 +45,8 @@ final class SeriesHighlightView: UIViewNibLoadable {
         }
     }
     
-    func loadImage(homeEntity: HomeEntity) {
+    func loadImage(imageURL: String) {
         let placeholderImage = UIImage(systemName: "photo.artframe")
-        request = seriesImage.loadImage(urlString: homeEntity.seriesImageURL, placeholderImage: placeholderImage!)
+        request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage!)
     }
 }

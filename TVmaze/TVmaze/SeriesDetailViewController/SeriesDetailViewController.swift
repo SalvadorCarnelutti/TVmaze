@@ -14,18 +14,18 @@ protocol InteractorToPresenterSeriesDetailProtocol: AnyObject {
     func onFetchEpisodesFailure()
 }
 
-protocol ViewToPresenteSeriesDetailProtocol: AnyObject {
+protocol ViewToPresenteSeriesDetailProtocol: UIViewController {
     var homeEntity: HomeEntity { get }
     var numberOfSections: Int { get }
     func seriesDetailAt(indexPath: IndexPath) -> SeriesDetailEntity
     func episodesCountAt(section: Int) -> Int
+    func presentEpisodeDetail(for indexPath: IndexPath)
 }
 
 final class SeriesDetailViewController: UIViewController {
     var seriesDetailView: PresenterToViewSeriesDetailProtocol!
     var interactor: PresenterToInteractorSeriesDetailProtocol!
-    var router: PresenterToRouterHomeProtocol!
-
+    var router: PresenterToRouterSeriesDetailProtocol!
     
     override func loadView() {
         super.loadView()
@@ -54,6 +54,13 @@ extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
     
     var numberOfSections: Int {
         return interactor.numberOfSections
+    }
+    
+    func presentEpisodeDetail(for indexPath: IndexPath) {
+        let seriesDetailEntity = interactor.seriesDetailAt(indexPath: indexPath)
+        if seriesDetailEntity.name != "TBA" {
+            router.presentEpisodeDetail(seriesDetailEntity: seriesDetailEntity)
+        }
     }
 }
 

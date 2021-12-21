@@ -10,8 +10,8 @@ import Foundation
 struct HomeEntity {
     let series: Series
     
-    var seriesImageURL: String? {
-        return series.image?.medium
+    var seriesImageURL: String {
+        return series.image.medium ?? ""
     }
     
     var homeInfo: [String] {
@@ -64,7 +64,7 @@ struct Series: Codable {
     let status: String
     let schedule: Schedule
     let summary: String?
-    let image: Image?
+    let image: Image
 }
 
 struct Schedule: Codable {
@@ -73,5 +73,5 @@ struct Schedule: Codable {
 }
 
 struct Image: Codable {
-    let medium: String
+    let medium: String?
 }

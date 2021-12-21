@@ -11,7 +11,7 @@ final class SeriesDetailConfigurator {
         presenter.interactor = interactor
         interactor.presenter = presenter
 
-        let router = HomeRouter()
+        let router = SeriesDetailRouter()
         presenter.router = router
         router.presenter = presenter
         

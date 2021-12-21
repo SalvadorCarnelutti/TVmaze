@@ -16,7 +16,9 @@ final class SeriesDetailRouter: PresenterToRouterSeriesDetailProtocol  {
     weak var presenter: UIViewController?
     
     func presentEpisodeDetail(seriesDetailEntity: SeriesDetailEntity) {
-//        let viewController = SeriesDetailViewController(homeEntity: homeEntity)
-//        presenter?.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = EpisodeDetailViewController()
+        EpisodeDetailConfigurator.injectDependencies(presenter: viewController,
+                                                     seriesDetailEntity: seriesDetailEntity)
+        presenter?.navigationController?.pushViewController(viewController, animated: true)
     }
 }
