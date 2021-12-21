@@ -10,8 +10,8 @@ import Foundation
 struct HomeEntity {
     let series: Series
     
-    var seriesImageURL: String {
-        return series.image.medium ?? ""
+    var seriesImageURL: String? {
+        return series.image.medium
     }
     
     var homeInfo: [String] {

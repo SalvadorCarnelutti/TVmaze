@@ -18,7 +18,7 @@ final class SeriesHighlightView: UIViewNibLoadable {
     @IBOutlet weak var shortInfoVerticalStackView: UIStackView!
     
     // MARK: Lifecycle methods
-    init(infoText: [String], imageURL: String) {
+    init(infoText: [String], imageURL: String?) {
         super.init(frame: CGRect.zero)
         setupSubviews(infoText: infoText, imageURL: imageURL)
     }
@@ -30,7 +30,7 @@ final class SeriesHighlightView: UIViewNibLoadable {
     // MARK: Properties
     private(set) var request: DispatchWorkItem?
     
-    private func setupSubviews(infoText: [String], imageURL: String) {
+    private func setupSubviews(infoText: [String], imageURL: String?) {
         loadInfoData(infoText: infoText)
         loadImage(imageURL: imageURL)
     }
@@ -45,7 +45,12 @@ final class SeriesHighlightView: UIViewNibLoadable {
         }
     }
     
-    func loadImage(imageURL: String) {
+    func loadImage(imageURL: String?) {
+        guard let imageURL = imageURL else {
+            seriesImage.isHidden = true
+            return
+        }
+        
         let placeholderImage = UIImage(systemName: "photo.artframe")
         request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage!)
     }

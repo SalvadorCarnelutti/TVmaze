@@ -30,8 +30,8 @@ struct SeriesDetailEntity: Codable {
         return [name, "#\(number)", String(season)]
     }
     
-    var seriesImageURL: String {
-        return image?.medium ?? ""
+    var seriesImageURL: String? {
+        return image?.medium
     }
 }
 

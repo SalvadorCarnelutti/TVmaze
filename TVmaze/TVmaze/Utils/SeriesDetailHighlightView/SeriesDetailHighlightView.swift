@@ -21,12 +21,12 @@ final class SeriesDetailHighlightView: UIViewNibLoadable {
     @IBOutlet weak var seriesSummaryLabel: UILabel!
     
     // MARK: Lifecycle methods
-    init(infoText: [String], imageURL: String, summary: String?) {
+    init(infoText: [String], imageURL: String?, summary: String?) {
         super.init(frame: CGRect.zero)
         setupSubviews(infoText: infoText, imageURL: imageURL, summary: summary)
     }
     
-    private func setupSubviews(infoText: [String], imageURL: String, summary: String?) {
+    private func setupSubviews(infoText: [String], imageURL: String?, summary: String?) {
         let seriesHightlightView = SeriesHighlightView(infoText: infoText, imageURL: imageURL)
         seriesHightlightView.fixInView(seriesHighlightView)
 
