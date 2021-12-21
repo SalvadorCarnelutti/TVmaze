@@ -16,4 +16,4 @@
 "SeriesNameScoreHeading" = "Score";
 "SeriesEpisodeHeading" = "Episode %d, season %d";
 "SeriesEpisodeAiringHeading" = "Aired on %@";
-
+"HomeTabBarTitle" = "Home";
