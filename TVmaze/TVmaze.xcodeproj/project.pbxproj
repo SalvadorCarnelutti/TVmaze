@@ -62,6 +62,7 @@
 		B4CFDBC5276E2DD3003110CD /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDBC4276E2DD3003110CD /* HomeRouter.swift */; };
 		B4FEF7332771657D00D511EE /* EpisodeDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEF7322771657D00D511EE /* EpisodeDetailInteractor.swift */; };
 		B4FEF73527716DA000D511EE /* EpisodeDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEF73427716DA000D511EE /* EpisodeDetailConfigurator.swift */; };
+		B4FEF7392771858000D511EE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEF7382771858000D511EE /* Date.swift */; };
 		CC00286914C8091917042273 /* Pods_TVmazeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29C84FEF025FEAA80897F8E /* Pods_TVmazeTests.framework */; };
 		EA7A5AC56B37FAE36E82C864 /* Pods_TVmaze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045DD87984632B83B6704174 /* Pods_TVmaze.framework */; };
 /* End PBXBuildFile section */
@@ -149,6 +150,7 @@
 		B4CFDBC4276E2DD3003110CD /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		B4FEF7322771657D00D511EE /* EpisodeDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailInteractor.swift; sourceTree = "<group>"; };
 		B4FEF73427716DA000D511EE /* EpisodeDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailConfigurator.swift; sourceTree = "<group>"; };
+		B4FEF7382771858000D511EE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BF0BB4F17C008D1FD30CD66E /* Pods-TVmazeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVmazeTests.release.xcconfig"; path = "Target Support Files/Pods-TVmazeTests/Pods-TVmazeTests.release.xcconfig"; sourceTree = "<group>"; };
 		D29C84FEF025FEAA80897F8E /* Pods_TVmazeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVmazeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -360,6 +362,7 @@
 				B4CFDB9C276D18A9003110CD /* NibView.swift */,
 				B49B6D192770174400E984D8 /* Color.swift */,
 				B4CFDBAF276D3A42003110CD /* UIView.swift */,
+				B4FEF7382771858000D511EE /* Date.swift */,
 				B49B6D1B2770263000E984D8 /* UILabel.swift */,
 				B4CFDBC0276E1C71003110CD /* UIImageExtension.swift */,
 				B49B6D302770CE1F00E984D8 /* UICollectionViewCell.swift */,
@@ -691,6 +694,7 @@
 				B49B6D24277044C400E984D8 /* UITableViewHeaderFooterView.swift in Sources */,
 				B49B6D1E277029C400E984D8 /* SeriesDetailEntity.swift in Sources */,
 				B4CFDBAE276D2F2A003110CD /* SeriesHighlightView.swift in Sources */,
+				B4FEF7392771858000D511EE /* Date.swift in Sources */,
 				B4CFDB6E276D17DE003110CD /* SceneDelegate.swift in Sources */,
 				B49B6D362770EB7300E984D8 /* SeriesDetailCellView.swift in Sources */,
 			);

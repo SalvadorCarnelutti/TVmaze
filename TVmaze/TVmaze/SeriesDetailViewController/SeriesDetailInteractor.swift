@@ -58,7 +58,7 @@ final class SeriesDetailInteractor: PresenterToInteractorSeriesDetailProtocol {
                     seriesEpisodes.forEach { self?.seriesSeasonsBucket[$0.season].append($0) }
                     self?.presenter?.onFetchEpisodesSuccess()
                 case .failure:
-                    return
+                    self?.presenter?.onFetchEpisodesFailure()
                 }
             }
     }

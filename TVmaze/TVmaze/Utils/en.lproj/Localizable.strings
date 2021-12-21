@@ -14,4 +14,6 @@
 "SeriesDetailTableViewHeaderTitle" = "Season %d";
 "SeriesNameColumnHeading" = "Name";
 "SeriesNameScoreHeading" = "Score";
+"SeriesEpisodeHeading" = "Episode %d, season %d";
+"SeriesEpisodeAiringHeading" = "Aired on %@";
 
