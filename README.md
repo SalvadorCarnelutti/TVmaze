@@ -16,6 +16,9 @@ Project is created with:
 * CocoaPods
 * Alamofire
 * KeychainAccess
+* TVmaze own free public API (https://www.tvmaze.com/api)
 	
 ## Setup
 To run this project, install it locally and it's ready to go
+
+https://www.tvmaze.com/api#people-search
