@@ -11,6 +11,10 @@ public extension UIColor {
     static var caramel: UIColor {
         return UIColor(hexString: "FED797")
     }
+    
+    static var crimson: UIColor {
+        return UIColor(hexString: "DC143C")
+    }
 }
 
 extension UIColor {

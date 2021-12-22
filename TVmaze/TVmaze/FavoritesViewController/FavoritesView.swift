@@ -19,6 +19,9 @@ protocol PresenterToViewFavoritesProtocol: UIView {
 }
 
 final class FavoritesView: UIViewNibLoadable {
+    // MARK: Properties
+    weak var presenter: ViewToPresenterFavoritesProtocol?
+
     // MARK: IBOutlets
     @IBOutlet weak var homeTitle: UILabel! {
         didSet {
@@ -58,10 +61,7 @@ final class FavoritesView: UIViewNibLoadable {
             tableView.isHidden = true
         }
     }
-    
-    // MARK: Properties
-    weak var presenter: ViewToPresenterFavoritesProtocol?
-    
+        
     // MARK: Class methods
     private func setupTableView() {
         tableView.delegate = self

@@ -19,4 +19,10 @@
 "SeriesEpisodeAiringHeading" = "Aired on %@";
 "HomeTabBarTitle" = "Home";
 "FavoritesTabBarTitle" = "Favorites";
-
+"LoginHeading" = "PIN Login";
+"SecurityFactorHeading" = "Set up Security Factor";
+"LoginSkipSecurityFactor" = "Skip security factor";
+"LoginProceedButton" = "Login";
+"LoginSavePINButton" = "Save PIN";
+"LoginTextfiledPlaceholder" = "Set your PIN";
+"LoginDisclaimer" = "Be sure to remember well your PIN number as it can't be reset afterwards!";

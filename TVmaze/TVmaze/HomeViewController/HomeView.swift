@@ -21,6 +21,9 @@ protocol PresenterToViewHomeProtocol: UIView {
 }
 
 final class HomeView: UIViewNibLoadable {
+    // MARK: Properties
+    weak var presenter: ViewToPresenterHomeProtocol?
+
     // MARK: IBOutlets
     @IBOutlet weak var homeTitle: UILabel! {
         didSet {
@@ -52,10 +55,7 @@ final class HomeView: UIViewNibLoadable {
             paginationActivityIndicator.hidesWhenStopped = true
         }
     }
-    
-    // MARK: Properties
-    weak var presenter: ViewToPresenterHomeProtocol?
-    
+
     // MARK: Class methods
     private func setupTableView() {
         tableView.delegate = self

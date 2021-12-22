@@ -91,6 +91,8 @@ extension FavoritesViewController: ViewToPresenterFavoritesProtocol {
     
     func toggleAlphabeticalSort() {
         interactor.toggleAlphabeticalSort()
-        favoritesView.displayTableView()
+        if interactor.seriesCount > 0 {
+            favoritesView.displayTableView()
+        }
     }
 }

@@ -8,6 +8,7 @@ target 'TVmaze' do
   # Pods for TVmaze
 
 pod 'Alamofire'
+pod 'KeychainAccess'
 
   target 'TVmazeTests' do
     inherit! :search_paths

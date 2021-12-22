@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		55C7DF4455E865DEFD82CE09 /* Pods_TVmaze_TVmazeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E033F3FBACA6CD13EF3478F /* Pods_TVmaze_TVmazeUITests.framework */; };
 		B406BBB82772AFA4005C8362 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B406BBB72772AFA4005C8362 /* FavoritesConfigurator.swift */; };
+		B429B5AA2773937300FA25DB /* PinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5A92773937300FA25DB /* PinRouter.swift */; };
 		B4874FD327724DA3006D2BBA /* UITabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */; };
 		B4874FD82772A656006D2BBA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD72772A656006D2BBA /* FavoritesViewController.swift */; };
 		B4874FDA2772A72F006D2BBA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD92772A72F006D2BBA /* FavoritesView.swift */; };
 		B4874FDC2772A845006D2BBA /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FDB2772A845006D2BBA /* FavoritesInteractor.swift */; };
 		B4874FDE2772ABBE006D2BBA /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FDD2772ABBE006D2BBA /* FavoritesRouter.swift */; };
 		B4874FE02772AE03006D2BBA /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4874FDF2772AE03006D2BBA /* FavoritesView.xib */; };
+		B4984F122772F3DE00DBFA2F /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F112772F3DE00DBFA2F /* PINViewController.swift */; };
+		B4984F142772F6B100DBFA2F /* PINInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F132772F6B100DBFA2F /* PINInteractor.swift */; };
+		B4984F16277362DD00DBFA2F /* PINView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4984F15277362DD00DBFA2F /* PINView.xib */; };
+		B4984F18277366E000DBFA2F /* PINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F17277366E000DBFA2F /* PINView.swift */; };
+		B4984F1B27736AF000DBFA2F /* PINNumberDisplayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4984F1A27736AF000DBFA2F /* PINNumberDisplayerView.xib */; };
+		B4984F1D27736B3D00DBFA2F /* PINNumberDisplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F1C27736B3D00DBFA2F /* PINNumberDisplayerView.swift */; };
+		B4984F1F277386E200DBFA2F /* PINConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F1E277386E200DBFA2F /* PINConfigurator.swift */; };
+		B4984F212773883900DBFA2F /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4984F202773883900DBFA2F /* StyledButton.swift */; };
 		B49B6D09276FF2FF00E984D8 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D08276FF2FF00E984D8 /* SeriesDetailViewController.swift */; };
 		B49B6D0B276FF33300E984D8 /* SeriesDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49B6D0A276FF33300E984D8 /* SeriesDetailView.xib */; };
 		B49B6D0D276FF34800E984D8 /* SeriesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D0C276FF34800E984D8 /* SeriesDetailView.swift */; };
@@ -100,12 +109,21 @@
 		745CA3DEA795357D8C43323D /* Pods-TVmaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVmaze.debug.xcconfig"; path = "Target Support Files/Pods-TVmaze/Pods-TVmaze.debug.xcconfig"; sourceTree = "<group>"; };
 		9E033F3FBACA6CD13EF3478F /* Pods_TVmaze_TVmazeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVmaze_TVmazeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B406BBB72772AFA4005C8362 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
+		B429B5A92773937300FA25DB /* PinRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinRouter.swift; sourceTree = "<group>"; };
 		B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarViewController.swift; sourceTree = "<group>"; };
 		B4874FD72772A656006D2BBA /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B4874FD92772A72F006D2BBA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B4874FDB2772A845006D2BBA /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B4874FDD2772ABBE006D2BBA /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		B4874FDF2772AE03006D2BBA /* FavoritesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
+		B4984F112772F3DE00DBFA2F /* PINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINViewController.swift; sourceTree = "<group>"; };
+		B4984F132772F6B100DBFA2F /* PINInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINInteractor.swift; sourceTree = "<group>"; };
+		B4984F15277362DD00DBFA2F /* PINView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PINView.xib; sourceTree = "<group>"; };
+		B4984F17277366E000DBFA2F /* PINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINView.swift; sourceTree = "<group>"; };
+		B4984F1A27736AF000DBFA2F /* PINNumberDisplayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PINNumberDisplayerView.xib; sourceTree = "<group>"; };
+		B4984F1C27736B3D00DBFA2F /* PINNumberDisplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINNumberDisplayerView.swift; sourceTree = "<group>"; };
+		B4984F1E277386E200DBFA2F /* PINConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINConfigurator.swift; sourceTree = "<group>"; };
+		B4984F202773883900DBFA2F /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
 		B49B6D08276FF2FF00E984D8 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
 		B49B6D0A276FF33300E984D8 /* SeriesDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailView.xib; sourceTree = "<group>"; };
 		B49B6D0C276FF34800E984D8 /* SeriesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailView.swift; sourceTree = "<group>"; };
@@ -233,6 +251,29 @@
 			path = FavoritesViewController;
 			sourceTree = "<group>";
 		};
+		B4984F102772F3CC00DBFA2F /* PINViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B4984F1927736ABE00DBFA2F /* NumberDisplayerView */,
+				B4984F112772F3DE00DBFA2F /* PINViewController.swift */,
+				B429B5A92773937300FA25DB /* PinRouter.swift */,
+				B4984F1E277386E200DBFA2F /* PINConfigurator.swift */,
+				B4984F15277362DD00DBFA2F /* PINView.xib */,
+				B4984F17277366E000DBFA2F /* PINView.swift */,
+				B4984F132772F6B100DBFA2F /* PINInteractor.swift */,
+			);
+			path = PINViewController;
+			sourceTree = "<group>";
+		};
+		B4984F1927736ABE00DBFA2F /* NumberDisplayerView */ = {
+			isa = PBXGroup;
+			children = (
+				B4984F1A27736AF000DBFA2F /* PINNumberDisplayerView.xib */,
+				B4984F1C27736B3D00DBFA2F /* PINNumberDisplayerView.swift */,
+			);
+			path = NumberDisplayerView;
+			sourceTree = "<group>";
+		};
 		B49B6D07276FF2E000E984D8 /* SeriesDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +356,7 @@
 			children = (
 				B4CFDBAB276D2E4F003110CD /* SeriesHighlightView.xib */,
 				B4CFDBAD276D2F2A003110CD /* SeriesHighlightView.swift */,
+				B4984F202773883900DBFA2F /* StyledButton.swift */,
 			);
 			path = SeriesHighlightView;
 			sourceTree = "<group>";
@@ -354,6 +396,7 @@
 		B4CFDB6A276D17DE003110CD /* TVmaze */ = {
 			isa = PBXGroup;
 			children = (
+				B4984F102772F3CC00DBFA2F /* PINViewController */,
 				B4874FD62772A629006D2BBA /* FavoritesViewController */,
 				B4CFDBAA276D2DA2003110CD /* Utils */,
 				B49B6D4327713B5D00E984D8 /* EpisodeDetailViewController */,
@@ -555,12 +598,14 @@
 				B4CFDBA2276D1A62003110CD /* HomeView.xib in Resources */,
 				B49B6D342770EB5500E984D8 /* SeriesDetailCellView.xib in Resources */,
 				B49B6D2027703EAA00E984D8 /* SeriesDetailTableViewHeader.xib in Resources */,
+				B4984F1B27736AF000DBFA2F /* PINNumberDisplayerView.xib in Resources */,
 				B4B18FBE276EDAB600B1B323 /* ZeroResultsSearch.xib in Resources */,
 				B4CFDBAC276D2E4F003110CD /* SeriesHighlightView.xib in Resources */,
 				B49B6D272770C7C200E984D8 /* SeriesDetailCollectionView.xib in Resources */,
 				B49B6D4727713BD800E984D8 /* EpisodeDetailView.xib in Resources */,
 				B4874FE02772AE03006D2BBA /* FavoritesView.xib in Resources */,
 				B49B6D1227700B2C00E984D8 /* SeriesDetailHighlightView.xib in Resources */,
+				B4984F16277362DD00DBFA2F /* PINView.xib in Resources */,
 				B49B6D2B2770CD5400E984D8 /* SeriesDetailCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,15 +737,19 @@
 				B49B6D4227712C7E00E984D8 /* SeriesDetailRouter.swift in Sources */,
 				B4CFDBA4276D1A85003110CD /* HomeView.swift in Sources */,
 				B4CFDBA0276D1991003110CD /* HomeViewController.swift in Sources */,
+				B4984F122772F3DE00DBFA2F /* PINViewController.swift in Sources */,
 				B4874FD327724DA3006D2BBA /* UITabBarViewController.swift in Sources */,
+				B4984F1D27736B3D00DBFA2F /* PINNumberDisplayerView.swift in Sources */,
 				B4874FDA2772A72F006D2BBA /* FavoritesView.swift in Sources */,
 				B49B6D4927713CAF00E984D8 /* EpisodeDetailView.swift in Sources */,
 				B49B6D222770402F00E984D8 /* SeriesDetailTableViewHeader.swift in Sources */,
 				B49B6D1A2770174400E984D8 /* Color.swift in Sources */,
 				B49B6D4527713BC500E984D8 /* EpisodeDetailViewController.swift in Sources */,
+				B4984F142772F6B100DBFA2F /* PINInteractor.swift in Sources */,
 				B4CFDB9D276D18A9003110CD /* NibView.swift in Sources */,
 				B4CFDBB6276D4534003110CD /* HomeInteractor.swift in Sources */,
 				B49B6D292770C7D900E984D8 /* SeriesDetailCollectionView.swift in Sources */,
+				B429B5AA2773937300FA25DB /* PinRouter.swift in Sources */,
 				B4CFDBB4276D444B003110CD /* String.swift in Sources */,
 				B4CFDBC5276E2DD3003110CD /* SeriesRouter.swift in Sources */,
 				B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */,
@@ -708,6 +757,7 @@
 				B4CFDBB0276D3A42003110CD /* UIView.swift in Sources */,
 				B4CFDBBA276D47BE003110CD /* StackLabel.swift in Sources */,
 				B4874FDE2772ABBE006D2BBA /* FavoritesRouter.swift in Sources */,
+				B4984F212773883900DBFA2F /* StyledButton.swift in Sources */,
 				B49B6D09276FF2FF00E984D8 /* SeriesDetailViewController.swift in Sources */,
 				B4874FD82772A656006D2BBA /* FavoritesViewController.swift in Sources */,
 				B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */,
@@ -719,6 +769,7 @@
 				B4FEF7332771657D00D511EE /* EpisodeDetailInteractor.swift in Sources */,
 				B4CFDBC3276E2D89003110CD /* HomeConfigurator.swift in Sources */,
 				B49B6D2F2770CDF500E984D8 /* SeriesDetailCollectionViewCell.swift in Sources */,
+				B4984F18277366E000DBFA2F /* PINView.swift in Sources */,
 				B4CFDBC1276E1C71003110CD /* UIImageExtension.swift in Sources */,
 				B4874FDC2772A845006D2BBA /* FavoritesInteractor.swift in Sources */,
 				B4CFDB6C276D17DE003110CD /* AppDelegate.swift in Sources */,
@@ -731,6 +782,7 @@
 				B49B6D1E277029C400E984D8 /* SeriesDetailEntity.swift in Sources */,
 				B4CFDBAE276D2F2A003110CD /* SeriesHighlightView.swift in Sources */,
 				B4FEF7392771858000D511EE /* Date.swift in Sources */,
+				B4984F1F277386E200DBFA2F /* PINConfigurator.swift in Sources */,
 				B4CFDB6E276D17DE003110CD /* SceneDelegate.swift in Sources */,
 				B49B6D362770EB7300E984D8 /* SeriesDetailCellView.swift in Sources */,
 			);

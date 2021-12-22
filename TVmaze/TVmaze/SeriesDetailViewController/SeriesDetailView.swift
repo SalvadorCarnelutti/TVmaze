@@ -15,6 +15,9 @@ protocol PresenterToViewSeriesDetailProtocol: UIView {
 }
 
 final class SeriesDetailView: UIViewNibLoadable {
+    // MARK: Properties
+    weak var presenter: ViewToPresenteSeriesDetailProtocol? = nil
+
     // MARK: IBOutlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
@@ -23,10 +26,7 @@ final class SeriesDetailView: UIViewNibLoadable {
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
-    // MARK: Properties
-    weak var presenter: ViewToPresenteSeriesDetailProtocol? = nil
-    
+        
     // MARK: Class methods
     private func setupTableView() {
         tableView.delegate = self
