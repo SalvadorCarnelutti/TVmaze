@@ -20,6 +20,11 @@ struct HighlightCellInfo {
 }
 
 final class SeriesHighlightView: UIViewNibLoadable, UIGestureRecognizerDelegate {
+    // MARK: Properties
+    private var request: DispatchWorkItem?
+    private var isFavorited: Bool
+    private let highlightCellInfo: HighlightCellInfo?
+
     // MARK: IBOutlets
     @IBOutlet weak var seriesImage: UIImageView! {
         didSet {
@@ -48,12 +53,8 @@ final class SeriesHighlightView: UIViewNibLoadable, UIGestureRecognizerDelegate 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: Properties
-    private var request: DispatchWorkItem?
-    private var isFavorited: Bool
-    private let highlightCellInfo: HighlightCellInfo?
-    
+        
+    // MARK: Class methods
     private func setupSubviews(highlightInfo: HighlightInfo, showFavoriteStatusBar: Bool = true) {
         loadInfoData(infoText: highlightInfo.infoText)
         loadImage(imageURL: highlightInfo.imageURL)

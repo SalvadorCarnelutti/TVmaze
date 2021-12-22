@@ -18,7 +18,7 @@ final class EpisodeDetailView: UIViewNibLoadable {
 
 extension EpisodeDetailView: PresenterToViewEpisodeDetailProtocol {
     func setupView(with seriesDetailEntity: SeriesDetailEntity) {
-        let detailHighlightView = SeriesDetailHighlightView(detailHighlightInfo: seriesDetailEntity.episodeDetailHighlightInfo)
+        let detailHighlightView = EpisodeDetailHighlightView(detailHighlightInfo: seriesDetailEntity.episodeDetailHighlightInfo)
         detailHighlightView.fixInView(detailHighlightContainer)
     }
 }

@@ -31,6 +31,7 @@ final class SeriesDetailHighlightView: UIViewNibLoadable {
         setupSubviews(detailHighlightInfo: detailHighlightInfo, highlightCellInfo: highlightCellInfo)
     }
     
+    // MARK: Class methods
     private func setupSubviews(detailHighlightInfo: DetailHighlightInfo, highlightCellInfo: HighlightCellInfo?) {
         let seriesHightlightView = SeriesHighlightView(highlightInfo: detailHighlightInfo.highlightInfo,
                                                        highlightCellInfo: highlightCellInfo)
