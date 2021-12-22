@@ -14,11 +14,13 @@ protocol InteractorToPresenterFavoritesProtocol: AnyObject {
 }
 
 protocol ViewToPresenterFavoritesProtocol: UIViewController {
+    var isAlphabeticallySorted: Bool { get }
     var numberOfRowsInSection: Int { get }
     func presentSeriesDetail(for indexPath: IndexPath)
     func seriesAt(indexPath: IndexPath) -> HomeEntity
     func toggleFavoriteStatusAt(_ indexPath: IndexPath)
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo
+    func toggleAlphabeticalSort()
 }
 
 final class FavoritesViewController: UIViewController {
@@ -61,6 +63,10 @@ extension FavoritesViewController: InteractorToPresenterFavoritesProtocol {
 
 // MARK: ViewToPresenterFavoritesProtocol
 extension FavoritesViewController: ViewToPresenterFavoritesProtocol {
+    var isAlphabeticallySorted: Bool {
+        return interactor.isAlphabeticallySorted
+    }
+    
     var numberOfRowsInSection: Int {
         return interactor.seriesCount
     }
@@ -81,5 +87,10 @@ extension FavoritesViewController: ViewToPresenterFavoritesProtocol {
     
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo {
         return interactor.highlightCellInfoAt(indexPath: indexPath)
+    }
+    
+    func toggleAlphabeticalSort() {
+        interactor.toggleAlphabeticalSort()
+        favoritesView.displayTableView()
     }
 }

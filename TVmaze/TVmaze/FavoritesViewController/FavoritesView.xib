@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,9 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesView" customModule="TVmaze" customModuleProvider="target">
             <connections>
+                <outlet property="aSquareImage" destination="ca2-c1-tOS" id="fBJ-nZ-SsM"/>
                 <outlet property="activityIndicator" destination="Ccu-PU-oKY" id="v8b-tO-t0m"/>
+                <outlet property="alphabeticalSortContainer" destination="Oyo-wE-WmS" id="imf-OR-9if"/>
                 <outlet property="homeTitle" destination="DzE-YP-BGO" id="l1j-9R-uaC"/>
                 <outlet property="tableView" destination="CgN-Gp-9lG" id="rQ7-Dq-OpI"/>
+                <outlet property="zSquareImage" destination="Iwa-Zj-JSe" id="fIW-td-3sI"/>
                 <outlet property="zeroFavoritesFoundView" destination="NU0-f7-0KM" id="Vku-Il-rfr"/>
             </connections>
         </placeholder>
@@ -21,26 +25,56 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVmaze" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-YP-BGO">
-                    <rect key="frame" x="20" y="0.0" width="126" height="38.5"/>
+                    <rect key="frame" x="20" y="44" width="126" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CgN-Gp-9lG">
-                    <rect key="frame" x="10" y="48.5" width="394" height="847.5"/>
+                    <rect key="frame" x="10" y="92.5" width="394" height="769.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="38.5" translatesAutoresizingMaskIntoConstraints="NO" id="NU0-f7-0KM">
-                    <rect key="frame" x="10" y="48.5" width="394" height="847.5"/>
+                    <rect key="frame" x="10" y="92.5" width="394" height="769.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ccu-PU-oKY">
-                    <rect key="frame" x="188.5" y="454" width="37" height="37"/>
+                    <rect key="frame" x="188.5" y="459" width="37" height="37"/>
                 </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyo-wE-WmS">
+                    <rect key="frame" x="339" y="38.5" width="65" height="50"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="z.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Iwa-Zj-JSe">
+                            <rect key="frame" x="25" y="11" width="40" height="37.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="1Y6-HE-aoU"/>
+                                <constraint firstAttribute="width" secondItem="Iwa-Zj-JSe" secondAttribute="height" multiplier="1:1" id="2ru-OQ-9WY"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ca2-c1-tOS">
+                            <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ca2-c1-tOS" secondAttribute="height" multiplier="1:1" id="6hi-ON-PkH"/>
+                                <constraint firstAttribute="height" constant="40" id="qBg-gB-uFu"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ca2-c1-tOS" firstAttribute="leading" secondItem="Oyo-wE-WmS" secondAttribute="leading" id="1Be-wG-elT"/>
+                        <constraint firstItem="ca2-c1-tOS" firstAttribute="top" secondItem="Oyo-wE-WmS" secondAttribute="top" id="3nf-3F-ZR8"/>
+                        <constraint firstItem="Iwa-Zj-JSe" firstAttribute="top" secondItem="ca2-c1-tOS" secondAttribute="bottom" constant="-30" id="KDn-ZS-G5u"/>
+                        <constraint firstAttribute="trailing" secondItem="Iwa-Zj-JSe" secondAttribute="trailing" id="Wvs-Rc-ipD"/>
+                        <constraint firstItem="Iwa-Zj-JSe" firstAttribute="leading" secondItem="ca2-c1-tOS" secondAttribute="trailing" constant="-15" id="dOQ-5Q-RUd"/>
+                        <constraint firstAttribute="bottom" secondItem="Iwa-Zj-JSe" secondAttribute="bottom" id="hRI-cQ-fwu"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="irY-mh-fuj"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Oyo-wE-WmS" firstAttribute="centerY" secondItem="DzE-YP-BGO" secondAttribute="centerY" id="0dG-Lw-zm1"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="7OG-bV-gw9"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="D2X-cN-2gn"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" constant="10" id="DtQ-zB-ffs"/>
@@ -53,11 +87,14 @@
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="centerY" id="iTh-nP-IV7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="oHK-Dp-RLA"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="10" id="roo-al-Jfw"/>
+                <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="Oyo-wE-WmS" secondAttribute="trailing" constant="10" id="zaQ-lP-8YG"/>
             </constraints>
             <point key="canvasLocation" x="-120" y="49"/>
         </view>
     </objects>
     <resources>
+        <image name="a.square" catalog="system" width="128" height="114"/>
+        <image name="z.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

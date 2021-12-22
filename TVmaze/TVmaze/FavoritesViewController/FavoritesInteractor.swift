@@ -9,17 +9,26 @@ import Foundation
 
 protocol PresenterToInteractorFavoritesProtocol: AnyObject {
     var presenter: InteractorToPresenterFavoritesProtocol? { get set }
+    var isAlphabeticallySorted: Bool { get }
     var tabTitle: String { get }
     var seriesCount: Int { get }
     func loadFavorites(favoriteSeries: [HomeEntity])
     func seriesInfoAt(indexPath: IndexPath) -> HomeEntity
     func toggleFavoriteStatusAt(_ indexPath: IndexPath)
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo
+    func toggleAlphabeticalSort()
 }
 
 final class FavoritesInteractor: PresenterToInteractorFavoritesProtocol {
     // MARK: Properties
-    private var series: [HomeEntity] = []
+    private(set) var isAlphabeticallySorted: Bool = false
+    private var series: [HomeEntity] = [] {
+        didSet {
+            alphabeticallySortedSeries = series.sorted(by: { $0.series.name < $1.series.name })
+        }
+    }
+    
+    private var alphabeticallySortedSeries: [HomeEntity] = []
     weak var presenter: InteractorToPresenterFavoritesProtocol?
 
     var tabTitle: String {
@@ -37,12 +46,15 @@ final class FavoritesInteractor: PresenterToInteractorFavoritesProtocol {
     }
     
     func seriesInfoAt(indexPath: IndexPath) -> HomeEntity {
-        return series[indexPath.row]
+        return isAlphabeticallySorted ?
+        alphabeticallySortedSeries[indexPath.row] : series[indexPath.row]
     }
     
     func toggleFavoriteStatusAt(_ indexPath: IndexPath) {
-        series[indexPath.row].toggleFavoriteStatus()
-        if !series[indexPath.row].isFavorited {
+        if isAlphabeticallySorted {
+            series.removeAll(where: { $0.series.id == alphabeticallySortedSeries[indexPath.row].series.id })
+            presenter?.onFavoriteRemovalAt(indexPath: indexPath)
+        } else {
             series.remove(at: indexPath.row)
             presenter?.onFavoriteRemovalAt(indexPath: indexPath)
         }
@@ -52,5 +64,9 @@ final class FavoritesInteractor: PresenterToInteractorFavoritesProtocol {
         return HighlightCellInfo(indexPath: indexPath,
                                  cellClosure: presenter!.favoriteTapClosure,
                                  insideCell: true)
+    }
+    
+    func toggleAlphabeticalSort() {
+        isAlphabeticallySorted.toggle()
     }
 }

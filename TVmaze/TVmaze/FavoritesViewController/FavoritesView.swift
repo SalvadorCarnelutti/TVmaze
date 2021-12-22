@@ -27,6 +27,20 @@ final class FavoritesView: UIViewNibLoadable {
         }
     }
     
+    @IBOutlet weak var alphabeticalSortContainer: UIView!
+    
+    @IBOutlet weak var aSquareImage: UIImageView! {
+        didSet {
+            aSquareImage.isUserInteractionEnabled = false
+        }
+    }
+    
+    @IBOutlet weak var zSquareImage: UIImageView! {
+        didSet {
+            zSquareImage.isUserInteractionEnabled = false
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
@@ -69,6 +83,8 @@ extension FavoritesView: PresenterToViewFavoritesProtocol {
     
     func setupView() {
         setupTableView()
+        let favoriteTap = UITapGestureRecognizer(target: self, action: #selector(self.handleSortTap))
+        alphabeticalSortContainer.addGestureRecognizer(favoriteTap)
     }
     
     func displayTableView() {
@@ -100,6 +116,18 @@ extension FavoritesView: PresenterToViewFavoritesProtocol {
     
     private func hideAllActivityIndicators() {
         hideActivityIndicator()
+    }
+    
+    @objc private func handleSortTap() {
+        guard let presenter = presenter else {
+            return
+        }
+        
+        presenter.toggleAlphabeticalSort()
+        let aImageName = presenter.isAlphabeticallySorted ? "a.square.fill" : "a.square"
+        let zImageName = presenter.isAlphabeticallySorted ? "z.square.fill" : "z.square"
+        aSquareImage.image = UIImage(systemName: aImageName)
+        zSquareImage.image = UIImage(systemName: zImageName)
     }
 }
 
