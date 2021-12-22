@@ -8,9 +8,9 @@
 import UIKit
 
 final class ZeroResultsSearch: UIViewNibLoadable {
-    @IBOutlet weak var messageLabel: UILabel! {
-        didSet {
-            messageLabel.text = "ZeroResultMessage".localized()
-        }
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    func setupView(with messageText: String) {
+        messageLabel.text = messageText
     }
 }

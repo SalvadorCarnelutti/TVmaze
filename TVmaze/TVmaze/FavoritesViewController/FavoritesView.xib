@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,13 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeView" customModule="TVmaze" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesView" customModule="TVmaze" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="Ccu-PU-oKY" id="TG5-HZ-cne"/>
-                <outlet property="homeTitle" destination="DzE-YP-BGO" id="cdj-Vb-CCb"/>
-                <outlet property="paginationActivityIndicator" destination="0ip-YE-sBT" id="Sy0-nB-FsD"/>
-                <outlet property="tableView" destination="CgN-Gp-9lG" id="peG-ho-Owr"/>
-                <outlet property="zeroSeriesFoundView" destination="NU0-f7-0KM" id="huv-BO-rEA"/>
+                <outlet property="activityIndicator" destination="Ccu-PU-oKY" id="v8b-tO-t0m"/>
+                <outlet property="homeTitle" destination="DzE-YP-BGO" id="l1j-9R-uaC"/>
+                <outlet property="tableView" destination="CgN-Gp-9lG" id="rQ7-Dq-OpI"/>
+                <outlet property="zeroFavoritesFoundView" destination="NU0-f7-0KM" id="Vku-Il-rfr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,24 +21,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TVmaze" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-YP-BGO">
-                    <rect key="frame" x="20" y="44" width="126" height="38.5"/>
+                    <rect key="frame" x="20" y="0.0" width="126" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CgN-Gp-9lG">
-                    <rect key="frame" x="10" y="92.5" width="394" height="769.5"/>
+                    <rect key="frame" x="10" y="48.5" width="394" height="847.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="38.5" translatesAutoresizingMaskIntoConstraints="NO" id="NU0-f7-0KM">
-                    <rect key="frame" x="10" y="92.5" width="394" height="769.5"/>
+                    <rect key="frame" x="10" y="48.5" width="394" height="847.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ccu-PU-oKY">
-                    <rect key="frame" x="188.5" y="459" width="37" height="37"/>
-                </activityIndicatorView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="0ip-YE-sBT">
-                    <rect key="frame" x="188.5" y="825" width="37" height="37"/>
+                    <rect key="frame" x="188.5" y="454" width="37" height="37"/>
                 </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="irY-mh-fuj"/>
@@ -51,12 +46,10 @@
                 <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" constant="10" id="DtQ-zB-ffs"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="NU0-f7-0KM" secondAttribute="bottom" id="FHf-K0-jje"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="top" secondItem="irY-mh-fuj" secondAttribute="top" id="GEV-qk-z3a"/>
-                <constraint firstItem="0ip-YE-sBT" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="IX4-dx-Cl7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" id="RPL-2P-uLE"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="leading" secondItem="CgN-Gp-9lG" secondAttribute="leading" id="Rdq-CP-cxi"/>
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerX" secondItem="CgN-Gp-9lG" secondAttribute="centerX" id="S78-wZ-a49"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="afm-6L-hoI"/>
-                <constraint firstItem="0ip-YE-sBT" firstAttribute="centerX" secondItem="irY-mh-fuj" secondAttribute="centerX" id="elX-R3-F1R"/>
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="centerY" id="iTh-nP-IV7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="oHK-Dp-RLA"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="10" id="roo-al-Jfw"/>

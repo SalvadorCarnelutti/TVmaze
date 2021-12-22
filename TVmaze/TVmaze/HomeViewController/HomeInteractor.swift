@@ -10,20 +10,19 @@ import Alamofire
 
 protocol PresenterToInteractorHomeProtocol: AnyObject {
     var presenter: InteractorToPresenterHomeProtocol? { get set }
+    var tabTitle: String { get }
     var seriesCount: Int { get }
     var isFirstPage: Bool { get }
-    var filteredSeriesCount: Int { get }
+    var getFavorites: [HomeEntity] { get }
     func getSeries()
     func getFilteredSeries(string: String)
-    func seriesInfoAt(index: Int) -> HomeEntity
-    func filteredSeriesInfoAt(index: Int) -> HomeEntity
+    func seriesInfoAt(indexPath: IndexPath) -> HomeEntity
     func toggleFavoriteStatusAt(_ indexPath: IndexPath)
-    func toggleFilteredFavoriteStatusAt(_ indexPath: IndexPath)
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo
+    func resetSeriesFavoriteStatus()
 }
 
 final class HomeInteractor: PresenterToInteractorHomeProtocol {
-    
     // MARK: Properties
     private let seriesURL = "https://api.tvmaze.com/shows"
     private let seriesSearchURL = "https://api.tvmaze.com/search/shows"
@@ -34,39 +33,43 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
     private var filteredSeries: [HomeEntity] = []
     weak var presenter: InteractorToPresenterHomeProtocol?
     
+    var tabTitle: String {
+        return "HomeTabBarTitle".localized()
+    }
+    
     var isFirstPage: Bool {
         return currentPage == 0
     }
 
     var seriesCount: Int {
-        return series.count
+        return (presenter?.isFiltering ?? false) ? filteredSeries.count : series.count
     }
     
-    var filteredSeriesCount: Int {
-        return filteredSeries.count
+    var getFavorites: [HomeEntity] {
+        return (presenter?.isFiltering ?? false) ?
+        filteredSeries.filter { $0.isFavorited } : series.filter { $0.isFavorited }
     }
     
     // MARK: Class methods
-    func seriesInfoAt(index: Int) -> HomeEntity {
-        return series[index]
-    }
-    
-    func filteredSeriesInfoAt(index: Int) -> HomeEntity {
-        return filteredSeries[index]
+    func seriesInfoAt(indexPath: IndexPath) -> HomeEntity {
+        return (presenter?.isFiltering ?? false) ?
+        filteredSeries[indexPath.row] : series[indexPath.row]
     }
     
     func toggleFavoriteStatusAt(_ indexPath: IndexPath) {
-        series[indexPath.row].toggleFavoriteStatus()
-    }
-    
-    func toggleFilteredFavoriteStatusAt(_ indexPath: IndexPath) {
-        filteredSeries[indexPath.row].toggleFavoriteStatus()
+        (presenter?.isFiltering ?? false) ?
+        filteredSeries[indexPath.row].toggleFavoriteStatus() : series[indexPath.row].toggleFavoriteStatus()
     }
     
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo {
         return HighlightCellInfo(indexPath: indexPath,
                                  cellClosure: presenter!.favoriteTapClosure,
                                  insideCell: true)
+    }
+    
+    func resetSeriesFavoriteStatus() {
+        series.indices.forEach { series[$0].resetFavoriteStatus() }
+        presenter?.onFavoritesStatusReset()
     }
     
     func getSeries() {
@@ -125,9 +128,5 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
         let startIndex = seriesCount
         let endIndex = startIndex + newSeries.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
-    }
-    
-    private func resetSeriesFavoriteStatus() {
-        series.indices.forEach { series[$0].resetFavoriteStatus() }
     }
 }

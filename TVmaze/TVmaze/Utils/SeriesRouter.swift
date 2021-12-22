@@ -7,17 +7,18 @@
 
 import UIKit
 
-protocol PresenterToRouterHomeProtocol: AnyObject {
+protocol PresenterToRouterSeriesProtocol: AnyObject {
     var presenter: UIViewController? { get set }
     func presentSeriesDetail(homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo)
 }
 
-final class HomeRouter: PresenterToRouterHomeProtocol  {
+final class SeriesRouter: PresenterToRouterSeriesProtocol {
     weak var presenter: UIViewController?
     
     func presentSeriesDetail(homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
         let viewController = SeriesDetailViewController()
-        SeriesDetailConfigurator.injectDependencies(presenter: viewController, homeEntity: homeEntity, highlightCellInfo: highlightCellInfo)
+        SeriesDetailConfigurator.injectDependencies(presenter: viewController, homeEntity: homeEntity,
+                                                    highlightCellInfo: highlightCellInfo)
         presenter?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

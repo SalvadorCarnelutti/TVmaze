@@ -9,12 +9,14 @@ import UIKit
 import Alamofire
 
 protocol InteractorToPresenterHomeProtocol: AnyObject {
+    var isFiltering: Bool { get }
     var favoriteTapClosure: (_ indexPath: IndexPath) -> () { get }
     func onFetchSeriesSuccess()
     func onFetchSeriesSuccess(newIndexPaths: [IndexPath])
     func onFetchSeriesFailure()
     func onFetchFilteredSeriesSuccessZeroResults()
     func onFetchFilteredSeriesSuccessNonzeroResult()
+    func onFavoritesStatusReset()
 }
 
 protocol ViewToPresenterHomeProtocol: UIViewController {
@@ -34,7 +36,7 @@ final class HomeViewController: UIViewController {
     private var searchTask: DispatchWorkItem?
     var homeView: PresenterToViewHomeProtocol!
     var interactor: PresenterToInteractorHomeProtocol!
-    var router: PresenterToRouterHomeProtocol!
+    var router: PresenterToRouterSeriesProtocol!
     
     // MARK: Lifecycle methods
     override func loadView() {
@@ -44,7 +46,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "HomeTabBarTitle".localized()
+        title = interactor.tabTitle
         homeView.setupView()
         setupSearchController()
     }
@@ -88,15 +90,20 @@ extension HomeViewController: InteractorToPresenterHomeProtocol {
     func onFetchFilteredSeriesSuccessNonzeroResult() {
         homeView.displayTableView()
     }
+    
+    func onFavoritesStatusReset() {
+        homeView.displayTableView()
+    }
 }
 
+// MARK: ViewToPresenterHomeProtocol
 extension HomeViewController: ViewToPresenterHomeProtocol {
     var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
     }
     
     var numberOfRowsInSection: Int {
-        return isFiltering ? interactor.filteredSeriesCount : interactor.seriesCount
+        return interactor.seriesCount
     }
     
     func getSeries() {
@@ -105,19 +112,17 @@ extension HomeViewController: ViewToPresenterHomeProtocol {
     }
     
     func seriesAt(indexPath: IndexPath) -> HomeEntity {
-        return isFiltering ?
-        interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
+        return interactor.seriesInfoAt(indexPath: indexPath)
     }
     
     func presentSeriesDetail(for indexPath: IndexPath) {
-        let homeEntity = isFiltering ?
-        interactor.filteredSeriesInfoAt(index: indexPath.row) : interactor.seriesInfoAt(index: indexPath.row)
-        router.presentSeriesDetail(homeEntity: homeEntity, highlightCellInfo: interactor.highlightCellInfoAt(indexPath: indexPath))
+        let homeEntity = interactor.seriesInfoAt(indexPath: indexPath)
+        router.presentSeriesDetail(homeEntity: homeEntity,
+                                   highlightCellInfo: interactor.highlightCellInfoAt(indexPath: indexPath))
     }
     
     func toggleFavoriteStatusAt(_ indexPath: IndexPath) {
-        isFiltering ?
-        interactor.toggleFilteredFavoriteStatusAt(indexPath) : interactor.toggleFavoriteStatusAt(indexPath)
+        interactor.toggleFavoriteStatusAt(indexPath)
         homeView.reloadCellAt(indexPath: IndexPath(row: indexPath.row, section: 0))
     }
     

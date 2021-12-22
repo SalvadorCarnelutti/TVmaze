@@ -9,6 +9,7 @@
 "HomeTitle" = "TVmaze";
 "HomeSearchBar" = "Search movies";
 "ZeroResultMessage" = "No results for current search, please try again with a different combination";
+"ZeroFavoritesMessage" = "No current favorites added, try adding some!!";
 "ScheduleDaysPrefix" = "Every";
 "ScheduleTimePrefix" = "at";
 "SeriesDetailTableViewHeaderTitle" = "Season %d";
@@ -17,3 +18,5 @@
 "SeriesEpisodeHeading" = "Episode %d, season %d";
 "SeriesEpisodeAiringHeading" = "Aired on %@";
 "HomeTabBarTitle" = "Home";
+"FavoritesTabBarTitle" = "Favorites";
+

@@ -22,15 +22,37 @@ class UITabBarViewController: UITabBarController {
         let tabOneBarItem = UITabBarItem(title: "HomeTabBarTitle".localized(),
                                          image: UIImage(systemName: "house"),
                                          selectedImage: UIImage(systemName: "house.fill"))
-        
+
         tabOneViewController.tabBarItem = tabOneBarItem
         
-        self.viewControllers = [tabOneViewController]
+        let favoritesViewController = FavoritesViewController()
+        FavoritesConfigurator.injectDependencies(presenter: favoritesViewController)
+        let tabTwoViewController = UINavigationController(rootViewController: favoritesViewController)
+
+        let tabTwoBarItem = UITabBarItem(title: "FavoritesTabBarTitle".localized(),
+                                         image: UIImage(systemName: "star"),
+                                         selectedImage: UIImage(systemName: "star.fill"))
+        
+        tabTwoViewController.tabBarItem = tabTwoBarItem
+
+        self.viewControllers = [tabOneViewController, tabTwoViewController]
     }
 }
 
-extension UITabBarViewController : UITabBarControllerDelegate {
+extension UITabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("Selected \(String(describing: viewController.title))")
+        guard let homeNavigationController = viewControllers?[0] as? UINavigationController,
+              let homeViewController = homeNavigationController.viewControllers[0] as? HomeViewController,
+              let favoritesNavigationController = viewControllers?[1] as? UINavigationController,
+              let favoritesViewController = favoritesNavigationController.viewControllers[0] as? FavoritesViewController else {
+                  return
+              }
+        
+        switch selectedIndex {
+        case 0:
+            homeViewController.interactor.resetSeriesFavoriteStatus()
+        default:
+            favoritesViewController.interactor.loadFavorites(favoriteSeries: homeViewController.interactor.getFavorites)
+        }
     }
 }

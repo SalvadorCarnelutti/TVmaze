@@ -1,26 +1,24 @@
 //
-//  HomeView.swift
+//  FavoritesView.swift
 //  TVmaze
 //
-//  Created by Salvador on 12/17/21.
+//  Created by Salvador on 12/21/21.
 //
+
 
 import UIKit
 
-protocol PresenterToViewHomeProtocol: UIView {
-    var presenter: ViewToPresenterHomeProtocol? { get set }
+protocol PresenterToViewFavoritesProtocol: UIView {
+    var presenter: ViewToPresenterFavoritesProtocol? { get set }
     func setupView()
     func displayTableView()
-    func reloadCellAt(indexPath: IndexPath)
-    func displayTableView(with newIndexPaths: [IndexPath])
+    func removeCellAt(indexPath: IndexPath)
     func displayZeroSeriesMessage()
     func showActivityIndicator()
     func hideActivityIndicator()
-    func showPaginationActivityIndicator()
-    func hidePaginationActivityIndicator()
 }
 
-final class HomeView: UIViewNibLoadable {
+final class FavoritesView: UIViewNibLoadable {
     // MARK: IBOutlets
     @IBOutlet weak var homeTitle: UILabel! {
         didSet {
@@ -30,53 +28,37 @@ final class HomeView: UIViewNibLoadable {
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
         didSet {
             activityIndicator.hidesWhenStopped = true
         }
     }
     
-    @IBOutlet weak var zeroSeriesFoundView: UIView! {
+    @IBOutlet weak var zeroFavoritesFoundView: UIView! {
         didSet {
             let zeroResultsSearch = ZeroResultsSearch()
-            zeroResultsSearch.setupView(with: "ZeroResultMessage".localized())
-            zeroResultsSearch.fixInView(zeroSeriesFoundView)
-            zeroSeriesFoundView.isHidden = false
+            zeroResultsSearch.setupView(with: "ZeroFavoritesMessage".localized())
+            zeroResultsSearch.fixInView(zeroFavoritesFoundView)
+            zeroFavoritesFoundView.isHidden = false
             tableView.isHidden = true
         }
     }
     
-    @IBOutlet weak var paginationActivityIndicator: UIActivityIndicatorView! {
-        didSet {
-            paginationActivityIndicator.hidesWhenStopped = true
-        }
-    }
-    
     // MARK: Properties
-    weak var presenter: ViewToPresenterHomeProtocol?
+    weak var presenter: ViewToPresenterFavoritesProtocol?
     
     // MARK: Class methods
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.prefetchDataSource = self
         tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
                            forCellReuseIdentifier: HomeCellView.identifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
-    
-    private func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        let lastCurrentIndex = (presenter?.numberOfRowsInSection ?? 0) - 1
-        return indexPath.row >= lastCurrentIndex
-    }
 }
 
-extension HomeView: PresenterToViewHomeProtocol {
-    func reloadCellAt(indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .none)
-    }
-    
+extension FavoritesView: PresenterToViewFavoritesProtocol {
     func showActivityIndicator() {
         activityIndicator.startAnimating()
     }
@@ -85,21 +67,17 @@ extension HomeView: PresenterToViewHomeProtocol {
         activityIndicator.stopAnimating()
     }
     
-    func showPaginationActivityIndicator() {
-        paginationActivityIndicator.startAnimating()
-    }
-    
-    func hidePaginationActivityIndicator() {
-        paginationActivityIndicator.stopAnimating()
-    }
-    
     func setupView() {
         setupTableView()
-        presenter?.getSeries()
     }
     
     func displayTableView() {
         displayTable()
+        tableView.reloadData()
+    }
+    
+    func removeCellAt(indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.reloadData()
     }
     
@@ -111,33 +89,22 @@ extension HomeView: PresenterToViewHomeProtocol {
     func displayZeroSeriesMessage() {
         hideAllActivityIndicators()
         tableView.isHidden = true
-        zeroSeriesFoundView.isHidden = false
+        zeroFavoritesFoundView.isHidden = false
     }
     
     private func displayTable() {
         hideAllActivityIndicators()
         tableView.isHidden = false
-        zeroSeriesFoundView.isHidden = true
+        zeroFavoritesFoundView.isHidden = true
     }
     
     private func hideAllActivityIndicators() {
         hideActivityIndicator()
-        hidePaginationActivityIndicator()
     }
 }
 
 // MARK: TableView methods
-extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard let presenter = presenter,
-        !presenter.isFiltering,
-        indexPaths.contains(where: isLoadingCell) else {
-            return
-        }
-        
-        presenter.getSeries()
-    }
-    
+extension FavoritesView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.numberOfRowsInSection ?? 0
     }
