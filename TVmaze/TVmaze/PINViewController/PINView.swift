@@ -39,9 +39,6 @@ final class PINView: UIViewNibLoadable {
         didSet {
             pinTextfield.keyboardType = .numberPad
             pinTextfield.textAlignment = .center
-            pinTextfield.attributedPlaceholder = NSAttributedString(string: "LoginTextfiledPlaceholder".localized(),
-                                                                    attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
-                                                                                 NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         }
     }
     
@@ -97,11 +94,19 @@ extension PINView: PresenterToViewPINProtocol {
     }
 
     func setupViewWith(securityFactorSet: Bool) {
+        guard let presenter = presenter else {
+            return
+        }
+        
         setupPinView()
         pinTextfield.delegate = presenter
 
-        headingTitle.text = presenter?.headingTitle
-        proceedButton.setTitle(presenter?.proceedButtonTitle, for: .normal)
+        headingTitle.text = presenter.headingTitle
+        proceedButton.setTitle(presenter.proceedButtonTitle, for: .normal)
+        pinTextfield.attributedPlaceholder = NSAttributedString(string: presenter.textfieldPlaceholderTitle,
+                                                                attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+                                                                             NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
         skipButton.isHidden = securityFactorSet
         disclamerLabel.isHidden = securityFactorSet
     }

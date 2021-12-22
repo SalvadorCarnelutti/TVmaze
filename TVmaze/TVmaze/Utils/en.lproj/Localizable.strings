@@ -24,5 +24,6 @@
 "LoginSkipSecurityFactor" = "Skip security factor";
 "LoginProceedButton" = "Login";
 "LoginSavePINButton" = "Save PIN";
-"LoginTextfiledPlaceholder" = "Set your PIN";
+"LoginTextfieldSecurityFactorPlaceholder" = "Set your PIN";
+"LoginTextfieldProceedPlaceholder" = "Enter your PIN";
 "LoginDisclaimer" = "Be sure to remember well your PIN number as it can't be reset afterwards!";

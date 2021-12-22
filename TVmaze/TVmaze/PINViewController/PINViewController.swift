@@ -10,6 +10,7 @@ import UIKit
 protocol ViewToPresenterVPINProtocol: UITextFieldDelegate {
     var headingTitle: String { get }
     var proceedButtonTitle: String { get }
+    var textfieldPlaceholderTitle: String { get }
     var hasSetPINSEcurityFactor: Bool { get }
     func onProceedAction()
     func onSkipSecurityFactorAction()
@@ -41,6 +42,10 @@ extension PINViewController: ViewToPresenterVPINProtocol {
     
     var proceedButtonTitle: String {
         return interactor.proceedButtonTitle
+    }
+    
+    var textfieldPlaceholderTitle: String {
+        return interactor.textfieldPlaceholderTitle
     }
     
     var hasSetPINSEcurityFactor: Bool {

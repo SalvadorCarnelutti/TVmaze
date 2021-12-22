@@ -45,9 +45,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set up your PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bN-Bz-i2H">
-                    <rect key="frame" x="147" y="247" width="120" height="40"/>
+                    <rect key="frame" x="137" y="247" width="140" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="5Dn-pJ-NsU"/>
+                        <constraint firstAttribute="width" constant="140" id="5Dn-pJ-NsU"/>
                         <constraint firstAttribute="height" constant="40" id="Wqj-2M-rWU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

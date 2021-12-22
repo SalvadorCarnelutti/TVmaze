@@ -11,6 +11,7 @@ import KeychainAccess
 protocol PresenterToInteractorPINProtocol: AnyObject {
     var headingTitle: String { get }
     var proceedButtonTitle: String { get }
+    var textfieldPlaceholderTitle: String { get }
     var canSubmitPINNumber: Bool { get }
     var isPinNumberCorrect: Bool { get }
     var hasSetPINSecurityFactor: Bool { get }
@@ -32,7 +33,11 @@ final class PINInteractor: PresenterToInteractorPINProtocol {
         return hasSetPINSecurityFactor ? "LoginProceedButton".localized() : "LoginSavePINButton".localized()
     }
 
-    
+    var textfieldPlaceholderTitle: String {
+        return hasSetPINSecurityFactor ?
+        "LoginTextfieldProceedPlaceholder".localized() : "LoginTextfieldSecurityFactorPlaceholder".localized()
+    }
+
     var canSubmitPINNumber: Bool {
         return currentPassword.count == PINInteractor.pinLenght
     }
@@ -45,14 +50,16 @@ final class PINInteractor: PresenterToInteractorPINProtocol {
         return getSavedPINPassword != nil
     }
     
+    private var getSavedPINPassword: String? {
+        let keychain = Keychain()
+        return keychain[PINInteractor.staticUsername]
+    }
+    
     func setPINPassword() {
         let keychain = Keychain()
         keychain[PINInteractor.staticUsername] = currentPassword
     }
-    var getSavedPINPassword: String? {
-        let keychain = Keychain()
-        return keychain[PINInteractor.staticUsername]
-    }
+
     
     func updateInputPinWith(string: String) {
         currentPassword = string
