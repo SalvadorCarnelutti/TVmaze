@@ -34,8 +34,18 @@ class UITabBarViewController: UITabBarController {
                                          selectedImage: UIImage(systemName: "star.fill"))
         
         tabTwoViewController.tabBarItem = tabTwoBarItem
+        
+        let peopleSearchViewController = PeopleSearchViewController()
+        PeopleSearchConfigurator.injectDependencies(presenter: peopleSearchViewController)
+        let tabThreeViewController = UINavigationController(rootViewController: peopleSearchViewController)
 
-        self.viewControllers = [tabOneViewController, tabTwoViewController]
+        let tabThreeBarItem = UITabBarItem(title: "PeopleSearchTabBarTitle".localized(),
+                                         image: UIImage(systemName: "person"),
+                                         selectedImage: UIImage(systemName: "person.fill"))
+        
+        tabThreeViewController.tabBarItem = tabThreeBarItem
+
+        self.viewControllers = [tabOneViewController, tabTwoViewController, tabThreeViewController]
     }
 }
 

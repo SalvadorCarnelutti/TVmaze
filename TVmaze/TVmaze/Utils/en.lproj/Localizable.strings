@@ -8,6 +8,7 @@
 
 "HomeTitle" = "TVmaze";
 "HomeSearchBar" = "Search movies";
+"PeopleSearchBar" = "Search people";
 "ZeroResultMessage" = "No results for current search, please try again with a different combination";
 "ZeroFavoritesMessage" = "No current favorites added, try adding some!!";
 "ScheduleDaysPrefix" = "Every";
@@ -19,6 +20,7 @@
 "SeriesEpisodeAiringHeading" = "Aired on %@";
 "HomeTabBarTitle" = "Home";
 "FavoritesTabBarTitle" = "Favorites";
+"PeopleSearchTabBarTitle" = "People Search";
 "LoginHeading" = "PIN Login";
 "SecurityFactorHeading" = "Set up Security Factor";
 "LoginSkipSecurityFactor" = "Skip security factor";

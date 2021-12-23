@@ -40,13 +40,12 @@ final class HomeView: UIViewNibLoadable {
         }
     }
     
-    @IBOutlet weak var zeroSeriesFoundView: UIView! {
+    @IBOutlet weak var zeroSeriesFoundViewContainer: UIView! {
         didSet {
             let zeroResultsSearch = ZeroResultsSearch()
             zeroResultsSearch.setupView(with: "ZeroResultMessage".localized())
-            zeroResultsSearch.fixInView(zeroSeriesFoundView)
-            zeroSeriesFoundView.isHidden = false
-            tableView.isHidden = true
+            zeroResultsSearch.fixInView(zeroSeriesFoundViewContainer)
+            zeroSeriesFoundViewContainer.isHidden = true
         }
     }
     
@@ -66,8 +65,19 @@ final class HomeView: UIViewNibLoadable {
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
+    private func displayTable() {
+        hideAllActivityIndicators()
+        tableView.isHidden = false
+        zeroSeriesFoundViewContainer.isHidden = true
+    }
+    
+    private func hideAllActivityIndicators() {
+        hideActivityIndicator()
+        hidePaginationActivityIndicator()
+    }
+    
     private func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        let lastCurrentIndex = (presenter?.numberOfRowsInSection ?? 0) - 1
+        let lastCurrentIndex = (presenter?.numberOfSeriesInSection ?? 0) - 1
         return indexPath.row >= lastCurrentIndex
     }
 }
@@ -111,18 +121,7 @@ extension HomeView: PresenterToViewHomeProtocol {
     func displayZeroSeriesMessage() {
         hideAllActivityIndicators()
         tableView.isHidden = true
-        zeroSeriesFoundView.isHidden = false
-    }
-    
-    private func displayTable() {
-        hideAllActivityIndicators()
-        tableView.isHidden = false
-        zeroSeriesFoundView.isHidden = true
-    }
-    
-    private func hideAllActivityIndicators() {
-        hideActivityIndicator()
-        hidePaginationActivityIndicator()
+        zeroSeriesFoundViewContainer.isHidden = false
     }
 }
 
@@ -139,7 +138,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.numberOfRowsInSection ?? 0
+        return presenter?.numberOfSeriesInSection ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

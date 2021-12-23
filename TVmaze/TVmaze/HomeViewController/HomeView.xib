@@ -14,7 +14,7 @@
                 <outlet property="homeTitle" destination="DzE-YP-BGO" id="cdj-Vb-CCb"/>
                 <outlet property="paginationActivityIndicator" destination="0ip-YE-sBT" id="Sy0-nB-FsD"/>
                 <outlet property="tableView" destination="CgN-Gp-9lG" id="peG-ho-Owr"/>
-                <outlet property="zeroSeriesFoundView" destination="NU0-f7-0KM" id="huv-BO-rEA"/>
+                <outlet property="zeroSeriesFoundViewContainer" destination="NU0-f7-0KM" id="huv-BO-rEA"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -47,9 +47,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="7OG-bV-gw9"/>
+                <constraint firstItem="NU0-f7-0KM" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="C2X-Cm-b4V"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="20" id="D2X-cN-2gn"/>
                 <constraint firstItem="irY-mh-fuj" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" constant="10" id="DtQ-zB-ffs"/>
-                <constraint firstItem="irY-mh-fuj" firstAttribute="bottom" secondItem="NU0-f7-0KM" secondAttribute="bottom" id="FHf-K0-jje"/>
                 <constraint firstItem="DzE-YP-BGO" firstAttribute="top" secondItem="irY-mh-fuj" secondAttribute="top" id="GEV-qk-z3a"/>
                 <constraint firstItem="0ip-YE-sBT" firstAttribute="bottom" secondItem="CgN-Gp-9lG" secondAttribute="bottom" id="IX4-dx-Cl7"/>
                 <constraint firstItem="NU0-f7-0KM" firstAttribute="trailing" secondItem="CgN-Gp-9lG" secondAttribute="trailing" id="RPL-2P-uLE"/>
@@ -58,7 +58,7 @@
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="afm-6L-hoI"/>
                 <constraint firstItem="0ip-YE-sBT" firstAttribute="centerX" secondItem="irY-mh-fuj" secondAttribute="centerX" id="elX-R3-F1R"/>
                 <constraint firstItem="Ccu-PU-oKY" firstAttribute="centerY" secondItem="CgN-Gp-9lG" secondAttribute="centerY" id="iTh-nP-IV7"/>
-                <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="DzE-YP-BGO" secondAttribute="bottom" constant="10" id="oHK-Dp-RLA"/>
+                <constraint firstItem="NU0-f7-0KM" firstAttribute="top" secondItem="CgN-Gp-9lG" secondAttribute="top" id="jAL-qg-TC2"/>
                 <constraint firstItem="CgN-Gp-9lG" firstAttribute="leading" secondItem="irY-mh-fuj" secondAttribute="leading" constant="10" id="roo-al-Jfw"/>
             </constraints>
             <point key="canvasLocation" x="-120" y="49"/>

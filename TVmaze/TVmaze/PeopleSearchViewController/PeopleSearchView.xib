@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PeopleSearchView" customModule="TVmaze" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="WN3-N2-eN3" id="1be-xh-KXi"/>
+                <outlet property="headingTitle" destination="XCB-S4-feW" id="Z7I-P0-Q9g"/>
+                <outlet property="tableView" destination="Vnm-kK-uwD" id="8JH-TN-6MD"/>
+                <outlet property="zeroPeopleFoundViewContainer" destination="LJ4-B6-uNz" id="fpN-92-PwR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-S4-feW">
+                    <rect key="frame" x="20" y="54" width="223.5" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vnm-kK-uwD">
+                    <rect key="frame" x="10" y="102.5" width="394" height="759.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-B6-uNz">
+                    <rect key="frame" x="10" y="102.5" width="394" height="759.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WN3-N2-eN3">
+                    <rect key="frame" x="188.5" y="464" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="LJ4-B6-uNz" firstAttribute="bottom" secondItem="Vnm-kK-uwD" secondAttribute="bottom" id="04m-RX-eAO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vnm-kK-uwD" secondAttribute="trailing" constant="10" id="6DB-hh-pbF"/>
+                <constraint firstItem="Vnm-kK-uwD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="58.5" id="BfH-IP-yor"/>
+                <constraint firstItem="LJ4-B6-uNz" firstAttribute="trailing" secondItem="Vnm-kK-uwD" secondAttribute="trailing" id="CkR-C0-NaE"/>
+                <constraint firstItem="LJ4-B6-uNz" firstAttribute="leading" secondItem="Vnm-kK-uwD" secondAttribute="leading" id="DO5-JX-HpF"/>
+                <constraint firstItem="XCB-S4-feW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Jum-tS-0SJ"/>
+                <constraint firstItem="Vnm-kK-uwD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="KYo-kb-raI"/>
+                <constraint firstItem="LJ4-B6-uNz" firstAttribute="top" secondItem="Vnm-kK-uwD" secondAttribute="top" id="WdK-8v-KU7"/>
+                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerX" secondItem="LJ4-B6-uNz" secondAttribute="centerX" id="Y1E-hz-fbm"/>
+                <constraint firstItem="XCB-S4-feW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aAa-Bt-P6e"/>
+                <constraint firstItem="LJ4-B6-uNz" firstAttribute="top" secondItem="XCB-S4-feW" secondAttribute="bottom" constant="10" id="bvz-rn-SH5"/>
+                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerY" secondItem="LJ4-B6-uNz" secondAttribute="centerY" id="hZ1-bg-ugc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vnm-kK-uwD" secondAttribute="bottom" id="tSf-Gj-Gqz"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

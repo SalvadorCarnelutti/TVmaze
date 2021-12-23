@@ -74,13 +74,12 @@ final class SeriesHighlightView: UIViewNibLoadable, UIGestureRecognizerDelegate 
     }
     
     private func loadImage(imageURL: String?) {
-        guard let imageURL = imageURL else {
+        guard let imageURL = imageURL,
+        let placeholderImage = UIImage(systemName: "photo.artframe") else {
             seriesImage.isHidden = true
             return
         }
-        
-        let placeholderImage = UIImage(systemName: "photo.artframe")
-        request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage!)
+        request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage)
     }
     
     private func displayFavoriteStatus(isFavorited: Bool, showFavoriteStatusBar: Bool) {

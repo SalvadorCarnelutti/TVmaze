@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="156" id="lUl-56-4my" customClass="PeopleSearchCellView" customModule="TVmaze" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lUl-56-4my" id="mB7-aS-XIr">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="144" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="MVN-A8-MhO">
+                        <rect key="frame" x="0.0" y="12" width="414" height="136"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-gt-5cS">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="KUQ-Qy-ZSb"/>
+                                    <constraint firstAttribute="width" secondItem="Z6C-gt-5cS" secondAttribute="height" multiplier="1:1" id="kvd-gn-Z9E"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-r1-gAx">
+                                <rect key="frame" x="132" y="0.0" width="282" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="MVN-A8-MhO" secondAttribute="trailing" id="0JS-fg-CkM"/>
+                    <constraint firstItem="MVN-A8-MhO" firstAttribute="leading" secondItem="mB7-aS-XIr" secondAttribute="leading" id="VPA-pM-HUZ"/>
+                    <constraint firstItem="MVN-A8-MhO" firstAttribute="top" secondItem="mB7-aS-XIr" secondAttribute="top" constant="12" id="t8p-mq-V0i"/>
+                    <constraint firstAttribute="bottom" secondItem="MVN-A8-MhO" secondAttribute="bottom" constant="8" id="y5z-Qz-bbK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="personImage" destination="Z6C-gt-5cS" id="UAC-Wc-MAb"/>
+                <outlet property="personName" destination="tUF-r1-gAx" id="w71-pI-OMm"/>
+            </connections>
+            <point key="canvasLocation" x="311.59420289855075" y="-4.0178571428571423"/>
+        </tableViewCell>
+    </objects>
+</document>

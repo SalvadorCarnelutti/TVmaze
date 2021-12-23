@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-Ga-NeH" userLabel="SeriesHightlight">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-Ga-NeH" userLabel="SeriesHighlight">
                         <rect key="frame" x="0.0" y="12" width="414" height="144"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

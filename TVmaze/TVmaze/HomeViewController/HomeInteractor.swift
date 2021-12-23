@@ -5,12 +5,10 @@
 //  Created by Salvador on 12/17/21.
 //
 
-import Foundation
 import Alamofire
 
 protocol PresenterToInteractorHomeProtocol: AnyObject {
     var presenter: InteractorToPresenterHomeProtocol? { get set }
-    var tabTitle: String { get }
     var seriesCount: Int { get }
     var isFirstPage: Bool { get }
     var getFavorites: [HomeEntity] { get }
@@ -119,7 +117,7 @@ final class HomeInteractor: PresenterToInteractorHomeProtocol {
                     self?.filteredSeries = filteredSeries.map { HomeEntity(series: $0.series) }
                     self?.presenter?.onFetchFilteredSeriesSuccessNonzeroResult()
                 case .failure:
-                    return
+                    self?.presenter?.onFetchSeriesFailure()
                 }
             }
     }

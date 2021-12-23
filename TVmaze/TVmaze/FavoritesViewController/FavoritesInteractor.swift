@@ -10,7 +10,6 @@ import Foundation
 protocol PresenterToInteractorFavoritesProtocol: AnyObject {
     var presenter: InteractorToPresenterFavoritesProtocol? { get set }
     var isAlphabeticallySorted: Bool { get }
-    var tabTitle: String { get }
     var seriesCount: Int { get }
     func loadFavorites(favoriteSeries: [HomeEntity])
     func seriesInfoAt(indexPath: IndexPath) -> HomeEntity

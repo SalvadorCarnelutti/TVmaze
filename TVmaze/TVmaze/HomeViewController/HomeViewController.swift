@@ -16,12 +16,13 @@ protocol InteractorToPresenterHomeProtocol: AnyObject {
     func onFetchSeriesFailure()
     func onFetchFilteredSeriesSuccessZeroResults()
     func onFetchFilteredSeriesSuccessNonzeroResult()
+    func onFetchFilteredSeriesFailure()
     func onFavoritesStatusReset()
 }
 
 protocol ViewToPresenterHomeProtocol: UIViewController {
     var isFiltering: Bool { get }
-    var numberOfRowsInSection: Int { get }
+    var numberOfSeriesInSection: Int { get }
     func getSeries()
     func presentSeriesDetail(for indexPath: IndexPath)
     func seriesAt(indexPath: IndexPath) -> HomeEntity
@@ -46,7 +47,6 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = interactor.tabTitle
         homeView.setupView()
         setupSearchController()
     }
@@ -91,6 +91,10 @@ extension HomeViewController: InteractorToPresenterHomeProtocol {
         homeView.displayTableView()
     }
     
+    func onFetchFilteredSeriesFailure() {
+        homeView.hideActivityIndicator()
+    }
+    
     func onFavoritesStatusReset() {
         homeView.displayTableView()
     }
@@ -99,10 +103,10 @@ extension HomeViewController: InteractorToPresenterHomeProtocol {
 // MARK: ViewToPresenterHomeProtocol
 extension HomeViewController: ViewToPresenterHomeProtocol {
     var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
+        return searchController.isFiltering
     }
     
-    var numberOfRowsInSection: Int {
+    var numberOfSeriesInSection: Int {
         return interactor.seriesCount
     }
     
@@ -148,9 +152,5 @@ extension HomeViewController: UISearchResultsUpdating {
         
         self.searchTask = task
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + searchThrottleTime, execute: task)
-    }
-    
-    private var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? true
     }
 }

@@ -37,7 +37,6 @@ final class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = interactor.tabTitle
         favoritesView.setupView()
     }
 }

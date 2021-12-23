@@ -12,6 +12,15 @@
 		B429B5AA2773937300FA25DB /* PinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5A92773937300FA25DB /* PinRouter.swift */; };
 		B429B5AD2773CD1D00FA25DB /* EpisodeDetailHighlightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B429B5AC2773CD1D00FA25DB /* EpisodeDetailHighlightView.xib */; };
 		B429B5AF2773CD3B00FA25DB /* EpisodeDetailHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5AE2773CD3B00FA25DB /* EpisodeDetailHighlightView.swift */; };
+		B429B5B22773D71700FA25DB /* PeopleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5B12773D71700FA25DB /* PeopleSearchViewController.swift */; };
+		B429B5B42773D79800FA25DB /* PeopleSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5B32773D79800FA25DB /* PeopleSearchInteractor.swift */; };
+		B429B5B62773D88700FA25DB /* PeopleSearchViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5B52773D88700FA25DB /* PeopleSearchViewRouter.swift */; };
+		B429B5B82773D91100FA25DB /* UISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5B72773D91100FA25DB /* UISearchController.swift */; };
+		B429B5BA2773DAE500FA25DB /* PeopleSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B429B5B92773DAE500FA25DB /* PeopleSearchView.xib */; };
+		B429B5BC2773DAEB00FA25DB /* PeopleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5BB2773DAEB00FA25DB /* PeopleSearchView.swift */; };
+		B429B5BE2773DC2600FA25DB /* PersonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5BD2773DC2600FA25DB /* PersonEntity.swift */; };
+		B429B5C02773DE4900FA25DB /* PeopleSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5BF2773DE4900FA25DB /* PeopleSearchConfigurator.swift */; };
+		B429B5C32773E31B00FA25DB /* PeopleSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5C22773E31B00FA25DB /* PeopleSearchCellView.swift */; };
 		B4874FD327724DA3006D2BBA /* UITabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */; };
 		B4874FD82772A656006D2BBA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD72772A656006D2BBA /* FavoritesViewController.swift */; };
 		B4874FDA2772A72F006D2BBA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD92772A72F006D2BBA /* FavoritesView.swift */; };
@@ -54,6 +63,7 @@
 		B49B6D4927713CAF00E984D8 /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49B6D4827713CAF00E984D8 /* EpisodeDetailView.swift */; };
 		B4B18FBE276EDAB600B1B323 /* ZeroResultsSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */; };
 		B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */; };
+		B4B8595C2773F474007DEEC1 /* PeopleSearchCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B8595B2773F474007DEEC1 /* PeopleSearchCellView.xib */; };
 		B4CFDB6C276D17DE003110CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDB6B276D17DE003110CD /* AppDelegate.swift */; };
 		B4CFDB6E276D17DE003110CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CFDB6D276D17DE003110CD /* SceneDelegate.swift */; };
 		B4CFDB75276D17DF003110CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CFDB74276D17DF003110CD /* Assets.xcassets */; };
@@ -114,6 +124,15 @@
 		B429B5A92773937300FA25DB /* PinRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinRouter.swift; sourceTree = "<group>"; };
 		B429B5AC2773CD1D00FA25DB /* EpisodeDetailHighlightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailHighlightView.xib; sourceTree = "<group>"; };
 		B429B5AE2773CD3B00FA25DB /* EpisodeDetailHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailHighlightView.swift; sourceTree = "<group>"; };
+		B429B5B12773D71700FA25DB /* PeopleSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchViewController.swift; sourceTree = "<group>"; };
+		B429B5B32773D79800FA25DB /* PeopleSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchInteractor.swift; sourceTree = "<group>"; };
+		B429B5B52773D88700FA25DB /* PeopleSearchViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchViewRouter.swift; sourceTree = "<group>"; };
+		B429B5B72773D91100FA25DB /* UISearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchController.swift; sourceTree = "<group>"; };
+		B429B5B92773DAE500FA25DB /* PeopleSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleSearchView.xib; sourceTree = "<group>"; };
+		B429B5BB2773DAEB00FA25DB /* PeopleSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchView.swift; sourceTree = "<group>"; };
+		B429B5BD2773DC2600FA25DB /* PersonEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEntity.swift; sourceTree = "<group>"; };
+		B429B5BF2773DE4900FA25DB /* PeopleSearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchConfigurator.swift; sourceTree = "<group>"; };
+		B429B5C22773E31B00FA25DB /* PeopleSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchCellView.swift; sourceTree = "<group>"; };
 		B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarViewController.swift; sourceTree = "<group>"; };
 		B4874FD72772A656006D2BBA /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B4874FD92772A72F006D2BBA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -156,6 +175,7 @@
 		B49B6D4827713CAF00E984D8 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		B4B18FBD276EDAB600B1B323 /* ZeroResultsSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroResultsSearch.xib; sourceTree = "<group>"; };
 		B4B18FBF276EDACD00B1B323 /* ZeroResultsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroResultsSearch.swift; sourceTree = "<group>"; };
+		B4B8595B2773F474007DEEC1 /* PeopleSearchCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleSearchCellView.xib; sourceTree = "<group>"; };
 		B4CFDB68276D17DE003110CD /* TVmaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVmaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CFDB6B276D17DE003110CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4CFDB6D276D17DE003110CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +269,30 @@
 				B429B5AE2773CD3B00FA25DB /* EpisodeDetailHighlightView.swift */,
 			);
 			path = EpisodeHighlightView;
+			sourceTree = "<group>";
+		};
+		B429B5B02773D6E700FA25DB /* PeopleSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B429B5C12773E30C00FA25DB /* PeopleSearchCellView */,
+				B429B5B12773D71700FA25DB /* PeopleSearchViewController.swift */,
+				B429B5BF2773DE4900FA25DB /* PeopleSearchConfigurator.swift */,
+				B429B5B92773DAE500FA25DB /* PeopleSearchView.xib */,
+				B429B5BB2773DAEB00FA25DB /* PeopleSearchView.swift */,
+				B429B5B52773D88700FA25DB /* PeopleSearchViewRouter.swift */,
+				B429B5B32773D79800FA25DB /* PeopleSearchInteractor.swift */,
+				B429B5BD2773DC2600FA25DB /* PersonEntity.swift */,
+			);
+			path = PeopleSearchViewController;
+			sourceTree = "<group>";
+		};
+		B429B5C12773E30C00FA25DB /* PeopleSearchCellView */ = {
+			isa = PBXGroup;
+			children = (
+				B429B5C22773E31B00FA25DB /* PeopleSearchCellView.swift */,
+				B4B8595B2773F474007DEEC1 /* PeopleSearchCellView.xib */,
+			);
+			path = PeopleSearchCellView;
 			sourceTree = "<group>";
 		};
 		B4874FD62772A629006D2BBA /* FavoritesViewController */ = {
@@ -409,6 +453,7 @@
 		B4CFDB6A276D17DE003110CD /* TVmaze */ = {
 			isa = PBXGroup;
 			children = (
+				B429B5B02773D6E700FA25DB /* PeopleSearchViewController */,
 				B4984F102772F3CC00DBFA2F /* PINViewController */,
 				B4874FD62772A629006D2BBA /* FavoritesViewController */,
 				B4CFDBAA276D2DA2003110CD /* Utils */,
@@ -450,6 +495,7 @@
 				B4FEF7382771858000D511EE /* Date.swift */,
 				B49B6D1B2770263000E984D8 /* UILabel.swift */,
 				B4CFDBC0276E1C71003110CD /* UIImageExtension.swift */,
+				B429B5B72773D91100FA25DB /* UISearchController.swift */,
 				B49B6D302770CE1F00E984D8 /* UICollectionViewCell.swift */,
 				B49B6D23277044C400E984D8 /* UITableViewHeaderFooterView.swift */,
 				B4CFDBB3276D444B003110CD /* String.swift */,
@@ -616,12 +662,14 @@
 				B4B18FBE276EDAB600B1B323 /* ZeroResultsSearch.xib in Resources */,
 				B4CFDBAC276D2E4F003110CD /* SeriesHighlightView.xib in Resources */,
 				B49B6D272770C7C200E984D8 /* SeriesDetailCollectionView.xib in Resources */,
+				B429B5BA2773DAE500FA25DB /* PeopleSearchView.xib in Resources */,
 				B49B6D4727713BD800E984D8 /* EpisodeDetailView.xib in Resources */,
 				B4874FE02772AE03006D2BBA /* FavoritesView.xib in Resources */,
 				B429B5AD2773CD1D00FA25DB /* EpisodeDetailHighlightView.xib in Resources */,
 				B49B6D1227700B2C00E984D8 /* SeriesDetailHighlightView.xib in Resources */,
 				B4984F16277362DD00DBFA2F /* PINView.xib in Resources */,
 				B49B6D2B2770CD5400E984D8 /* SeriesDetailCollectionViewCell.xib in Resources */,
+				B4B8595C2773F474007DEEC1 /* PeopleSearchCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +800,11 @@
 				B49B6D4227712C7E00E984D8 /* SeriesDetailRouter.swift in Sources */,
 				B4CFDBA4276D1A85003110CD /* HomeView.swift in Sources */,
 				B4CFDBA0276D1991003110CD /* HomeViewController.swift in Sources */,
+				B429B5B82773D91100FA25DB /* UISearchController.swift in Sources */,
+				B429B5B62773D88700FA25DB /* PeopleSearchViewRouter.swift in Sources */,
+				B429B5BE2773DC2600FA25DB /* PersonEntity.swift in Sources */,
 				B4984F122772F3DE00DBFA2F /* PINViewController.swift in Sources */,
+				B429B5C32773E31B00FA25DB /* PeopleSearchCellView.swift in Sources */,
 				B4874FD327724DA3006D2BBA /* UITabBarViewController.swift in Sources */,
 				B4984F1D27736B3D00DBFA2F /* PINNumberDisplayerView.swift in Sources */,
 				B4874FDA2772A72F006D2BBA /* FavoritesView.swift in Sources */,
@@ -764,9 +816,11 @@
 				B4CFDB9D276D18A9003110CD /* NibView.swift in Sources */,
 				B4CFDBB6276D4534003110CD /* HomeInteractor.swift in Sources */,
 				B49B6D292770C7D900E984D8 /* SeriesDetailCollectionView.swift in Sources */,
+				B429B5C02773DE4900FA25DB /* PeopleSearchConfigurator.swift in Sources */,
 				B429B5AA2773937300FA25DB /* PinRouter.swift in Sources */,
 				B4CFDBB4276D444B003110CD /* String.swift in Sources */,
 				B4CFDBC5276E2DD3003110CD /* SeriesRouter.swift in Sources */,
+				B429B5BC2773DAEB00FA25DB /* PeopleSearchView.swift in Sources */,
 				B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */,
 				B49B6D4027712B4300E984D8 /* SeriesDetailConfigurator.swift in Sources */,
 				B4CFDBB0276D3A42003110CD /* UIView.swift in Sources */,
@@ -788,9 +842,11 @@
 				B4984F18277366E000DBFA2F /* PINView.swift in Sources */,
 				B4CFDBC1276E1C71003110CD /* UIImageExtension.swift in Sources */,
 				B4874FDC2772A845006D2BBA /* FavoritesInteractor.swift in Sources */,
+				B429B5B42773D79800FA25DB /* PeopleSearchInteractor.swift in Sources */,
 				B4CFDB6C276D17DE003110CD /* AppDelegate.swift in Sources */,
 				B4FEF73527716DA000D511EE /* EpisodeDetailConfigurator.swift in Sources */,
 				B4CFDBB2276D3F3E003110CD /* HomeEntity.swift in Sources */,
+				B429B5B22773D71700FA25DB /* PeopleSearchViewController.swift in Sources */,
 				B49B6D312770CE1F00E984D8 /* UICollectionViewCell.swift in Sources */,
 				B406BBB82772AFA4005C8362 /* FavoritesConfigurator.swift in Sources */,
 				B49B6D0D276FF34800E984D8 /* SeriesDetailView.swift in Sources */,
