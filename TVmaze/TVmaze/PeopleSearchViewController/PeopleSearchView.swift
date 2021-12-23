@@ -69,6 +69,7 @@ extension PeopleSearchView: PresenterToViewPeopleSearchProtocol {
     }
     
     func displayNoSearchMessage() {
+        zeroPeopleFoundViewContainer.isHidden = false
         zeroResultsSearch?.setupLabel(with: "ZeroResultNoSearchMessage".localized(),
                                       image: UIImage(systemName: "message"))
     }
@@ -76,9 +77,9 @@ extension PeopleSearchView: PresenterToViewPeopleSearchProtocol {
     func displayZeroPeopleMessage() {
         hideActivityIndicator()
         tableView.isHidden = true
+        zeroPeopleFoundViewContainer.isHidden = false
         zeroResultsSearch?.setupLabel(with: "ZeroResultMessage".localized(),
                                       image: UIImage(systemName: "exclamationmark.arrow.circlepath"))
-        zeroPeopleFoundViewContainer.isHidden = false
     }
     
     func showActivityIndicator() {
