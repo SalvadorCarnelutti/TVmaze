@@ -9,7 +9,6 @@ import Alamofire
 
 protocol PresenterToInteractorPeopleSearchProtocol: AnyObject {
     var presenter: InteractorToPresenterPeopleSearchProtocol? { get set }
-    var tabTitle: String { get }
     var peopleCount: Int { get }
     func getFilteredPeople(string: String)
     func personInfoAt(indexPath: IndexPath) -> PersonEntity
@@ -19,11 +18,7 @@ final class PeopleSearchInteractor: PresenterToInteractorPeopleSearchProtocol {
     weak var presenter: InteractorToPresenterPeopleSearchProtocol?
     private let peopleSearchURL = "https://api.tvmaze.com/search/people"
     private var people: [PersonEntity] = []
-    
-    var tabTitle: String {
-        return "PeopleSearchTabBarTitle".localized()
-    }
-    
+        
     var peopleCount: Int {
         return people.count
     }

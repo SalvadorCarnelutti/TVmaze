@@ -43,7 +43,7 @@ final class HomeView: UIViewNibLoadable {
     @IBOutlet weak var zeroSeriesFoundViewContainer: UIView! {
         didSet {
             let zeroResultsSearch = ZeroResultsSearch()
-            zeroResultsSearch.setupView(with: "ZeroResultMessage".localized())
+            zeroResultsSearch.setupLabel(with: "ZeroResultMessage".localized())
             zeroResultsSearch.fixInView(zeroSeriesFoundViewContainer)
             zeroSeriesFoundViewContainer.isHidden = true
         }

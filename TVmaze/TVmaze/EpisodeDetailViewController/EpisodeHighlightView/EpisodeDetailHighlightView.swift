@@ -58,7 +58,7 @@ final class EpisodeDetailHighlightView: UIViewNibLoadable {
     private func loadImage(imageURL: String?) {
         guard let imageURL = imageURL,
         let placeholderImage = UIImage(systemName: "photo.artframe") else {
-            episodeImageView.isHidden = true
+            episodeImageView.image = UIImage(systemName: "photo.artframe")
             return
         }
         

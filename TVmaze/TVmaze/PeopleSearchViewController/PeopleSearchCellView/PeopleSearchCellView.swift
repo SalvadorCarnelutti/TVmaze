@@ -10,7 +10,7 @@ import UIKit
 final class PeopleSearchCellView: UITableViewCell {
     // MARK: Properties
     private var request: DispatchWorkItem?
-
+    
     // MARK: IBOutlets
     @IBOutlet weak var personImage: UIImageView! {
         didSet {
@@ -29,13 +29,13 @@ final class PeopleSearchCellView: UITableViewCell {
         personName.text = personEntity.name
         loadImage(imageURL: personEntity.personImageURL)
     }
-
+    
     private func loadImage(imageURL: String?) {
         guard let imageURL = imageURL,
-        let placeholderImage = UIImage(systemName: "photo.artframe") else {
-            personImage.isHidden = true
-            return
-        }
+              let placeholderImage = UIImage(systemName: "person.fill") else {
+                  personImage.image = UIImage(systemName: "person.fill")
+                  return
+              }
         
         request = personImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage)
     }

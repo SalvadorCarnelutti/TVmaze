@@ -37,7 +37,6 @@ final class PeopleSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = interactor.tabTitle
         peopleSearchView.setupView()
         setupSearchController()
     }
@@ -52,7 +51,7 @@ final class PeopleSearchViewController: UIViewController {
     }
     
     private func onEmptySearchBar() {
-        peopleSearchView.displayZeroPeopleMessage()
+        peopleSearchView.displayNoSearchMessage()
     }
 }
 
@@ -82,7 +81,6 @@ extension PeopleSearchViewController: ViewToPresenterPeopleSearchProtocol {
     }
     
     func presentPersonDetail(for indexPath: IndexPath) {
-        
     }
     
     func personsAt(indexPath: IndexPath) -> PersonEntity {

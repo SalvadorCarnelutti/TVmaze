@@ -10,7 +10,8 @@
 "HomeSearchBar" = "Search movies";
 "PeopleSearchBar" = "Search people";
 "ZeroResultMessage" = "No results for current search, please try again with a different combination";
-"ZeroFavoritesMessage" = "No current favorites added, try adding some!!";
+"ZeroResultNoSearchMessage" = "No current search at the moment. Why not try looking for someone?";
+"ZeroFavoritesMessage" = "No current favorites added, try adding some!";
 "ScheduleDaysPrefix" = "Every";
 "ScheduleTimePrefix" = "at";
 "SeriesDetailTableViewHeaderTitle" = "Season %d";

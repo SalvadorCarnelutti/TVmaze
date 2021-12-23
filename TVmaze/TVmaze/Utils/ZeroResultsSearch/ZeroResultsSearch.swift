@@ -8,9 +8,14 @@
 import UIKit
 
 final class ZeroResultsSearch: UIViewNibLoadable {
+    @IBOutlet weak var messageImage: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    func setupView(with messageText: String) {
+    func setupLabel(with messageText: String, image: UIImage? = nil) {
         messageLabel.text = messageText
+        
+        if let image = image {
+            messageImage.image = image
+        }
     }
 }

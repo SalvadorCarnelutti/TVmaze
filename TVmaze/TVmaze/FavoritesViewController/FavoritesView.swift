@@ -55,7 +55,7 @@ final class FavoritesView: UIViewNibLoadable {
     @IBOutlet weak var zeroFavoritesFoundView: UIView! {
         didSet {
             let zeroResultsSearch = ZeroResultsSearch()
-            zeroResultsSearch.setupView(with: "ZeroFavoritesMessage".localized())
+            zeroResultsSearch.setupLabel(with: "ZeroFavoritesMessage".localized())
             zeroResultsSearch.fixInView(zeroFavoritesFoundView)
             zeroFavoritesFoundView.isHidden = false
             tableView.isHidden = true

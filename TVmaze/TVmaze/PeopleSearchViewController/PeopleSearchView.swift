@@ -11,6 +11,7 @@ protocol PresenterToViewPeopleSearchProtocol: UIView {
     var presenter: ViewToPresenterPeopleSearchProtocol? { get set }
     func setupView()
     func displayTableView()
+    func displayNoSearchMessage()
     func displayZeroPeopleMessage()
     func showActivityIndicator()
     func hideActivityIndicator()
@@ -18,6 +19,7 @@ protocol PresenterToViewPeopleSearchProtocol: UIView {
 
 final class PeopleSearchView: UIViewNibLoadable {
     // MARK: Properties
+    private weak var zeroResultsSearch: ZeroResultsSearch?
     weak var presenter: ViewToPresenterPeopleSearchProtocol?
 
     // MARK: IBOutlets
@@ -32,10 +34,11 @@ final class PeopleSearchView: UIViewNibLoadable {
     
     @IBOutlet weak var zeroPeopleFoundViewContainer: UIView! {
         didSet {
-            let zeroResultsSearch = ZeroResultsSearch()
-            zeroResultsSearch.setupView(with: "ZeroResultMessage".localized())
-            zeroResultsSearch.fixInView(zeroPeopleFoundViewContainer)
-            zeroPeopleFoundViewContainer.isHidden = true
+            let noResultsSearch = ZeroResultsSearch()
+            noResultsSearch.setupLabel(with: "ZeroResultNoSearchMessage".localized(),
+                                       image: UIImage(systemName: "message"))
+            noResultsSearch.fixInView(zeroPeopleFoundViewContainer)
+            zeroResultsSearch = noResultsSearch
         }
     }
     
@@ -65,9 +68,16 @@ extension PeopleSearchView: PresenterToViewPeopleSearchProtocol {
         tableView.reloadData()
     }
     
+    func displayNoSearchMessage() {
+        zeroResultsSearch?.setupLabel(with: "ZeroResultNoSearchMessage".localized(),
+                                      image: UIImage(systemName: "message"))
+    }
+    
     func displayZeroPeopleMessage() {
         hideActivityIndicator()
         tableView.isHidden = true
+        zeroResultsSearch?.setupLabel(with: "ZeroResultMessage".localized(),
+                                      image: UIImage(systemName: "exclamationmark.arrow.circlepath"))
         zeroPeopleFoundViewContainer.isHidden = false
     }
     

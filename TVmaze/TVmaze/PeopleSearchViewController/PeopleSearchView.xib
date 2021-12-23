@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-S4-feW">
-                    <rect key="frame" x="20" y="54" width="223.5" height="38.5"/>
+                    <rect key="frame" x="20" y="44" width="223.5" height="38.5"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                     <rect key="frame" x="10" y="102.5" width="394" height="759.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-B6-uNz">
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="394" placeholderIntrinsicHeight="759.5" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-B6-uNz">
                     <rect key="frame" x="10" y="102.5" width="394" height="759.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
@@ -44,17 +44,16 @@
             <constraints>
                 <constraint firstItem="LJ4-B6-uNz" firstAttribute="bottom" secondItem="Vnm-kK-uwD" secondAttribute="bottom" id="04m-RX-eAO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vnm-kK-uwD" secondAttribute="trailing" constant="10" id="6DB-hh-pbF"/>
-                <constraint firstItem="Vnm-kK-uwD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="58.5" id="BfH-IP-yor"/>
                 <constraint firstItem="LJ4-B6-uNz" firstAttribute="trailing" secondItem="Vnm-kK-uwD" secondAttribute="trailing" id="CkR-C0-NaE"/>
                 <constraint firstItem="LJ4-B6-uNz" firstAttribute="leading" secondItem="Vnm-kK-uwD" secondAttribute="leading" id="DO5-JX-HpF"/>
-                <constraint firstItem="XCB-S4-feW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Jum-tS-0SJ"/>
+                <constraint firstItem="XCB-S4-feW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Jum-tS-0SJ"/>
                 <constraint firstItem="Vnm-kK-uwD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="KYo-kb-raI"/>
+                <constraint firstItem="Vnm-kK-uwD" firstAttribute="top" secondItem="XCB-S4-feW" secondAttribute="bottom" constant="20" id="VIR-09-ebv"/>
                 <constraint firstItem="LJ4-B6-uNz" firstAttribute="top" secondItem="Vnm-kK-uwD" secondAttribute="top" id="WdK-8v-KU7"/>
-                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerX" secondItem="LJ4-B6-uNz" secondAttribute="centerX" id="Y1E-hz-fbm"/>
                 <constraint firstItem="XCB-S4-feW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aAa-Bt-P6e"/>
-                <constraint firstItem="LJ4-B6-uNz" firstAttribute="top" secondItem="XCB-S4-feW" secondAttribute="bottom" constant="10" id="bvz-rn-SH5"/>
-                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerY" secondItem="LJ4-B6-uNz" secondAttribute="centerY" id="hZ1-bg-ugc"/>
+                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerX" secondItem="Vnm-kK-uwD" secondAttribute="centerX" id="min-Fk-tRc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vnm-kK-uwD" secondAttribute="bottom" id="tSf-Gj-Gqz"/>
+                <constraint firstItem="WN3-N2-eN3" firstAttribute="centerY" secondItem="Vnm-kK-uwD" secondAttribute="centerY" id="yg1-7n-8ob"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
         </view>

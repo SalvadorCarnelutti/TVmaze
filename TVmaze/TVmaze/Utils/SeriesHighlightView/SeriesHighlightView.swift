@@ -75,8 +75,8 @@ final class SeriesHighlightView: UIViewNibLoadable, UIGestureRecognizerDelegate 
     
     private func loadImage(imageURL: String?) {
         guard let imageURL = imageURL,
-        let placeholderImage = UIImage(systemName: "photo.artframe") else {
-            seriesImage.isHidden = true
+        let placeholderImage = UIImage(systemName: "person.crop.artframe") else {
+            seriesImage.image = UIImage(systemName: "person.crop.artframe") 
             return
         }
         request = seriesImage.loadImage(urlString: imageURL, placeholderImage: placeholderImage)
