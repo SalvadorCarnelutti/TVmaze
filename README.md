@@ -10,6 +10,7 @@ This project is a TVmaze series catalog browser with the capabilities to:
 - Browse over each series seasons and episodes detail
 - Add series to your own list of favorites
 - Setup an initial PIN security factor to a simple login
+- Filter people that has worked on series based on the person's name
 	
 ## Technologies
 Project is created with:
