@@ -22,7 +22,7 @@ Project is created with:
 * TVmaze own free public REST API (https://www.tvmaze.com/api)
 	
 ## Setup
-To run this project, install it locally using CocoaPods:
+To run this project, install the required frameworks using CocoaPods:
 
 ```
 $ cd ../TVmaze

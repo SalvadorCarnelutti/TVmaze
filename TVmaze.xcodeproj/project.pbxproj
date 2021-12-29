@@ -430,7 +430,6 @@
 		B4CFDB5F276D17DE003110CD = {
 			isa = PBXGroup;
 			children = (
-				B4CFDB9B276D1894003110CD /* Extensions */,
 				B4CFDB6A276D17DE003110CD /* TVmaze */,
 				B4CFDB81276D17DF003110CD /* TVmazeTests */,
 				B4CFDB8B276D17DF003110CD /* TVmazeUITests */,
@@ -453,18 +452,18 @@
 		B4CFDB6A276D17DE003110CD /* TVmaze */ = {
 			isa = PBXGroup;
 			children = (
-				B429B5B02773D6E700FA25DB /* PeopleSearchViewController */,
-				B4984F102772F3CC00DBFA2F /* PINViewController */,
-				B4874FD62772A629006D2BBA /* FavoritesViewController */,
+				B4CFDB9B276D1894003110CD /* Extensions */,
 				B4CFDBAA276D2DA2003110CD /* Utils */,
+				B4984F102772F3CC00DBFA2F /* PINViewController */,
+				B4CFDB9E276D197C003110CD /* HomeViewController */,
+				B4874FD62772A629006D2BBA /* FavoritesViewController */,
+				B429B5B02773D6E700FA25DB /* PeopleSearchViewController */,
 				B49B6D4327713B5D00E984D8 /* EpisodeDetailViewController */,
 				B49B6D07276FF2E000E984D8 /* SeriesDetailViewController */,
-				B4CFDB9E276D197C003110CD /* HomeViewController */,
 				B4CFDB6B276D17DE003110CD /* AppDelegate.swift */,
 				B4CFDB6D276D17DE003110CD /* SceneDelegate.swift */,
 				B4CFDB74276D17DF003110CD /* Assets.xcassets */,
 				B4CFDB79276D17DF003110CD /* Info.plist */,
-				B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */,
 			);
 			path = TVmaze;
 			sourceTree = "<group>";
@@ -527,6 +526,7 @@
 				B4CFDBC4276E2DD3003110CD /* SeriesRouter.swift */,
 				B4984F202773883900DBFA2F /* StyledButton.swift */,
 				B4CFDBB9276D47BE003110CD /* StackLabel.swift */,
+				B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */,
 				B4CFDBA9276D2740003110CD /* Localizable.strings */,
 			);
 			path = Utils;
