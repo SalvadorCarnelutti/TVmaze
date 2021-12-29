@@ -15,9 +15,9 @@ This project is a TVmaze series catalog browser with the capabilities to:
 ## Technologies
 Project is created with:
 * VIPER design pattern
-* CocoaPods
-* KeychainAccess
-* Alamofire
+* CocoaPods dependency manager
+* KeychainAccess framework
+* Alamofire framework
 * Codeable protocol
 * TVmaze own free public REST API (https://www.tvmaze.com/api)
 	
