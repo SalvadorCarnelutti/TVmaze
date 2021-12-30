@@ -265,6 +265,7 @@
 		B41F1EE9277E090B00993B4B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */,
 				B4CFDBC4276E2DD3003110CD /* SeriesRouter.swift */,
 				B4B18FBB276EDA6400B1B323 /* SeriesHighlightView */,
 				B49B6D1027700AB000E984D8 /* SeriesDetailHighlightView */,
@@ -534,7 +535,6 @@
 				B4B18FBC276EDA9F00B1B323 /* ZeroResultsSearch */,
 				B4984F202773883900DBFA2F /* StyledButton.swift */,
 				B4CFDBB9276D47BE003110CD /* StackLabel.swift */,
-				B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */,
 				B4CFDBA9276D2740003110CD /* Localizable.strings */,
 			);
 			path = Utils;
