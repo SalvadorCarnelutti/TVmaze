@@ -6,7 +6,7 @@
 //
 
 final class HomeConfigurator {
-    static func injectDependencies(presenter: HomeViewController) {
+    static func injectDependencies(presenter: HomeViewPresenter) {
         let interactor = HomeInteractor()
         presenter.interactor = interactor
         interactor.presenter = presenter

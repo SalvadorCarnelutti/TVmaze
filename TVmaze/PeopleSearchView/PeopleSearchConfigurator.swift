@@ -6,7 +6,7 @@
 //
 
 final class PeopleSearchConfigurator {
-    static func injectDependencies(presenter: PeopleSearchViewController) {
+    static func injectDependencies(presenter: PeopleSearchViewPresenter) {
         let interactor = PeopleSearchInteractor()
         presenter.interactor = interactor
         interactor.presenter = presenter

@@ -1,5 +1,5 @@
 //
-//  SeriesViewController.swift
+//  SeriesDetailViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/19/21.
@@ -23,7 +23,7 @@ protocol ViewToPresenteSeriesDetailProtocol: UIViewController {
     func presentEpisodeDetail(for indexPath: IndexPath)
 }
 
-final class SeriesDetailViewController: UIViewController {
+final class SeriesDetailViewPresenter: UIViewController {
     var seriesDetailView: PresenterToViewSeriesDetailProtocol!
     var interactor: PresenterToInteractorSeriesDetailProtocol!
     var router: PresenterToRouterSeriesDetailProtocol!
@@ -41,7 +41,7 @@ final class SeriesDetailViewController: UIViewController {
     }
 }
 
-extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
+extension SeriesDetailViewPresenter: ViewToPresenteSeriesDetailProtocol {
     var homeEntity: HomeEntity {
         return interactor.homeEntity
     }
@@ -70,7 +70,7 @@ extension SeriesDetailViewController: ViewToPresenteSeriesDetailProtocol {
     }
 }
 
-extension SeriesDetailViewController: InteractorToPresenterSeriesDetailProtocol {
+extension SeriesDetailViewPresenter: InteractorToPresenterSeriesDetailProtocol {
     func onFetchEpisodesSuccess() {
         seriesDetailView.displayTableView()
     }

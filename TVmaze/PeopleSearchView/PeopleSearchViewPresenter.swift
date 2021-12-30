@@ -1,5 +1,5 @@
 //
-//  PeopleSearchViewController.swift
+//  PeopleSearchViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/22/21.
@@ -20,7 +20,7 @@ protocol ViewToPresenterPeopleSearchProtocol: UIViewController {
     func personsAt(indexPath: IndexPath) -> PersonEntity
 }
 
-final class PeopleSearchViewController: UIViewController {
+final class PeopleSearchViewPresenter: UIViewController {
     // MARK: Properties
     private let searchThrottleTime = 0.4
     private lazy var searchController = UISearchController(searchResultsController: nil)
@@ -56,7 +56,7 @@ final class PeopleSearchViewController: UIViewController {
 }
 
 // MARK: InteractorToPresenterPeopleSearchProtocol
-extension PeopleSearchViewController: InteractorToPresenterPeopleSearchProtocol {
+extension PeopleSearchViewPresenter: InteractorToPresenterPeopleSearchProtocol {
     func onFetchPeopleSuccess() {
         peopleSearchView.displayTableView()
     }
@@ -75,7 +75,7 @@ extension PeopleSearchViewController: InteractorToPresenterPeopleSearchProtocol 
 }
 
 // MARK: ViewToPresenterPeopleSearchProtocol
-extension PeopleSearchViewController: ViewToPresenterPeopleSearchProtocol {
+extension PeopleSearchViewPresenter: ViewToPresenterPeopleSearchProtocol {
     var numberOfPeopleInSection: Int {
         return interactor.peopleCount
     }
@@ -88,7 +88,7 @@ extension PeopleSearchViewController: ViewToPresenterPeopleSearchProtocol {
     }
 }
 
-extension PeopleSearchViewController: UISearchResultsUpdating {
+extension PeopleSearchViewPresenter: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         self.searchTask?.cancel()

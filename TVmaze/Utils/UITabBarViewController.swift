@@ -15,7 +15,7 @@ class UITabBarViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let homeViewController = HomeViewController()
+        let homeViewController = HomeViewPresenter()
         HomeConfigurator.injectDependencies(presenter: homeViewController)
         let tabOneViewController = UINavigationController(rootViewController: homeViewController)
 
@@ -25,7 +25,7 @@ class UITabBarViewController: UITabBarController {
 
         tabOneViewController.tabBarItem = tabOneBarItem
         
-        let favoritesViewController = FavoritesViewController()
+        let favoritesViewController = FavoritesViewPresenter()
         FavoritesConfigurator.injectDependencies(presenter: favoritesViewController)
         let tabTwoViewController = UINavigationController(rootViewController: favoritesViewController)
 
@@ -35,7 +35,7 @@ class UITabBarViewController: UITabBarController {
         
         tabTwoViewController.tabBarItem = tabTwoBarItem
         
-        let peopleSearchViewController = PeopleSearchViewController()
+        let peopleSearchViewController = PeopleSearchViewPresenter()
         PeopleSearchConfigurator.injectDependencies(presenter: peopleSearchViewController)
         let tabThreeViewController = UINavigationController(rootViewController: peopleSearchViewController)
 
@@ -52,9 +52,9 @@ class UITabBarViewController: UITabBarController {
 extension UITabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         guard let homeNavigationController = viewControllers?[0] as? UINavigationController,
-              let homeViewController = homeNavigationController.viewControllers[0] as? HomeViewController,
+              let homeViewController = homeNavigationController.viewControllers[0] as? HomeViewPresenter,
               let favoritesNavigationController = viewControllers?[1] as? UINavigationController,
-              let favoritesViewController = favoritesNavigationController.viewControllers[0] as? FavoritesViewController else {
+              let favoritesViewController = favoritesNavigationController.viewControllers[0] as? FavoritesViewPresenter else {
                   return
               }
         

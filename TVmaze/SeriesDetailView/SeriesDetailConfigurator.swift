@@ -6,7 +6,7 @@
 //
 
 final class SeriesDetailConfigurator {
-    static func injectDependencies(presenter: SeriesDetailViewController, homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
+    static func injectDependencies(presenter: SeriesDetailViewPresenter, homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
         let interactor = SeriesDetailInteractor(homeEntity: homeEntity, highlightCellInfo: highlightCellInfo)
         presenter.interactor = interactor
         interactor.presenter = presenter

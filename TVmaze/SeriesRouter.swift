@@ -1,5 +1,5 @@
 //
-//  HomeRouter.swift
+//  SeriesRouter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/18/21.
@@ -16,7 +16,7 @@ final class SeriesRouter: PresenterToRouterSeriesProtocol {
     weak var presenter: UIViewController?
     
     func presentSeriesDetail(homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
-        let viewController = SeriesDetailViewController()
+        let viewController = SeriesDetailViewPresenter()
         SeriesDetailConfigurator.injectDependencies(presenter: viewController, homeEntity: homeEntity,
                                                     highlightCellInfo: highlightCellInfo)
         presenter?.navigationController?.pushViewController(viewController, animated: true)

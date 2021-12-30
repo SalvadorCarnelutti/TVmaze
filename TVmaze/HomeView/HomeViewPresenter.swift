@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  HomeViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/17/21.
@@ -30,7 +30,7 @@ protocol ViewToPresenterHomeProtocol: UIViewController {
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo
 }
 
-final class HomeViewController: UIViewController {
+final class HomeViewPresenter: UIViewController {
     // MARK: Properties
     private let searchThrottleTime = 0.4
     private lazy var searchController = UISearchController(searchResultsController: nil)
@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: InteractorToPresenterHomeProtocol
-extension HomeViewController: InteractorToPresenterHomeProtocol {
+extension HomeViewPresenter: InteractorToPresenterHomeProtocol {
     var favoriteTapClosure: (IndexPath) -> () {
         return toggleFavoriteStatusAt
     }
@@ -101,7 +101,7 @@ extension HomeViewController: InteractorToPresenterHomeProtocol {
 }
 
 // MARK: ViewToPresenterHomeProtocol
-extension HomeViewController: ViewToPresenterHomeProtocol {
+extension HomeViewPresenter: ViewToPresenterHomeProtocol {
     var isFiltering: Bool {
         return searchController.isFiltering
     }
@@ -135,7 +135,7 @@ extension HomeViewController: ViewToPresenterHomeProtocol {
     }
 }
 
-extension HomeViewController: UISearchResultsUpdating {
+extension HomeViewPresenter: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         self.searchTask?.cancel()

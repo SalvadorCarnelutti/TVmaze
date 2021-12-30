@@ -1,5 +1,5 @@
 //
-//  PINViewController.swift
+//  PINViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/22/21.
@@ -16,7 +16,7 @@ protocol ViewToPresenterVPINProtocol: UITextFieldDelegate {
     func onSkipSecurityFactorAction()
 }
 
-final class PINViewController: UIViewController {
+final class PINViewPresenter: UIViewController {
     // MARK: Properties
     var interactor: PresenterToInteractorPINProtocol!
     var pinView: PresenterToViewPINProtocol!
@@ -35,7 +35,7 @@ final class PINViewController: UIViewController {
 }
 
 // MARK: ViewToPresenterVPINProtocol
-extension PINViewController: ViewToPresenterVPINProtocol {
+extension PINViewPresenter: ViewToPresenterVPINProtocol {
     var headingTitle: String {
         return interactor.headingTitle
     }
@@ -66,7 +66,7 @@ extension PINViewController: ViewToPresenterVPINProtocol {
     }
 }
 
-extension PINViewController: UITextFieldDelegate {
+extension PINViewPresenter: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =

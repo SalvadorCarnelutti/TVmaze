@@ -1,12 +1,12 @@
 //
-//  FavoritesRouter.swift
+//  FavoritesConfigurator.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/21/21.
 //
 
-final class FavoritesRouter {
-    static func injectDependencies(presenter: FavoritesViewController) {
+final class FavoritesConfigurator {
+    static func injectDependencies(presenter: FavoritesViewPresenter) {
         let interactor = FavoritesInteractor()
         presenter.interactor = interactor
         interactor.presenter = presenter

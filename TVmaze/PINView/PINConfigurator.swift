@@ -6,7 +6,7 @@
 //
 
 final class PINConfigurator {
-    static func injectDependencies(presenter: PINViewController) {
+    static func injectDependencies(presenter: PINViewPresenter) {
         let interactor = PINInteractor()
         presenter.interactor = interactor
         

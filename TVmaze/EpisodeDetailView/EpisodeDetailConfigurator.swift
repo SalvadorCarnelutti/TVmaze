@@ -6,7 +6,7 @@
 //
 
 final class EpisodeDetailConfigurator {
-    static func injectDependencies(presenter: EpisodeDetailViewController, seriesDetailEntity: SeriesDetailEntity) {
+    static func injectDependencies(presenter: EpisodeDetailViewPresenter, seriesDetailEntity: SeriesDetailEntity) {
         let interactor = EpisodeDetailInteractor(seriesDetailEntity: seriesDetailEntity)
         presenter.interactor = interactor
         

@@ -1,5 +1,5 @@
 //
-//  FavoritesViewController.swift
+//  FavoritesViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/21/21.
@@ -23,7 +23,7 @@ protocol ViewToPresenterFavoritesProtocol: UIViewController {
     func toggleAlphabeticalSort()
 }
 
-final class FavoritesViewController: UIViewController {
+final class FavoritesViewPresenter: UIViewController {
     // MARK: Properties
     var favoritesView: PresenterToViewFavoritesProtocol!
     var interactor: PresenterToInteractorFavoritesProtocol!
@@ -42,7 +42,7 @@ final class FavoritesViewController: UIViewController {
 }
 
 // MARK: InteractorToPresenterFavoritesProtocol
-extension FavoritesViewController: InteractorToPresenterFavoritesProtocol {
+extension FavoritesViewPresenter: InteractorToPresenterFavoritesProtocol {
     var favoriteTapClosure: (IndexPath) -> () {
         return toggleFavoriteStatusAt
     }
@@ -61,7 +61,7 @@ extension FavoritesViewController: InteractorToPresenterFavoritesProtocol {
 }
 
 // MARK: ViewToPresenterFavoritesProtocol
-extension FavoritesViewController: ViewToPresenterFavoritesProtocol {
+extension FavoritesViewPresenter: ViewToPresenterFavoritesProtocol {
     var isAlphabeticallySorted: Bool {
         return interactor.isAlphabeticallySorted
     }

@@ -1,5 +1,5 @@
 //
-//  EpisodeDetailViewController.swift
+//  EpisodeDetailViewPresenter.swift
 //  TVmaze
 //
 //  Created by Salvador on 12/20/21.
@@ -11,7 +11,7 @@ protocol ViewToPresenterEpisodeDetailProtocol: AnyObject {
     func setupView(with seriesDetailEntity: SeriesDetailEntity)
 }
 
-final class EpisodeDetailViewController: UIViewController {
+final class EpisodeDetailViewPresenter: UIViewController {
     // MARK: Properties
     var episodeDetailView: PresenterToViewEpisodeDetailProtocol!
     var interactor: PresenterToInteractorEpisodeDetailProtocol!
