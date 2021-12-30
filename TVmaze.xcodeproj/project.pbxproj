@@ -265,6 +265,7 @@
 		B41F1EE9277E090B00993B4B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B4CFDBC4276E2DD3003110CD /* SeriesRouter.swift */,
 				B4B18FBB276EDA6400B1B323 /* SeriesHighlightView */,
 				B49B6D1027700AB000E984D8 /* SeriesDetailHighlightView */,
 			);
@@ -462,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				B41F1EE9277E090B00993B4B /* Core */,
-				B4CFDBC4276E2DD3003110CD /* SeriesRouter.swift */,
 				B4CFDB9B276D1894003110CD /* Extensions */,
 				B4CFDBAA276D2DA2003110CD /* Utils */,
 				B4984F102772F3CC00DBFA2F /* PINView */,
