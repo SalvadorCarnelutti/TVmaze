@@ -63,7 +63,7 @@ extension UIImageView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
-      }
+    }
     
     func applyShadow() {
         self.tintColor = .black

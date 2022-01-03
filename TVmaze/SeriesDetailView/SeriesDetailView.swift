@@ -11,7 +11,6 @@ protocol PresenterToViewSeriesDetailProtocol: UIView {
     var presenter: ViewToPresenteSeriesDetailProtocol? { get set }
     func setupView()
     func displayTableView()
-    func showActivityIndicator()
 }
 
 final class SeriesDetailView: UIViewNibLoadable {
@@ -39,24 +38,25 @@ final class SeriesDetailView: UIViewNibLoadable {
                            forHeaderFooterViewReuseIdentifier: SeriesDetailTableViewHeader.identifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
+    
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
 }
 
 extension SeriesDetailView: PresenterToViewSeriesDetailProtocol {
     func setupView() {
+        showActivityIndicator()
         setupTableView()
     }
     
     func displayTableView() {
         hideActivityIndicator()
         tableView.reloadData()
-    }
-    
-    func showActivityIndicator() {
-        activityIndicator.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
     }
 }
 

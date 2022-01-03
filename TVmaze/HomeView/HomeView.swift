@@ -11,8 +11,8 @@ protocol PresenterToViewHomeProtocol: UIView {
     var presenter: ViewToPresenterHomeProtocol? { get set }
     func setupView()
     func displayTableView()
-    func reloadCellAt(indexPath: IndexPath)
     func displayTableView(with newIndexPaths: [IndexPath])
+    func reloadCellAt(indexPath: IndexPath)
     func displayZeroSeriesMessage()
     func showActivityIndicator()
     func hideActivityIndicator()
