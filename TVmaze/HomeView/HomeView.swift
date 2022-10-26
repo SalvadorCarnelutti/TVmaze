@@ -12,7 +12,7 @@ protocol PresenterToViewHomeProtocol: UIView {
     func setupView()
     func displayTableView()
     func displayTableView(with newIndexPaths: [IndexPath])
-    func reloadCellAt(indexPath: IndexPath)
+    func reloadCellsAt(indexPath: IndexPath)
     func displayZeroSeriesMessage()
     func showActivityIndicator()
     func hideActivityIndicator()
@@ -83,7 +83,7 @@ final class HomeView: UIViewNibLoadable {
 }
 
 extension HomeView: PresenterToViewHomeProtocol {
-    func reloadCellAt(indexPath: IndexPath) {
+    func reloadCellsAt(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     

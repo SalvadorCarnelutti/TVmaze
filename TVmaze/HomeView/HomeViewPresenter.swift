@@ -127,7 +127,7 @@ extension HomeViewPresenter: ViewToPresenterHomeProtocol {
     
     func toggleFavoriteStatusAt(_ indexPath: IndexPath) {
         interactor.toggleFavoriteStatusAt(indexPath)
-        homeView.reloadCellAt(indexPath: IndexPath(row: indexPath.row, section: 0))
+        homeView.reloadCellsAt(indexPath: IndexPath(row: indexPath.row, section: 0))
     }
     
     func highlightCellInfoAt(indexPath: IndexPath) -> HighlightCellInfo {
