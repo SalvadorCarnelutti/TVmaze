@@ -6,16 +6,16 @@
 //
 
 final class PINConfigurator {
-    static func injectDependencies(presenter: PINViewPresenter) {
+    static func injectDependencies(presenter: PINViewPresenter,
+                                   router: PresenterToRouterProtocol,
+                                   view: PresenterToViewPINProtocol) {
         let interactor = PINInteractor()
         presenter.interactor = interactor
         
-        let router = PinRouter()
         router.presenter = presenter
         presenter.router = router
         
-        let pinView = PINView()
-        pinView.presenter = presenter
-        presenter.pinView = pinView
+        view.presenter = presenter
+        presenter.pinView = view
     }
 }

@@ -6,16 +6,16 @@
 //
 
 final class SeriesDetailConfigurator {
-    static func injectDependencies(presenter: SeriesDetailViewPresenter, homeEntity: HomeEntity, highlightCellInfo: HighlightCellInfo) {
-        let interactor = SeriesDetailInteractor(homeEntity: homeEntity, highlightCellInfo: highlightCellInfo)
+    static func injectDependencies(presenter: SeriesDetailViewPresenter,
+                                   interactor: PresenterToInteractorSeriesDetailProtocol,
+                                   router: PresenterToRouterSeriesDetailProtocol,
+                                   view: SeriesDetailView) {
         presenter.interactor = interactor
         interactor.presenter = presenter
 
-        let router = SeriesDetailRouter()
         presenter.router = router
         router.presenter = presenter
         
-        let view = SeriesDetailView()
         view.presenter = presenter
         presenter.seriesDetailView = view
     }

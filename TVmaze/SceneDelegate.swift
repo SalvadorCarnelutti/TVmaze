@@ -18,9 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let controller = PINViewPresenter()
-        PINConfigurator.injectDependencies(presenter: controller)
-        window.rootViewController = controller
+        let pinController = PINViewPresenter()
+        let pinRouter = PinRouter()
+        let pinView = PINView()
+        
+        PINConfigurator.injectDependencies(presenter: pinController, router: pinRouter, view: pinView)
+        window.rootViewController = pinController
         self.window = window
         window.makeKeyAndVisible()
     }

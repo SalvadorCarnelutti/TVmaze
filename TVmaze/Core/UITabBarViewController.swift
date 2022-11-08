@@ -16,7 +16,13 @@ class UITabBarViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let homeViewController = HomeViewPresenter()
-        HomeConfigurator.injectDependencies(presenter: homeViewController)
+        let homeInteractor = HomeInteractor()
+        let homeRouter = SeriesRouter()
+        let homeView = HomeView()
+        HomeConfigurator.injectDependencies(presenter: homeViewController,
+                                            interactor: homeInteractor,
+                                            router: homeRouter,
+                                            view: homeView)
         let tabOneViewController = UINavigationController(rootViewController: homeViewController)
 
         let tabOneBarItem = UITabBarItem(title: "HomeTabBarTitle".localized(),
@@ -26,7 +32,9 @@ class UITabBarViewController: UITabBarController {
         tabOneViewController.tabBarItem = tabOneBarItem
         
         let favoritesViewController = FavoritesViewPresenter()
-        FavoritesConfigurator.injectDependencies(presenter: favoritesViewController)
+        let favoritesRouter = SeriesRouter()
+        let favoritesView = FavoritesView()
+        FavoritesConfigurator.injectDependencies(presenter: favoritesViewController, router: favoritesRouter, view: favoritesView)
         let tabTwoViewController = UINavigationController(rootViewController: favoritesViewController)
 
         let tabTwoBarItem = UITabBarItem(title: "FavoritesTabBarTitle".localized(),
@@ -36,7 +44,14 @@ class UITabBarViewController: UITabBarController {
         tabTwoViewController.tabBarItem = tabTwoBarItem
         
         let peopleSearchViewController = PeopleSearchViewPresenter()
-        PeopleSearchConfigurator.injectDependencies(presenter: peopleSearchViewController)
+        let peopleSearchInteractor = PeopleSearchInteractor()
+        let peopleSearchRouter = PeopleSearchViewRouter()
+        let peopleSearchView = PeopleSearchView()
+        
+        PeopleSearchConfigurator.injectDependencies(presenter: peopleSearchViewController,
+                                                    interactor: peopleSearchInteractor,
+                                                    router: peopleSearchRouter,
+                                                    view: peopleSearchView)
         let tabThreeViewController = UINavigationController(rootViewController: peopleSearchViewController)
 
         let tabThreeBarItem = UITabBarItem(title: "PeopleSearchTabBarTitle".localized(),

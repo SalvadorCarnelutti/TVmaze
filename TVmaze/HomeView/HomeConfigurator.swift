@@ -6,16 +6,16 @@
 //
 
 final class HomeConfigurator {
-    static func injectDependencies(presenter: HomeViewPresenter) {
-        let interactor = HomeInteractor()
+    static func injectDependencies(presenter: HomeViewPresenter,
+                                   interactor: PresenterToInteractorHomeProtocol,
+                                   router: PresenterToRouterSeriesProtocol,
+                                   view: PresenterToViewHomeProtocol) {
         presenter.interactor = interactor
         interactor.presenter = presenter
 
-        let router = SeriesRouter()
         presenter.router = router
         router.presenter = presenter
         
-        let view = HomeView()
         view.presenter = presenter
         presenter.homeView = view
     }

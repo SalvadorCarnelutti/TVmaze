@@ -6,16 +6,16 @@
 //
 
 final class FavoritesConfigurator {
-    static func injectDependencies(presenter: FavoritesViewPresenter) {
+    static func injectDependencies(presenter: FavoritesViewPresenter,
+                                   router: PresenterToRouterSeriesProtocol,
+                                   view: PresenterToViewFavoritesProtocol) {
         let interactor = FavoritesInteractor()
         presenter.interactor = interactor
         interactor.presenter = presenter
 
-        let router = SeriesRouter()
         presenter.router = router
         router.presenter = presenter
         
-        let view = FavoritesView()
         view.presenter = presenter
         presenter.favoritesView = view
     }
