@@ -46,8 +46,7 @@ final class PeopleSearchView: UIViewNibLoadable {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: PeopleSearchCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: PeopleSearchCellView.identifier)
+        tableView.register(PeopleSearchCellView.self)
         tableView.rowHeight = UITableView.automaticDimension
     }
     

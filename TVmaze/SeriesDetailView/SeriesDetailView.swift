@@ -30,12 +30,9 @@ final class SeriesDetailView: UIViewNibLoadable {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: SeriesDetailCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: SeriesDetailCellView.identifier)
-        tableView.register(UINib(nibName: SeriesDetailHighlightCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: SeriesDetailHighlightCellView.identifier)
-        tableView.register(UINib(nibName: SeriesDetailTableViewHeader.identifier, bundle: .none),
-                           forHeaderFooterViewReuseIdentifier: SeriesDetailTableViewHeader.identifier)
+        tableView.register(SeriesDetailCellView.self)
+        tableView.register(SeriesDetailHighlightCellView.self)
+        tableView.register(SeriesDetailTableViewHeader.self)
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     

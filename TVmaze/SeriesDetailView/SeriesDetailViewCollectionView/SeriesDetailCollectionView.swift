@@ -34,8 +34,7 @@ final class SeriesDetailCollectionView: UICollectionView {
         delegate = self
         isScrollEnabled = false
         isUserInteractionEnabled = false
-        register(UINib(nibName: SeriesDetailCollectionViewCell.identifier, bundle: .none),
-                 forCellWithReuseIdentifier: SeriesDetailCollectionViewCell.identifier)
+        register(SeriesDetailCollectionViewCell.self)
     }
 }
 

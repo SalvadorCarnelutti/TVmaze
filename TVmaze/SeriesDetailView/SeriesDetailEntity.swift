@@ -48,7 +48,6 @@ struct SeriesDetailEntity: Codable {
         guard let date = dateFormatterGet.date(from: airdate) else {
             return nil
         }
-        
 
         return date.getFormattedDate(format: "MMMM dd, yyyy")
     }

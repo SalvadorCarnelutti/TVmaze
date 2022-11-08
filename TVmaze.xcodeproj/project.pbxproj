@@ -21,6 +21,8 @@
 		B429B5BE2773DC2600FA25DB /* PersonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5BD2773DC2600FA25DB /* PersonEntity.swift */; };
 		B429B5C02773DE4900FA25DB /* PeopleSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5BF2773DE4900FA25DB /* PeopleSearchConfigurator.swift */; };
 		B429B5C32773E31B00FA25DB /* PeopleSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429B5C22773E31B00FA25DB /* PeopleSearchCellView.swift */; };
+		B44DEF0B291ACE260078A57F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44DEF0A291ACE260078A57F /* UITableView.swift */; };
+		B44DEF0D291AD0160078A57F /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44DEF0C291AD0160078A57F /* UICollectionView.swift */; };
 		B4874FD327724DA3006D2BBA /* UITabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */; };
 		B4874FD82772A656006D2BBA /* FavoritesViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD72772A656006D2BBA /* FavoritesViewPresenter.swift */; };
 		B4874FDA2772A72F006D2BBA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4874FD92772A72F006D2BBA /* FavoritesView.swift */; };
@@ -133,6 +135,8 @@
 		B429B5BD2773DC2600FA25DB /* PersonEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEntity.swift; sourceTree = "<group>"; };
 		B429B5BF2773DE4900FA25DB /* PeopleSearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchConfigurator.swift; sourceTree = "<group>"; };
 		B429B5C22773E31B00FA25DB /* PeopleSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSearchCellView.swift; sourceTree = "<group>"; };
+		B44DEF0A291ACE260078A57F /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		B44DEF0C291AD0160078A57F /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		B4874FD227724DA3006D2BBA /* UITabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarViewController.swift; sourceTree = "<group>"; };
 		B4874FD72772A656006D2BBA /* FavoritesViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewPresenter.swift; sourceTree = "<group>"; };
 		B4874FD92772A72F006D2BBA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -508,9 +512,11 @@
 				B4CFDBC0276E1C71003110CD /* UIImageExtension.swift */,
 				B429B5B72773D91100FA25DB /* UISearchController.swift */,
 				B49B6D302770CE1F00E984D8 /* UICollectionViewCell.swift */,
+				B44DEF0C291AD0160078A57F /* UICollectionView.swift */,
 				B49B6D23277044C400E984D8 /* UITableViewHeaderFooterView.swift */,
 				B4CFDBB3276D444B003110CD /* String.swift */,
 				B4CFDBB7276D4646003110CD /* UITableViewCell.swift */,
+				B44DEF0A291ACE260078A57F /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -829,6 +835,7 @@
 				B4CFDBB4276D444B003110CD /* String.swift in Sources */,
 				B4CFDBC5276E2DD3003110CD /* SeriesRouter.swift in Sources */,
 				B429B5BC2773DAEB00FA25DB /* PeopleSearchView.swift in Sources */,
+				B44DEF0D291AD0160078A57F /* UICollectionView.swift in Sources */,
 				B4CFDBB8276D4646003110CD /* UITableViewCell.swift in Sources */,
 				B49B6D4027712B4300E984D8 /* SeriesDetailConfigurator.swift in Sources */,
 				B4CFDBB0276D3A42003110CD /* UIView.swift in Sources */,
@@ -838,6 +845,7 @@
 				B49B6D09276FF2FF00E984D8 /* SeriesDetailViewPresenter.swift in Sources */,
 				B4874FD82772A656006D2BBA /* FavoritesViewPresenter.swift in Sources */,
 				B4B18FC0276EDACD00B1B323 /* ZeroResultsSearch.swift in Sources */,
+				B44DEF0B291ACE260078A57F /* UITableView.swift in Sources */,
 				B49B6D1827700F4500E984D8 /* SeriesDetailHighlightView.swift in Sources */,
 				B49B6D3C277105BB00E984D8 /* SeriesDetailHighlightCellView.swift in Sources */,
 				B4CFDBBD276D4B62003110CD /* HomeCellView.swift in Sources */,

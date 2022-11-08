@@ -60,8 +60,7 @@ final class HomeView: UIViewNibLoadable {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self
-        tableView.register(UINib(nibName: HomeCellView.identifier, bundle: .none),
-                           forCellReuseIdentifier: HomeCellView.identifier)
+        tableView.register(HomeCellView.self)
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     

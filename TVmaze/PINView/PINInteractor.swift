@@ -59,7 +59,6 @@ final class PINInteractor: PresenterToInteractorPINProtocol {
         let keychain = Keychain()
         keychain[PINInteractor.staticUsername] = currentPassword
     }
-
     
     func updateInputPinWith(string: String) {
         currentPassword = string
