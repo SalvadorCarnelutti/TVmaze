@@ -15,6 +15,6 @@ extension UITableView {
     
     func register(_ tableViewCell: UITableViewHeaderFooterView.Type) {
         register(UINib(nibName: tableViewCell.identifier, bundle: .none),
-                           forCellReuseIdentifier: tableViewCell.identifier)
+                 forHeaderFooterViewReuseIdentifier: tableViewCell.identifier)
     }
 }

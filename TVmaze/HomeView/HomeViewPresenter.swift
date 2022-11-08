@@ -11,7 +11,6 @@ import Alamofire
 protocol InteractorToPresenterHomeProtocol: AnyObject {
     var isFiltering: Bool { get }
     var favoriteTapClosure: (_ indexPath: IndexPath) -> () { get }
-    func onFetchSeriesSuccess()
     func onFetchSeriesSuccess(newIndexPaths: [IndexPath])
     func onFetchSeriesFailure()
     func onFetchFilteredSeriesSuccessZeroResults()
@@ -77,10 +76,6 @@ extension HomeViewPresenter: InteractorToPresenterHomeProtocol {
     
     func onFetchSeriesSuccess(newIndexPaths: [IndexPath]) {
         homeView.displayTableView(with: newIndexPaths)
-    }
-
-    func onFetchSeriesSuccess() {
-        homeView.displayTableView()
     }
     
     func onFetchFilteredSeriesSuccessZeroResults() {
