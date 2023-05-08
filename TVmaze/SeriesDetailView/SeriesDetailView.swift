@@ -98,8 +98,7 @@ extension SeriesDetailView: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.section {
         case 0:
-            guard let detailHighlightCell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailHighlightCellView.identifier,
-                                                                          for: indexPath) as? SeriesDetailHighlightCellView else {
+            guard let detailHighlightCell = tableView.dequeueReusableCell(withIdentifier: SeriesDetailHighlightCellView.identifier, for: indexPath) as? SeriesDetailHighlightCellView else {
                 SeriesDetailHighlightCellView.assertCellFailure()
                 return UITableViewCell()
             }

@@ -11,16 +11,17 @@ final class SeriesDetailCollectionView: UICollectionView {
     // MARK: Properties
     private var columnTexts: [String] = []
     
+    // UIKit does not like values with more than 2 decimals, round them.
     private var episodeNumberCellWidth: CGFloat {
-        return bounds.width*(2/15)
+        return round((bounds.width*(2/15)) * 100) / 100.0
     }
     
     private var episodeNameCellWidth: CGFloat {
-        return bounds.width*(10/15)
+        return round((bounds.width*(10/15)) * 100) / 100.0
     }
     
     private var episodeScoreCellWidth: CGFloat {
-        return bounds.width*(3/15)
+        return round((bounds.width*(3/15)) * 100) / 100.0
     }
     
     // MARK: Class methods
@@ -45,7 +46,8 @@ extension SeriesDetailCollectionView: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: SeriesDetailCollectionViewCell.identifier, for: indexPath) as? SeriesDetailCollectionViewCell else {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: SeriesDetailCollectionViewCell.identifier,
+                                             for: indexPath) as? SeriesDetailCollectionViewCell else {
             SeriesDetailCollectionViewCell.assertCellFailure()
             return UICollectionViewCell()
         }

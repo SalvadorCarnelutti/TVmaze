@@ -15,7 +15,6 @@ final class SeriesDetailTableViewHeader: UITableViewHeaderFooterView {
         }
     }
     
-    
     @IBOutlet weak var headerTitle: UILabel! {
         didSet {
             headerTitle.font =  UIFont.systemFont(ofSize: 24, weight: .bold)
