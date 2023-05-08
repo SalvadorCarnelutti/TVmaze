@@ -1,3 +1,10 @@
+Some core screens:
+
+<p align = "center">
+<img src="README-images/Series-Table.png" width="300"> <img src="README-images/Episodes-Table.png" width="300">
+<img src="README-images/Episode-Detail.png" width="300"> <img src="README-images/Series-Search.png" width="300">
+</p>
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
