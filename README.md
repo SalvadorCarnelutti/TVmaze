@@ -25,7 +25,7 @@ Project is created with:
 * CocoaPods dependency manager
 * KeychainAccess framework
 * Alamofire framework
-* Codeable protocol
+* Codable protocol
 * TVmaze own free public REST API (https://www.tvmaze.com/api)
 	
 ## Setup
